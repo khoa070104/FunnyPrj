@@ -20,13 +20,14 @@ public class HomeController extends HttpServlet {
         String url = request.getRequestURI().toString();
 
         if(url.contains("login")){
-            request.getRequestDispatcher("login.jsp").forward(request,response);
+            getLogin(request,response);
         } else if(url.contains("register")){
             request.getRequestDispatcher("register.jsp").forward(request,response);
         } else if(url.contains("logout")){
-            request.getRequestDispatcher("logout.jsp").forward(request,response);
+            //request.getRequestDispatcher("logout.jsp").forward(request,response);
+            getLogout(request,response);
         } else if(url.contains("forgotpass")){
-            request.getRequestDispatcher("forgotpass.jsp").forward(request,response);
+            request.getRequestDispatcher("forgotpassword.jsp").forward(request,response);
         } else if(url.contains("verify-code")){
             request.getRequestDispatcher("verify-code.jsp").forward(request,response);
         } else if(url.contains("waiting")){
@@ -36,9 +37,19 @@ public class HomeController extends HttpServlet {
         }
     }
 
+
     private void getHomePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         request.getRequestDispatcher("homepage.jsp").forward(request,response);
     }
+    private void getLogout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        HttpSession session = request.getSession();
+        if(session != null){
+            session.removeAttribute("user");
+        }
+        response.sendRedirect("./login");
+    }
+
+
 
     protected void getWaiting(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -116,6 +127,24 @@ public class HomeController extends HttpServlet {
             request.setAttribute("error", "Username or password is incorrect");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
+    }
+    protected void postForgetPass(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String email = request.getParameter("email");
+        String username = request.getParameter("username");
+        User u = userService.findOne(email);
+        if(u.getEmail().equals(email) && u.getUsername().equals(username)){
+            Email em = new Email();
+            boolean test = em.sendEmail(u);
+            if(test){
+                request.setAttribute("msg","Send mail success!!");
+            } else{
+                request.setAttribute("msg","Send mail fail!!");
+            }
+        } else{
+            request.setAttribute("msg","Email or Username is not correct!!");
+            return;
+        }
+        request.getRequestDispatcher("forgotpassword.jsp").forward(request,response);
     }
 
 

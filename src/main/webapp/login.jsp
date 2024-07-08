@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,7 +102,7 @@
                                 <span class="iconstyle">
                                     <img src="icon/logo_username.svg" class="input_icon" alt="" >
                                 </span>
-                            <input type="text" placeholder="Username" id="em" name="username" >
+                            <input type="text" placeholder="Username" id="em" value="${sessionScope.username}" name="username" >
                         </div>
 
                     </div>
