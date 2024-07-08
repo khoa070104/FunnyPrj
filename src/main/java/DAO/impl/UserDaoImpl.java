@@ -22,6 +22,21 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
         }
         return users;
     }
+    @Override
+    public User findOneByEmail(String email) {
+        String sql = "SELECT * FROM tblUsers WHERE email = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8),rs.getInt(9),rs.getString(10));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     @Override
     public User findOne(int id) {
@@ -78,6 +93,14 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
 
     @Override
     public void update(User user) {
+        String sql ="UPDATE tblUsers SET password=? WHERE email = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, user.getPassword());
+            stmt.setString(2, user.getEmail());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -132,9 +155,7 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
 
     public static void main(String[] args) {
         UserDaoImpl userDao = new UserDaoImpl();
-        List<User> users = userDao.findAll();
-        for (User user : users) {
-            System.out.println(user);
-        }
+        User users = userDao.findOneByEmail("mamgh789@gmail.com");
+        System.out.println(users);
     }
 }

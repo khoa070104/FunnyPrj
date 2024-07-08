@@ -36,6 +36,19 @@ public class HomeController extends HttpServlet {
             getHomePage(request,response);
         }
     }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String url = request.getRequestURI().toString();
+        if(url.contains("login")){
+            postLogin(request,response);
+        } else if(url.contains("register")){
+            postRegister(request,response);
+        } else if(url.contains("verify-code")){
+            postVerifyCode(request,response);
+        } else if(url.contains("forgotpass")){
+            postForgetPass(request,response);
+        }
+    }
 
 
     private void getHomePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -46,6 +59,14 @@ public class HomeController extends HttpServlet {
         if(session != null){
             session.removeAttribute("user");
         }
+        Cookie[] cookie = request.getCookies();
+        for(Cookie c : cookie){
+            if(c.getName().equals("username")){
+                c.setMaxAge(0);
+                response.addCookie(c);
+            }
+        }
+
         response.sendRedirect("./login");
     }
 
@@ -87,17 +108,7 @@ public class HomeController extends HttpServlet {
 
 
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url = request.getRequestURI().toString();
-        if(url.contains("login")){
-            postLogin(request,response);
-        } else if(url.contains("register")){
-            postRegister(request,response);
-        } else if(url.contains("verify-code")){
-            postVerifyCode(request,response);
-        }
-    }
+
 
 
     protected void postLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -107,6 +118,7 @@ public class HomeController extends HttpServlet {
         String remember = request.getParameter("remember");
         if(remember != null){
             isRemember = true;
+            System.out.println("ok");
         }
 
         User user = userService.login(username, password);
@@ -114,8 +126,9 @@ public class HomeController extends HttpServlet {
         session.setAttribute("user", user);
         if (user != null) {
             if(user.getStatus() == 1){
-                if (remember != null) {
+                if (isRemember) {
                     Cookie cookie = new Cookie("username", username);
+                    System.out.println(cookie.getValue());
                     cookie.setMaxAge(60 * 60 * 24 * 30);
                     response.addCookie(cookie);
                 }
@@ -130,13 +143,14 @@ public class HomeController extends HttpServlet {
     }
     protected void postForgetPass(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
-        String username = request.getParameter("username");
-        User u = userService.findOne(email);
-        if(u.getEmail().equals(email) && u.getUsername().equals(username)){
+        System.out.println(email);
+        User u = userService.findOneByEmail(email);
+        if(u.getEmail().equals(email)){
             Email em = new Email();
-            boolean test = em.sendEmail(u);
+            boolean test = em.sendEmailForgotPassword(u);
             if(test){
-                request.setAttribute("msg","Send mail success!!");
+                request.setAttribute("msg","Success! New password has been sent to your email.");
+                request.getRequestDispatcher("login.jsp").forward(request,response);
             } else{
                 request.setAttribute("msg","Send mail fail!!");
             }
@@ -168,7 +182,7 @@ public class HomeController extends HttpServlet {
             Email em = new Email();
             String code = em.getRandom();
             User u = new User(username,email,fullname,password,code);
-            boolean test = em.sendEmail(u);
+            boolean test = (u.getStatus()==1)?em.sendEmail(u):false;
             if(test){
                 HttpSession s = request.getSession() ;
                 s.setAttribute("user",u);

@@ -10,6 +10,11 @@ public class UserServiceImpl implements IUserService {
     UserDaoImpl userDao = new UserDaoImpl();
 
     @Override
+    public User findOneByEmail(String email) {
+        return userDao.findOneByEmail(email);
+    }
+
+    @Override
     public List<User> findAll() {
         return null;
     }

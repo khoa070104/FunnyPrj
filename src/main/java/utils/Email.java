@@ -1,5 +1,6 @@
 package utils;
 
+import DAO.impl.UserDaoImpl;
 import model.User;
 
 import javax.mail.*;
@@ -33,8 +34,8 @@ public class Email {
             message.setHeader("Content-Type", "text/plain; charset=UTF-8");
             message.setFrom(new InternetAddress(fromEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
-            message.setSubject("Code Verification");
-            message.setText("Your verification code is: "+user.getCode());
+            message.setSubject("[no-reply] Code Verification:");
+            message.setContent("Your verification code is: <p style=\"color:red\">" + user.getCode() + "</p><br> Please use this code to verify your account.", "text/html");
             Transport.send(message);
             test = true;
         }catch (Exception e){
@@ -50,12 +51,40 @@ public class Email {
         pr.put("mail.smtp.starttls.enable", "true");
         return pr;
     }
+    public boolean sendEmailForgotPassword(User user){
+        boolean test = false;
+        String toEmail = user.getEmail();
+        String fromEmail = EmailFrom;
+        String password = PassFrom;
+        try {
+            Properties pr = configEmail(new Properties());
+            Session session = Session.getInstance(pr, new Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(fromEmail,password);
+                }
+            });
+            Message message = new MimeMessage(session);
+            message.setHeader("Content-Type", "text/plain; charset=UTF-8");
+            message.setFrom(new InternetAddress(fromEmail));
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
+            message.setSubject("[no-reply] Forgot Password");
+            user.setPassword(getRandom());
+            new UserDaoImpl().update(user);
+            message.setContent("Your new password is: <p style=\"color:red\">" + user.getPassword() + "</p><br> Please change your password after login.","text/html");
+            Transport.send(message);
+            test = true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return test;
+    }
 
-//    public static void main(String[] args) {
-//        Email em = new Email();
-//        User u = new User("QE180035", "mamgh789@gmail.com", "Nguyen Anh Khoa", "123", 0, 0, "678678");
-//        em.sendEmail(u);
-//    }
+        public static void main(String[] args) {
+            Email em = new Email();
+            User u = new User("QE180035", "mamgh789@gmail.com", "Nguyen Anh Khoa", "123", 0, 0, "678678");
+            em.sendEmailForgotPassword(u);
+            System.out.println(u.getPassword());
+        }
 
 }
 

@@ -95,6 +95,10 @@
                     <div class="alert alert-danger">
                         <p>${requestScope.error}</p>
                     </div></c:if>
+                <c:if test="${requestScope.msg != null}">
+                    <div class="alert alert-danger">
+                        <p>${requestScope.msg}</p>
+                    </div></c:if>
                 <form action="login" method="post">
                     <div class="body_form-input-username">
                         <label for="em">Username</label>

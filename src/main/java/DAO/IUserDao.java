@@ -8,6 +8,7 @@ public interface IUserDao {
     List<User> findAll(); // hàm lấy toàn bộ User
     User findOne(int id); // hàm lấy 01 đối tượng User theo ID
     User findOne(String username); // ham lay 01 đoi tuong User theo username
+    User findOneByEmail(String email);
     void insert(User user); // hàm này thêm dữ liệu mới cho User
     void insertregister(User user); //hàm này dùng cho register
     void update(User user); // hàm này cập nhật 1 đối tượng User
