@@ -19,9 +19,7 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = request.getRequestURI().toString();
 
-        if(url.contains("home")){
-            request.getRequestDispatcher("home.jsp").forward(request,response);
-        }else if(url.contains("login")){
+        if(url.contains("login")){
             request.getRequestDispatcher("login.jsp").forward(request,response);
         } else if(url.contains("register")){
             request.getRequestDispatcher("register.jsp").forward(request,response);
@@ -33,8 +31,15 @@ public class HomeController extends HttpServlet {
             request.getRequestDispatcher("verify-code.jsp").forward(request,response);
         } else if(url.contains("waiting")){
             getWaiting(request,response);
+        } else{
+            getHomePage(request,response);
         }
     }
+
+    private void getHomePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        request.getRequestDispatcher("homepage.jsp").forward(request,response);
+    }
+
     protected void getWaiting(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session != null && session.getAttribute("user") != null) {
