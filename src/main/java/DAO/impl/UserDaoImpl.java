@@ -156,7 +156,7 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
 
     public static void main(String[] args) {
         UserDaoImpl userDao = new UserDaoImpl();
-        User u = new User("khoaak123","khoablack71@gmail.com","Khoa","123456",0,0,"123456");
+        User u = new User("khoaak123","khoablack71@gmail.com","Khoa","123456","123456");
         userDao.insertregister(u);
 
     }
