@@ -48,9 +48,9 @@ body {
     align-items: center;
 }
 
-.phone_header-info {
-    padding-top: 18px;
-}
+/*.phone_header-info {*/
+/*    padding-top: 10px;*/
+/*}*/
 
 .language_header select {
     border: 1px solid #ced4da;
@@ -163,8 +163,8 @@ body {
 }
 
 .header_bar-danhMuc-icon img {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height:30px;
     margin-right: 2px;
 }
 
@@ -616,7 +616,7 @@ footer {
     box-sizing: border-box;
 }
 
-.course-list {  
+.course-list {
     position: relative;
     overflow: hidden;
     margin: 0;
@@ -628,11 +628,12 @@ footer {
     float: left;
     height: 420px;
     min-height: 1px;
-    flex: 0 0 18%;
+    flex: 0 0 22%;
     /* Đặt kích thước cột, mỗi cột chiếm 20% chiều rộng */
     box-sizing: border-box;
     padding: 5px;
     /* Điều chỉnh khoảng cách giữa các cột */
+    margin-left: 30px;
 }
 
 .hidden {
@@ -645,12 +646,25 @@ footer {
     border: none;
     border-radius: 100%;
     cursor: pointer;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
 }
+
 .carousel-button.left {
-    float: left;
+    left: 0;
 }
+
 .carousel-button.right {
-    float: right;
+    right: 0;
+}
+
+.course-list-container {
+    position: relative;
+    width: 100%;
 }
 .course-box-wrap a {
     color: #fff;
@@ -785,7 +799,7 @@ footer {
     padding: 0 25px 0 20px;
     box-sizing: border-box;
     font-size: 16px;
-    
+
 }
 .header_bar-signIn p{
     color: #fff;

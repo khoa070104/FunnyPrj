@@ -63,9 +63,6 @@
                     <a href="mycourses.html" class="dropdown-item" href="#">
                         <i class="fas fa-book mr-2"></i> Khóa học
                     </a>
-                    <a href="homework.html" class="dropdown-item" href="#">
-                        <i class="fas fa-pencil-alt mr-2"></i> Bài tập
-                    </a>
                     <a href="cart.html" class="dropdown-item" href="#">
                         <i class="fas fa-store mr-2"></i> Cửa hàng
                     </a>
@@ -88,7 +85,7 @@
             <!-- Giảng viên Link -->
             <a href="lecturer.html" class="header-icon">
                 <div class="header_bar-cart-icon ">
-                    <p class="icon-text">Giảng viên</p>
+                    <p class="icon-text">Mentor</p>
                 </div>
             </a>
 
@@ -96,13 +93,6 @@
             <a href="mycourses.html">
                 <div class="header_bar-cart-icon no-icon">
                     <p class="icon-text">Khóa học của tôi</p>
-                </div>
-            </a>
-
-            <!-- Yêu thích Link -->
-            <a href="lovecourse.html">
-                <div class="header_bar-cart-icon">
-                    <img src="icon/heart-regular.svg" alt="Yêu thích">
                 </div>
             </a>
 
@@ -133,16 +123,7 @@
                         <i class="fas fa-book mr-2"></i> Khóa học của tôi
                     </a>
                     <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-heart mr-2"></i> Khóa học yêu thích
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-history mr-2"></i> Lịch sử mua hàng
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
                         <i class="fas fa-id-card mr-2"></i> Hồ sơ người dùng
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-users mr-2"></i> Trở thành affiliate
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="logout" class="list-group-item list-group-item-action">
@@ -154,6 +135,7 @@
 
         </div>
     </div>
+</div>
     <div class="home-banner-area py-5" id="home-banner-area">
         <div class="container-lg">
             <div class="d-flex ">
@@ -183,9 +165,9 @@
                         <div class="header-underline-2">Các khóa học hàng đầu</div>
                     </h3>
                 </div>
-                <button class="carousel-button left" onclick="scrollLeft1()">‹</button>
-                <button class="carousel-button right" onclick="scrollRight1()">›</button>
+
                 <div class="course-list draggble">
+                    <button class="carousel-button left" onclick="scrollLeft1()">‹</button>
                     <div class="course-list row">
                         <!-- Course 1 -->
                         <div class="course-box-wrap course-box-wrap-1" id="course-1">
@@ -510,6 +492,7 @@
                             </div>
                         </div>
                     </div>
+                    <button class="carousel-button right" onclick="scrollRight1()">›</button>
                 </div>
             </div>
         </div>
@@ -522,9 +505,8 @@
                         <div class="header-underline-2">Top 10 khóa học mới nhất</div>
                     </h3>
                 </div>
-                <button class="carousel-button left" onclick="scrollLeft2()">‹</button>
-                <button class="carousel-button right" onclick="scrollRight2()">›</button>
                 <div class="course-list draggble">
+                    <button class="carousel-button left" onclick="scrollLeft1()">‹</button>
                     <div class="course-list row">
                         <!-- Course 1 -->
                         <div class="course-box-wrap course-box-wrap-2" id="course-1">
@@ -849,350 +831,11 @@
                             </div>
                         </div>
                     </div>
+                    <button class="carousel-button right" onclick="scrollRight1()">›</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="course-carousel-area">
-        <div class="container">
-            <div>
-                <div>
-                    <h3 class="course-carousel-title">
-                        <div class="header-underline-2">Bài tập mới nhất</div>
-                    </h3>
-                </div>
-                <button class="carousel-button left" onclick="scrollLeft3()">‹</button>
-                <button class="carousel-button right" onclick="scrollRight3()">›</button>
-                <div class="course-list draggble">
-                    <div class="course-list row">
-                        <!-- Course 1 -->
-                        <div class="course-box-wrap course-box-wrap-3" id="course-1">
-                            <a href=""></a>
-                            <div class="course-box">
-                                <div class="course-image">
-                                    <p>₫500,000</p>
-                                    <img src="icon/Logo.png" alt="">
-                                </div>
-                                <div class="course-details">
-                                    <div>
-                                        <span>Người mới bắt đầu</span>
-                                    </div>
-                                    <div class="row">
-                                        <h2>PRJ301</h2>
-                                        <h5>Lập trình Java Web (PRJ301)</h5>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="d-inline-block">
-                                            <span class="text-dark ms-1 text-12px">(5)</span>
-                                            <span class="text-dark text-12px text-muted ms-2">(5 Đánh giá)</span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div>
-                                            <img src="icon/Logo.png" alt="" width="70">
-                                        </div>
-                                        <div>
-                                            <button class="btn-compare-sm">Compare</button>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="course-meta">
-                                            <span>29:58:59 Giờ</span>
-                                            <span>62 Lectures</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Course 2 -->
-                        <div class="course-box-wrap course-box-wrap-3" id="course-2">
-                            <a href=""></a>
-                            <div class="course-box">
-                                <div class="course-image">
-                                    <p>₫500,000</p>
-                                    <img src="icon/Logo.png" alt="">
-                                </div>
-                                <div class="course-details">
-                                    <div>
-                                        <span>Người mới bắt đầu</span>
-                                    </div>
-                                    <div class="row">
-                                        <h2>PRJ302</h2>
-                                        <h5>Lập trình Python Web (PRJ302)</h5>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="d-inline-block">
-                                            <span class="text-dark ms-1 text-12px">(4)</span>
-                                            <span class="text-dark text-12px text-muted ms-2">(4 Đánh giá)</span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div>
-                                            <img src="icon/Logo.png" alt="" width="70">
-                                        </div>
-                                        <div>
-                                            <button class="btn-compare-sm">Compare</button>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="course-meta">
-                                            <span>25:00:00 Giờ</span>
-                                            <span>50 Lectures</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Course 3 -->
-                        <div class="course-box-wrap course-box-wrap-3" id="course-3">
-                            <a href=""></a>
-                            <div class="course-box">
-                                <div class="course-image">
-                                    <p>₫500,000</p>
-                                    <img src="icon/Logo.png" alt="">
-                                </div>
-                                <div class="course-details">
-                                    <div>
-                                        <span>Người mới bắt đầu</span>
-                                    </div>
-                                    <div class="row">
-                                        <h2>PRJ303</h2>
-                                        <h5>Lập trình C++ Web (PRJ303)</h5>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="d-inline-block">
-                                            <span class="text-dark ms-1 text-12px">(3)</span>
-                                            <span class="text-dark text-12px text-muted ms-2">(3 Đánh giá)</span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div>
-                                            <img src="icon/Logo.png" alt="" width="70">
-                                        </div>
-                                        <div>
-                                            <button class="btn-compare-sm">Compare</button>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="course-meta">
-                                            <span>30:00:00 Giờ</span>
-                                            <span>60 Lectures</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Course 4 -->
-                        <div class="course-box-wrap course-box-wrap-3" id="course-4">
-                            <a href=""></a>
-                            <div class="course-box">
-                                <div class="course-image">
-                                    <p>₫500,000</p>
-                                    <img src="icon/Logo.png" alt="">
-                                </div>
-                                <div class="course-details">
-                                    <div>
-                                        <span>Người mới bắt đầu</span>
-                                    </div>
-                                    <div class="row">
-                                        <h2>PRJ304</h2>
-                                        <h5>Lập trình Web (WED201)</h5>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="d-inline-block">
-                                            <span class="text-dark ms-1 text-12px">(4.5)</span>
-                                            <span class="text-dark text-12px text-muted ms-2">(4 Đánh giá)</span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div>
-                                            <img src="icon/Logo.png" alt="" width="70">
-                                        </div>
-                                        <div>
-                                            <button class="btn-compare-sm">Compare</button>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="course-meta">
-                                            <span>35:00:00 Giờ</span>
-                                            <span>55 Lectures</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Course 5 -->
-                        <div class="course-box-wrap course-box-wrap-3" id="course-5">
-                            <a href=""></a>
-                            <div class="course-box">
-                                <div class="course-image">
-                                    <p>₫500,000</p>
-                                    <img src="icon/Logo.png" alt="">
-                                </div>
-                                <div class="course-details">
-                                    <div>
-                                        <span>Người mới bắt đầu</span>
-                                    </div>
-                                    <div class="row">
-                                        <h2>PRJ305</h2>
-                                        <h5>Lập trình PHP Web (PRJ305)</h5>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="d-inline-block">
-                                            <span class="text-dark ms-1 text-12px">(4)</span>
-                                            <span class="text-dark text-12px text-muted ms-2">(4 Đánh giá)</span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div>
-                                            <img src="icon/Logo.png" alt="" width="70">
-                                        </div>
-                                        <div>
-                                            <button class="btn-compare-sm">Compare</button>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="course-meta">
-                                            <span>28:00:00 Giờ</span>
-                                            <span>65 Lectures</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Course 6 -->
-                        <div class="course-box-wrap hidden course-box-wrap-3" id="course-6">
-                            <a href=""></a>
-                            <div class="course-box">
-                                <div class="course-image">
-                                    <p>₫500,000</p>
-                                    <img src="icon/Logo.png" alt="">
-                                </div>
-                                <div class="course-details">
-                                    <div>
-                                        <span>Người mới bắt đầu</span>
-                                    </div>
-                                    <div class="row">
-                                        <h2>PRJ306</h2>
-                                        <h5>Lập trình C# Web (PRJ306)</h5>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="d-inline-block">
-                                            <span class="text-dark ms-1 text-12px">(5)</span>
-                                            <span class="text-dark text-12px text-muted ms-2">(5 Đánh giá)</span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div>
-                                            <img src="icon/Logo.png" alt="" width="70">
-                                        </div>
-                                        <div>
-                                            <button class="btn-compare-sm">Compare</button>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="course-meta">
-                                            <span>32:00:00 Giờ</span>
-                                            <span>70 Lectures</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Course 7 -->
-                        <div class="course-box-wrap hidden course-box-wrap-3" id="course-7">
-                            <a href=""></a>
-                            <div class="course-box">
-                                <div class="course-image">
-                                    <p>₫500,000</p>
-                                    <img src="icon/Logo.png" alt="">
-                                </div>
-                                <div class="course-details">
-                                    <div>
-                                        <span>Người mới bắt đầu</span>
-                                    </div>
-                                    <div class="row">
-                                        <h2>PRJ307</h2>
-                                        <h5>Lập trình Ruby Web (PRJ307)</h5>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="stars">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="d-inline-block">
-                                            <span class="text-dark ms-1 text-12px">(4)</span>
-                                            <span class="text-dark text-12px text-muted ms-2">(4 Đánh giá)</span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div>
-                                            <img src="icon/Logo.png" alt="" width="70">
-                                        </div>
-                                        <div>
-                                            <button class="btn-compare-sm">Compare</button>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="course-meta">
-                                            <span>27:00:00 Giờ</span>
-                                            <span>45 Lectures</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="home-fact-area">
     <div class="container-lg">
         <div class="row">
@@ -1288,7 +931,7 @@
         </select>
     </div>
 </footer>
-<script src="js/hompageafter.js"></script>
+<script src="js/hompage.js"></script>
 </body>
 
 </html>
