@@ -212,14 +212,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div>
-                                        <img src="<%= course.getImg() %>" alt="" width="70">
-                                    </div>
-                                    <div>
-                                        <button class="btn-compare-sm">Compare</button>
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="course-meta">
                                         <span><%= course.getTimeCourse() %> Giờ</span>
                                         <span><%= course.getTotalLesson() %> Lectures</span>
