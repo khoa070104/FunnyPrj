@@ -77,6 +77,10 @@ public class UserServiceImpl implements IUserService {
         }
         return null;
     }
+    @Override
+    public void updateProfile(User user) {
+        userDao.updateProfile(user);
+    }
     public static void main(String[] args) {
         User user = new UserServiceImpl().login("Mamgh789@gmail.com", "1");
         System.out.println(user);

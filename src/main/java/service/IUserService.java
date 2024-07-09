@@ -17,4 +17,5 @@ public interface IUserService {
     User login(String email, String password);
     User checkEmail(String email);
     User checkUsername(String username);
+    void updateProfile(User user);
 }
