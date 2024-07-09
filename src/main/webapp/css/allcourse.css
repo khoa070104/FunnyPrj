@@ -1,0 +1,72 @@
+.filter-area {
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng cho khung */
+    padding: 20px; /* Khoảng cách bên trong khung */
+    background-color: #ffffff; /* Màu nền của khung */
+    border-radius: 10px; /* Bo tròn các góc */
+    height: 1500px;
+}
+.card {
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 0;
+}
+
+.filter_type h5 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.filter_type ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.filter_type li {
+    margin-bottom: 15px;
+}
+
+.filter_type .custom-radio {
+    margin-right: 10px;
+}
+
+.filter_type label {
+    margin-bottom: 0;
+}
+
+.filter_type .d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.filter_type .ms-auto {
+    margin-left: auto;
+}
+
+.filter_type hr {
+    margin: 20px 0;
+}
+
+.text-13px {
+    font-size: 13px;
+}
+
+.text-15px {
+    font-size: 15px;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+.ms-3{
+    padding-left: 10px;
+}
