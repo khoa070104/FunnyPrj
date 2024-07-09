@@ -12,6 +12,7 @@ public interface IUserDao {
     void insert(User user); // hàm này thêm dữ liệu mới cho User
     void insertregister(User user); //hàm này dùng cho register
     void update(User user); // hàm này cập nhật 1 đối tượng User
+    void updateProfile(User user);
     void updatestatus(User user); //hàm này dùng active tài khoản
     void delete(int id); // hàm này xóa 1 đối tượng User
     boolean checkExistEmail(String email); // hàm này kiểm tra email đã tồn tại chưa

@@ -103,6 +103,10 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
         }
 
     }
+    @Override
+    public void updateProfile(User user) {
+
+    }
 
     @Override
     public void updatestatus(User user) {
@@ -155,7 +159,6 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
 
     public static void main(String[] args) {
         UserDaoImpl userDao = new UserDaoImpl();
-        User users = userDao.findOneByEmail("mamgh789@gmail.com");
-        System.out.println(users);
+
     }
 }

@@ -1,9 +1,11 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="User profile page with contact information, profile details, and footer links.">
@@ -20,6 +22,7 @@
     <div class="header_info">
         <div class="phone_header">
             <div class="phone_header-logo">
+
                 <img src="icon/phone.svg" alt="Phone icon">
             </div>
             <div class="phone_header-info">
@@ -31,17 +34,21 @@
                 </div>
                 <div class="mail_header-info">
                     <a href="mailto:mamgh789@gmail.com">mamgh789@gmail.com</a>
+
                 </div>
             </div>
         </div>
         <div class="language_header">
+
             <label for="language_option" class="visually-hidden">Select Language</label>
             <select id="language_option">
+
                 <option value="VIE">Vietnamese</option>
                 <option value="ENG">English</option>
             </select>
         </div>
     </div>
+
 
     <div class="header_bar">
         <div class="header_barlogosearch">
@@ -117,12 +124,14 @@
                     <div class="dropdown-divider"></div>
                     <a href="logout.html" class="list-group-item list-group-item-action">
                         <i class="fas fa-sign-out-alt mr-2"></i> Đăng xuất
+
                     </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <section class="user-dashboard-area pt-3">
     <div class="container">
         <div class="row">
@@ -159,6 +168,7 @@
                     <button type="button" id="edit-info-btn" class="btn btn-secondary" onclick="enableEdit()">Edit</button>
                     <button type="submit" id="save-info-btn" class="btn btn-success hidden">Save Changes</button>
                     <a href="homepage.jsp" class="btn btn-secondary">Cancel</a>
+
                 </form>
             </div>
         </div>
@@ -171,6 +181,7 @@
             <h3>Study and topic, any thing with </h3>
         </div>
         <div class="footer-lienket-info">
+
             <ul>
                 <li><a href="facebook.com"><img src="icon/facebook.svg" alt=""></a></li>
                 <li><a href="instagram.com"><img src="icon/instagram.svg" alt=""></a></li>
@@ -184,12 +195,14 @@
             <h3>Danh mục hàng đầu</h3>
         </div>
         <div class="footer-list-info">
+
             <ul>
                 <li><a href="list.html?id=1">Kì 1</a></li>
                 <li><a href="list.html?id=1">Kì 1</a></li>
                 <li><a href="list.html?id=1">Kì 1</a></li>
                 <li><a href="list.html?id=1">Kì 1</a></li>
                 <li><a href="list.html?id=1">Bài tập</a></li>
+
             </ul>
         </div>
     </div>
@@ -209,6 +222,7 @@
 <footer>
     <div class="footer-logo">
         <img src="icon/Logo.png" alt="">
+
     </div>
     <div class="footer-info">
         <p>© 2024 Study and topic, any thing with. All Rights Reserved.</p>
@@ -220,6 +234,7 @@
         </select>
     </div>
 </footer>
+
 <script src="js/hompage.js"></script>
 
 <script>
@@ -260,4 +275,5 @@
     }
 </script>
 </body>
+
 </html>
