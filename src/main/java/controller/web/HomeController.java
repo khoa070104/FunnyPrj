@@ -170,7 +170,7 @@ public class HomeController extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
-        String fullname = request.getParameter("fullname");
+        String fullname = "NaN";
 
         String msg = "";
         if(userService.checkEmail(email) != null) {
@@ -185,7 +185,8 @@ public class HomeController extends HttpServlet {
             Email em = new Email();
             String code = em.getRandom();
             User u = new User(username,email,fullname,password,code);
-            boolean test = (u.getStatus()==1)?em.sendEmail(u):false;
+            System.out.println("go");
+            boolean test = em.sendEmail(u);
             if(test){
                 HttpSession s = request.getSession() ;
                 s.setAttribute("user",u);

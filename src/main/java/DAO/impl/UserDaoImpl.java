@@ -105,8 +105,19 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
     }
     @Override
     public void updateProfile(User user) {
-
+        String sql = "UPDATE tblUsers SET phone=?, fullName=? WHERE username = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            String phone = user.getPhone().isEmpty() ? "" : user.getPhone();
+            String fullname = user.getFullName().isEmpty() ? "NaN" : user.getFullName();
+            stmt.setNString(1, phone);
+            stmt.setNString(2, fullname);
+            stmt.setNString(3, user.getUsername());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
 
     @Override
     public void updatestatus(User user) {
@@ -158,7 +169,7 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
     }
 
     public static void main(String[] args) {
-        UserDaoImpl userDao = new UserDaoImpl();
+        new UserDaoImpl().updateProfile(new User("1","admin","admin"));
 
     }
 }

@@ -49,6 +49,11 @@ public class User {
         this.role = role;
         this.code = code;
     }
+    public User(String username, String fullname, String phone){
+        this.username = username;
+        this.fullName = fullname;
+        this.phone = phone;
+    }
 
     public int getId() {
         return id;

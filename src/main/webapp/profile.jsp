@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="css/homepage_after.css">
     <link rel="stylesheet" href="css/profile.css">
+    <style>
+        .default_input {
+            background-color: white !important;
+        }
+    </style>
 </head>
 
 
@@ -122,7 +127,7 @@
                         <i class="fas fa-id-card mr-2"></i> Hồ sơ người dùng
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="logout.html" class="list-group-item list-group-item-action">
+                    <a href="logout" class="list-group-item list-group-item-action">
                         <i class="fas fa-sign-out-alt mr-2"></i> Đăng xuất
 
                     </a>
@@ -144,31 +149,29 @@
                 </form>
             </div>
             <div class="col-md-7 profile-info">
-                <form id="profile-form" action="save-profile.html" method="POST">
+                <form id="profile-form" action="update-profile" method="POST">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" value="username123" disabled>
+                        <input type="text" class="form-control" id="username" name="username" value="${sessionScope.user.username}" readonly>
                     </div>
                     <div class="form-group">
                         <label for="role">Role</label>
-                        <input type="text" class="form-control" id="role" name="role" value="User" disabled>
+                        <input type="text" class="form-control" id="role" name="role" value="${sessionScope.user.role==1?'Admin':'User'}" readonly>
                     </div>
                     <div class="form-group">
                         <label for="fullname">Full Name</label>
-                        <input type="text" class="form-control" id="fullname" name="fullname" value="Nguyễn Văn A" disabled>
+                        <input type="text" class="form-control" id="fullname" name="fullname" value="${sessionScope.user.fullName}" readonly/>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" value="user@example.com" disabled>
+                        <input type="email" class="form-control" id="email" name="email" value="${sessionScope.user.email}" readonly>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="text" class="form-control" id="phone" name="phone" value="0123456789" disabled>
+                        <input type="text" class="form-control" id="phone" name="phone" value="${sessionScope.user.phone}" readonly>
                     </div>
-                    <button type="button" id="edit-info-btn" class="btn btn-secondary" onclick="enableEdit()">Edit</button>
-                    <button type="submit" id="save-info-btn" class="btn btn-success hidden">Save Changes</button>
-                    <a href="homepage.jsp" class="btn btn-secondary">Cancel</a>
-
+                    <button type="button" id="edit-info-btn" class="btn btn-secondary" onclick="enableEdit(this)">Edit</button>
+                    <a href="profile" id="cancel-btn" class="btn btn-secondary" hidden>Cancel</a>
                 </form>
             </div>
         </div>
@@ -243,7 +246,7 @@
         const file = fileInput.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 const profileImg = document.getElementById('profile-img');
                 profileImg.src = e.target.result;
             };
@@ -252,26 +255,52 @@
     }
 
     function enablePhotoInput() {
-        document.getElementById('photo-input').disabled = false;
-        document.getElementById('photo-input').click();
-        document.getElementById('save-photo-btn').classList.remove('hidden');
-        document.getElementById('edit-photo-btn').classList.add('hidden'); // Hide the Edit button
+        const photoInput = document.getElementById('photo-input');
+        const savePhotoBtn = document.getElementById('save-photo-btn');
+        const editPhotoBtn = document.getElementById('edit-photo-btn');
+
+        photoInput.disabled = false;
+        photoInput.click();
+        savePhotoBtn.classList.remove('hidden');
+        editPhotoBtn.classList.add('hidden');
     }
 
     function changePhoto() {
-        document.getElementById('photo-input').disabled = true;
-        document.getElementById('save-photo-btn').classList.add('hidden');
-        document.getElementById('edit-photo-btn').classList.remove('hidden'); // Show the Edit button again
-        // Implement save photo logic here if needed
+        const photoInput = document.getElementById('photo-input');
+        const savePhotoBtn = document.getElementById('save-photo-btn');
+        const editPhotoBtn = document.getElementById('edit-photo-btn');
+
+        photoInput.disabled = true;
+        savePhotoBtn.classList.add('hidden');
+        editPhotoBtn.classList.remove('hidden');
     }
 
-    function enableEdit() {
-        const inputs = document.querySelectorAll('#profile-form input');
-        inputs.forEach(input => {
-            input.disabled = false;
-        });
-        document.getElementById('edit-info-btn').classList.add('hidden');
-        document.getElementById('save-info-btn').classList.remove('hidden');
+    function enableEdit(button) {
+        const inputs = document.querySelectorAll("#profile-form .form-control");
+        const cancelButton = document.getElementById('cancel-btn');
+
+        if (button.id === "edit-info-btn") {
+            button.id = "save-info-btn";
+            button.textContent = "Save";
+            inputs.forEach(input => {
+                if (input.id !== "username" && input.id !== "role" && input.id !== "email") {
+                    input.readOnly = false;
+                    input.classList.add("default_input");
+                }
+            });
+            cancelButton.hidden = false;
+        } else {
+            document.getElementById("profile-form").submit();
+            button.id = "edit-info-btn";
+            button.textContent = "Edit";
+            inputs.forEach(input => {
+                if (input.id !== "username" && input.id !== "role" && input.id !== "email") {
+                    input.readOnly = true;
+                    input.classList.remove("default_input");
+                }
+            });
+            cancelButton.hidden = true;
+        }
     }
 </script>
 </body>
