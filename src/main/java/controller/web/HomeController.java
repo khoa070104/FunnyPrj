@@ -4,7 +4,9 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import model.User;
+import service.IItemService;
 import service.IUserService;
+import service.Impl.ItemServiceImpl;
 import service.Impl.UserServiceImpl;
 import utils.Email;
 
@@ -30,9 +32,10 @@ public class HomeController extends HttpServlet {
             request.getRequestDispatcher("forgotpassword.jsp").forward(request,response);
         } else if(url.contains("verify-code")){
             request.getRequestDispatcher("verify-code.jsp").forward(request,response);
-        } else if(url.contains("waiting")){
-            getWaiting(request,response);
-        } else{
+        } else if(url.contains("waiting")) {
+            getWaiting(request, response);
+        }
+        else{
             getHomePage(request,response);
         }
     }
@@ -221,5 +224,6 @@ public class HomeController extends HttpServlet {
             e.printStackTrace();
         }
     }
+
 
 }
