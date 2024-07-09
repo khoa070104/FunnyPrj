@@ -38,7 +38,6 @@ public class User {
         this.fullName = fullName;
         this.password = password;
         this.code = code;
-        this.status =0;
     }
 
     public User(String username, String email, String fullname, String password, int status, int role, String code) {

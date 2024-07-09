@@ -86,7 +86,6 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
             stmt.setInt(6, user.getStatus());
             stmt.setString(7, user.getCode());
             stmt.executeUpdate();
-            System.out.println("inserted "+ user.getUsername()+" success !");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -160,8 +159,6 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
 
     public static void main(String[] args) {
         UserDaoImpl userDao = new UserDaoImpl();
-        User u = new User("khoaak123","khoablack71@gmail.com","Khoa","123456","123456");
-        userDao.insertregister(u);
 
     }
 }
