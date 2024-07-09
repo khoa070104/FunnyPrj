@@ -104,6 +104,10 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
         }
 
     }
+    @Override
+    public void updateProfile(User user) {
+
+    }
 
     @Override
     public void updatestatus(User user) {

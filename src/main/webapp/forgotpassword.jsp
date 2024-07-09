@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quên mật khẩu</title>
-    <link rel="stylesheet" href="./css/forgetpass.css">
+    <link rel="stylesheet" href="css/forgetpass.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -40,6 +40,7 @@
             <div class="header_bar-logo">
                 <img src="icon/Logo.png" alt="">
             </div>
+
             <div class="header_bar-danhMuc" id="danhMuc">
                 <div class="header_bar-danhMuc-icon">
                     <img src="icon/list-solid.svg" alt="">
@@ -50,9 +51,6 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
                     <a href="mycourses.html" class="dropdown-item" href="#">
                         <i class="fas fa-book mr-2"></i> Khóa học
-                    </a>
-                    <a href="homework.html" class="dropdown-item" href="#">
-                        <i class="fas fa-pencil-alt mr-2"></i> Bài tập
                     </a>
                     <a href="cart.html" class="dropdown-item" href="#">
                         <i class="fas fa-store mr-2"></i> Cửa hàng
@@ -92,6 +90,7 @@
             </div>
         </div>
     </div>
+</div>
     <div class="container body_container">
         <div class="row body_singup_all">
             <div class="col-md-12 body_signin">
@@ -124,7 +123,6 @@
             </div>
         </div>
     </div>
-</div>
 <div class="footer_content">
     <div class="footer-lienket">
         <div class="footer-lienket-title">
@@ -167,7 +165,7 @@
 </div>
 <footer>
     <div class="footer-logo">
-        <img src="icon/logo.png" alt="">
+        <img src="icon/Logo.png" alt="">
     </div>
     <div class="footer-info">
         <p>© 2024 Study and topic, any thing with. All Rights Reserved.</p>
@@ -179,8 +177,7 @@
         </select>
     </div>
 </footer>
-</div>
-<script src="js/sample.js"></script>
+<script src="js/hompage.js"></script>
 </body>
 
 </html>

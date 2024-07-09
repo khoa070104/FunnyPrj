@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Đăng nhập</title>
     <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="css/homepage.css">
 </head>
 <body>
     <div class="cover">
@@ -37,12 +38,20 @@
                 <div class="header_bar-logo">
                     <img src="icon/Logo.png" alt="">
                 </div>
-                <div class="header_bar-danhMuc">
+                <div class="header_bar-danhMuc" id="danhMuc">
                     <div class="header_bar-danhMuc-icon">
-                        <img src="icon/list.svg" alt="">
+                        <img src="icon/list-solid.svg" alt="">
                     </div>
-                    <div class="header_bar-danhMuc-info">
+                    <i class="header_bar-danhMuc-info">
                         Danh Mục
+                    </i>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
+                        <a href="mycourses.html" class="dropdown-item" href="#">
+                            <i class="fas fa-book mr-2"></i> Khóa học
+                        </a>
+                        <a href="cart.html" class="dropdown-item" href="#">
+                            <i class="fas fa-store mr-2"></i> Cửa hàng
+                        </a>
                     </div>
                 </div>
                 <div class="header_bar-search">
@@ -164,7 +173,7 @@
     </div>
     <footer>
         <div class="footer-logo">
-            <img src="icon/logo.png" alt="">
+            <img src="icon/Logo.png" alt="">
         </div>
         <div class="footer-info">
             <p>© 2024 Study and topic, any thing with. All Rights Reserved.</p>
@@ -176,7 +185,7 @@
             </select>
         </div>
     </footer>
-</div>
+    <script src="js/hompage.js"></script>
 </body>
 
 </html>
