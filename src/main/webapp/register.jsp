@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Đăng kí</title>
     <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/homepage.css">
     <script>
         function validatePassword() {
             var password = document.getElementById("pa").value;
@@ -22,68 +23,79 @@
     </script>
 </head>
 <body>
-<div class="header_info">
-    <div class="phone_header">
-        <div class="phone_header-logo">
-            <img src="icon/phone.svg" alt="">
-        </div>
-        <div class="phone_header-info">
-            <p>0333333333</p>
-        </div>
-    </div>
-    <div class="mail_header">
-        <div class="mail_header-logo">
-            <img src="icon/mail.png" alt="">
-        </div>
-        <div class="mail_header-info">
-            <a href="mailto:mamgh789@gmail.com">mamgh789@gmail.com</a>
-        </div>
-    </div>
-    <div class="language_header">
-        <select name="" id="">
-            <option value="VIE">Vietnamese</option>
-            <option value="ENG">English</option>
-        </select>
-    </div>
-</div>
-
-<div class="header_bar">
-    <div class="header_bar-danhMuc">
-        <div class="header_bar-danhMuc-icon">
-            <img src="icon/list.svg" alt="">
-        </div>
-        <div class="header_bar-danhMuc-info">
-            Danh Mục
-        </div>
-    </div>
-    <div class="header_bar-logo">
-        <img src="icon/Logo.png" alt="">
-    </div>
-    <div class="header_bar-search">
-        <div class="header_bar-search-info">
-            <input type="text" placeholder="Tìm kiếm">
-        </div>
-        <div class="header_bar-search-icon">
-            <img src="icon/search.svg" alt="">
-        </div>
-    </div>
-    <div class="header_bar-cart">
-        <a href="cart.html">
-            <div class="header_bar-cart-icon">
-                <img src="icon/cart.svg" alt="">
+<div class="cover">
+    <div class="header_info">
+        <div class="phone_header">
+            <div class="phone_header-logo">
+                <img src="icon/phone.svg" alt="">
             </div>
-        </a>
+            <div class="phone_header-info">
+                <p>0333333333</p>
+            </div>
+        </div>
+        <div class="mail_header">
+            <div class="mail_header-logo">
+                <img src="icon/mail.png" alt="">
+            </div>
+            <div class="mail_header-info">
+                <a href="mailto:mamgh789@gmail.com">mamgh789@gmail.com</a>
+            </div>
+        </div>
+        <div class="language_header">
+            <select name="" id="">
+                <option value="VIE">Vietnamese</option>
+                <option value="ENG">English</option>
+            </select>
+        </div>
     </div>
-    <div class="header_bar-signUp">
-        <a href="signup.html">
-            <p>Sign Up</p>
-        </a>
+
+    <div class="header_bar">
+        <div class="header_bar-logo">
+            <img src="icon/Logo.png" alt="">
+        </div>
+        <div class="header_bar-danhMuc" id="danhMuc">
+            <div class="header_bar-danhMuc-icon">
+                <img src="icon/list-solid.svg" alt="">
+            </div>
+            <i class="header_bar-danhMuc-info">
+                Danh Mục
+            </i>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
+                <a href="mycourses.html" class="dropdown-item" href="#">
+                    <i class="fas fa-book mr-2"></i> Khóa học
+                </a>
+                <a href="cart.html" class="dropdown-item" href="#">
+                    <i class="fas fa-store mr-2"></i> Cửa hàng
+                </a>
+            </div>
+        </div>
+        <div class="header_bar-search">
+            <div class="header_bar-search-info">
+                <input type="text" placeholder="Tìm kiếm">
+            </div>
+            <div class="header_bar-search-icon">
+                <img src="icon/search.svg" alt="">
+            </div>
+        </div>
+        <div class="header_bar-cart">
+            <a href="cart.html">
+                <div class="header_bar-cart-icon">
+                    <img src="icon/cart.svg" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="header_bar-signUp">
+            <a href="signup.html">
+                <p>Sign Up</p>
+            </a>
+        </div>
+        <div class="header_bar-signIn">
+            <a href="signin.html">
+                <p>Sign In</p>
+            </a>
+        </div>
     </div>
-    <div class="header_bar-signIn">
-        <a href="signin.html">
-            <p>Sign In</p>
-        </a>
-    </div>
+
 </div>
 
 <div class="container">
@@ -196,7 +208,7 @@
 </div>
 <footer>
     <div class="footer-logo">
-        <img src="icon/logo.png" alt="">
+        <img src="icon/Logo.png" alt="">
     </div>
     <div class="footer-info">
         <p>© 2024 Study and topic, any thing with. All Rights Reserved.</p>
@@ -208,5 +220,6 @@
         </select>
     </div>
 </footer>
+<script src="js/hompage.js"></script>
 </body>
 </html>
