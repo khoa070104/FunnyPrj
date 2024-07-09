@@ -182,7 +182,7 @@ public class HomeController extends HttpServlet {
             Email em = new Email();
             String code = em.getRandom();
             User u = new User(username,email,fullname,password,code);
-            boolean test = (u.getStatus()==0)?em.sendEmail(u):false;
+            boolean test = (u.getStatus() == 0)?em.sendEmail(u):false;
             if(test){
                 HttpSession s = request.getSession() ;
                 s.setAttribute("user",u);
