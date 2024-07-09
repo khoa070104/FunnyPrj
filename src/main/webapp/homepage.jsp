@@ -138,7 +138,7 @@
                     <a href="#" class="list-group-item list-group-item-action">
                         <i class="fas fa-history mr-2"></i> Lịch sử mua hàng
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
+                    <a href="profile" class="list-group-item list-group-item-action">
                         <i class="fas fa-id-card mr-2"></i> Hồ sơ người dùng
                     </a>
                     <a href="#" class="list-group-item list-group-item-action">
