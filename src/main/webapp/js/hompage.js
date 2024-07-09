@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 let currentIndex = 0;
-const itemsToShow = 5; // Số lượng thẻ hiện thị cùng lúc
+const itemsToShow = 4; // Số lượng thẻ hiện thị cùng lúc
 
 function updateVisibility() {
     const allCourses = document.querySelectorAll('.course-box-wrap-1');
@@ -68,7 +68,7 @@ function updateVisibility() {
 
 // Carousel 1
 let currentIndex1 = 0;
-const itemsToShow1 = 5; // Số lượng thẻ hiện thị cùng lúc cho Carousel 1
+const itemsToShow1 = 4; // Số lượng thẻ hiện thị cùng lúc cho Carousel 1
 
 function updateVisibility1() {
     const allCourses1 = document.querySelectorAll('.course-box-wrap-1');
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Carousel 2
 let currentIndex2 = 0;
-const itemsToShow2 = 5; // Số lượng thẻ hiện thị cùng lúc cho Carousel 2
+const itemsToShow2 = 4; // Số lượng thẻ hiện thị cùng lúc cho Carousel 2
 
 function updateVisibility2() {
     const allCourses2 = document.querySelectorAll('.course-box-wrap-2');
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Carousel 3
 let currentIndex3 = 0;
-const itemsToShow3 = 5; // Số lượng thẻ hiện thị cùng lúc cho Carousel 3
+const itemsToShow3 = 4; // Số lượng thẻ hiện thị cùng lúc cho Carousel 3
 
 function updateVisibility3() {
     const allCourses3 = document.querySelectorAll('.course-box-wrap-3');
