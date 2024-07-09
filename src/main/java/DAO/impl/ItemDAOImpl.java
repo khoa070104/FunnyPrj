@@ -1,6 +1,7 @@
 package DAO.impl;
 
 import DAO.DBConnect;
+
 import model.Course;
 
 import java.sql.*;
@@ -44,5 +45,6 @@ public class ItemDAOImpl extends DBConnect {
 
         return courses;
     }
+
 
 }
