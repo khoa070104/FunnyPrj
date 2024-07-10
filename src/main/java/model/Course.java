@@ -13,7 +13,7 @@ public class Course {
     private Date updatedDate;
     private String createdBy;
     private String updatedBy;
-    private Long idCategory;
+    private int idCategory;
     private Boolean typeCourse; // true for zoom, false for record
     private String idLessonTime;
     private Integer totalLesson;
@@ -25,7 +25,7 @@ public class Course {
 
     public Course(String name, Integer rate, Double price, String timeCourse, String description,
                   Date createdDate, Date updatedDate, String createdBy, String updatedBy,
-                  Long idCategory, Boolean typeCourse, String idLessonTime, Integer totalLesson, String img) {
+                  int idCategory, Boolean typeCourse, String idLessonTime, Integer totalLesson, String img) {
         this.name = name;
         this.rate = rate;
         this.price = price;
@@ -123,11 +123,11 @@ public class Course {
         this.updatedBy = updatedBy;
     }
 
-    public Long getIdCategory() {
+    public int getIdCategory() {
         return idCategory;
     }
 
-    public void setIdCategory(Long idCategory) {
+    public void setIdCategory(int idCategory) {
         this.idCategory = idCategory;
     }
 
