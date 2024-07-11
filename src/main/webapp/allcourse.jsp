@@ -3,7 +3,6 @@
 
 <%@ page import="service.IItemService" %>
 <%@ page import="service.Impl.ItemServiceImpl" %>
-<%@ page import="DAO.impl.ItemDAOImpl" %>
 
 <%
     IItemService i = new ItemServiceImpl();
@@ -39,7 +38,8 @@
     }
     </script>
 </head>
-<body>
+<body onload="checkCategoryAll()">
+
 <div class="cover">
     <div class="header_info">
         <div class="phone_header">
@@ -209,7 +209,7 @@
 
                                     <li class="ms-3">
                                         <div class="d-flex">
-                                            <input type="radio" name="id_category" class="categories custom-radio" value="${c.id}" ${cid==c.id ? 'checked' : ''} onclick="filter(this)">
+                                            <input type="radio" name="id_category" id="id_cate" class="categories custom-radio" value="${c.id}" ${cid==c.id ? 'checked' : ''} onclick="filter(this)">
                                             <label for="sub_category-${c.id}">Kì ${c.id}</label>
                                             <div  class="ms-auto">(<%= i.countNumCourse(index++)%>)</div>
                                         </div>
@@ -410,10 +410,26 @@
 <script src="js/hompage.js"></script>
 
 <script>
+
+
     function filter(radio) {
         // Trigger form submission on radio button change
         radio.form.submit();
     }
+
+    function checkCategoryAll() {
+        var idCateChecked = document.getElementById('id_cate').checked;
+        if (!idCateChecked) {
+            document.getElementById('category_all').checked = true;
+            // Submit form when category_all is checked
+            <c:if test="${empty cid}">
+                document.getElementById('category_all').form.submit();
+            </c:if>
+        }
+    }
+
+    // Call checkCategoryAll() function when the page loads to initialize the state
+    window.onload = checkCategoryAll;
 </script>
 <script>
     function filterCategory(categoryId) {
