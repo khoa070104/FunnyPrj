@@ -1,6 +1,8 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ page import="DAO.impl.ItemDAOImpl" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -141,12 +143,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 profile-image">
-                <form id="photo-form" enctype="multipart/form-data">
-                    <img src="icon/anh.jpg" alt="Ảnh đại diện" id="profile-img" style="width: 200px; height: 200px;">
-                    <input type="file" id="photo-input" class="hidden" onchange="previewPhoto()">
+
+                <form id="photo-form" action="update-avatar" method="post" enctype="multipart/form-data">
+                    <img src="${sessionScope.user.avatar}" alt="Ảnh đại diện" id="profile-img" style="width: 200px; height: 200px;">
+                    <input type="file" id="photo-input" class="hidden" name="photo" onchange="previewPhoto()">
                     <button type="button" id="edit-photo-btn" class="btn btn-secondary" onclick="enablePhotoInput()">Edit</button>
-                    <button type="button" id="save-photo-btn" class="btn btn-primary hidden" onclick="changePhoto()">Save</button>
+                    <button type="submit" id="save-photo-btn" class="btn btn-primary hidden">Save</button>
                 </form>
+
             </div>
             <div class="col-md-7 profile-info">
                 <form id="profile-form" action="update-profile" method="POST">
