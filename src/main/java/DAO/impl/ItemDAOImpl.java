@@ -27,8 +27,8 @@ public class ItemDAOImpl extends DBConnect {
                 course.setPrice(resultSet.getDouble("price"));
                 course.setTimeCourse(resultSet.getString("time_course"));
                 course.setDescription(resultSet.getString("description"));
-                course.setCreatedDate(resultSet.getDate("createdDate"));
-                course.setUpdatedDate(resultSet.getDate("updatedDate"));
+                course.setCreatedDate(resultSet.getString("createdDate"));
+                course.setUpdatedDate(resultSet.getString("updatedDate"));
                 course.setCreatedBy(resultSet.getString("createdBy"));
                 course.setUpdatedBy(resultSet.getString("updatedBy"));
                 course.setIdCategory(resultSet.getInt("id_category"));
@@ -124,8 +124,8 @@ public class ItemDAOImpl extends DBConnect {
                 course.setPrice(resultSet.getDouble("price"));
                 course.setTimeCourse(resultSet.getString("time_course"));
                 course.setDescription(resultSet.getString("description"));
-                course.setCreatedDate(resultSet.getDate("createdDate"));
-                course.setUpdatedDate(resultSet.getDate("updatedDate"));
+                course.setCreatedDate(resultSet.getString("createdDate"));
+                course.setUpdatedDate(resultSet.getString("updatedDate"));
                 course.setCreatedBy(resultSet.getString("createdBy"));
                 course.setUpdatedBy(resultSet.getString("updatedBy"));
                 course.setIdCategory(resultSet.getInt("id_category"));
@@ -171,8 +171,8 @@ public class ItemDAOImpl extends DBConnect {
                 course.setPrice(resultSet.getDouble("price"));
                 course.setTimeCourse(resultSet.getString("time_course"));
                 course.setDescription(resultSet.getString("description"));
-                course.setCreatedDate(resultSet.getDate("createdDate"));
-                course.setUpdatedDate(resultSet.getDate("updatedDate"));
+                course.setCreatedDate(resultSet.getString("createdDate"));
+                course.setUpdatedDate(resultSet.getString("updatedDate"));
                 course.setCreatedBy(resultSet.getString("createdBy"));
                 course.setUpdatedBy(resultSet.getString("updatedBy"));
                 course.setIdCategory(resultSet.getInt("id_category"));
@@ -234,8 +234,8 @@ public class ItemDAOImpl extends DBConnect {
                 course.setPrice(resultSet.getDouble("price"));
                 course.setTimeCourse(resultSet.getString("time_course"));
                 course.setDescription(resultSet.getString("description"));
-                course.setCreatedDate(resultSet.getDate("createdDate"));
-                course.setUpdatedDate(resultSet.getDate("updatedDate"));
+                course.setCreatedDate(resultSet.getString("createdDate"));
+                course.setUpdatedDate(resultSet.getString("updatedDate"));
                 course.setCreatedBy(resultSet.getString("createdBy"));
                 course.setUpdatedBy(resultSet.getString("updatedBy"));
                 course.setIdCategory(resultSet.getInt("id_category"));

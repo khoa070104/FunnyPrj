@@ -76,13 +76,13 @@
             </div>
             <div class="header_bar-sign">
                 <div class="header_bar-signUp ">
-                    <a href="signup.html">
-                        <p>Sign Up</p>
+                    <a href="login">
+                        <p>Log in</p>
                     </a>
                 </div>
                 <div class="header_bar-signIn">
-                    <a href="signup.html">
-                        <p>Sign In</p>
+                    <a href="register">
+                        <p>Register</p>
                     </a>
                 </div>
             </div>
@@ -183,6 +183,7 @@
         </div>
     </div>
 </div>
+
 <footer>
     <div class="footer-logo">
         <img src="icon/Logo.png" alt="">

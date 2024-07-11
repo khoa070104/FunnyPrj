@@ -120,8 +120,8 @@
                         <i class="fas fa-envelope mr-2"></i> Email: john.doe@example.com
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="mycourses.html" class="list-group-item list-group-item-action">
-                        <i class="fas fa-book mr-2"></i> Khóa học của tôi
+                    <a href="allcourse.jsp" class="list-group-item list-group-item-action">
+                        <i class="fas fa-book mr-2"></i> Giỏ hàng cùa tôi
                     </a>
                     <a href="user-profile.html" class="list-group-item list-group-item-action">
                         <i class="fas fa-id-card mr-2"></i> Hồ sơ người dùng

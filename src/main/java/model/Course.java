@@ -9,8 +9,8 @@ public class Course {
     private Double price;
     private String timeCourse;
     private String description;
-    private Date createdDate;
-    private Date updatedDate;
+    private String createdDate;
+    private String updatedDate;
     private String createdBy;
     private String updatedBy;
     private int idCategory;
@@ -24,7 +24,7 @@ public class Course {
     }
 
     public Course(String name, Integer rate, Double price, String timeCourse, String description,
-                  Date createdDate, Date updatedDate, String createdBy, String updatedBy,
+                  String createdDate, String updatedDate, String createdBy, String updatedBy,
                   int idCategory, Boolean typeCourse, String idLessonTime, Integer totalLesson, String img) {
         this.name = name;
         this.rate = rate;
@@ -91,19 +91,19 @@ public class Course {
         this.description = description;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 
-    public Date getUpdatedDate() {
+    public String getUpdatedDate() {
         return updatedDate;
     }
 
-    public void setUpdatedDate(Date updatedDate) {
+    public void setUpdatedDate(String updatedDate) {
         this.updatedDate = updatedDate;
     }
 
