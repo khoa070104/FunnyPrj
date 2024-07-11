@@ -418,14 +418,12 @@
     }
 
     function checkCategoryAll() {
-        var idCateChecked = document.getElementById('id_cate').checked;
-        if (!idCateChecked) {
-            document.getElementById('category_all').checked = true;
-            // Submit form when category_all is checked
-            <c:if test="${empty cid}">
-                document.getElementById('category_all').form.submit();
-            </c:if>
-        }
+        //var idCateChecked = document.getElementById('id_cate').checked;
+
+        <c:if test="${empty cid}">
+        document.getElementById('category_all').checked = true;
+        document.getElementById('category_all').form.submit();
+        </c:if>
     }
 
     // Call checkCategoryAll() function when the page loads to initialize the state
