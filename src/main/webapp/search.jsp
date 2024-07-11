@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="header_bar-search">
-                <form action="searchCourses" method="post">
+                <form action="search" method="post">
                     <div class="header_bar-search-info">
                         <input type="text" name="search" placeholder="Tìm kiếm" value="${param.search}">
                         <button type="submit" class="header_bar-search-icon">
