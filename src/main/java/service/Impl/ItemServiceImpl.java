@@ -23,6 +23,6 @@ public class ItemServiceImpl implements IItemService {
 
     @Override
     public List<Course> filterCoursesByCriteria(Boolean typeCourse, int categoryId) {
-        return new ItemDAOImpl().filterCoursesByCriteria(typeCourse, categoryId);
+        return new ItemDAOImpl().filterCoursesByCriteria(categoryId);
     }
 }

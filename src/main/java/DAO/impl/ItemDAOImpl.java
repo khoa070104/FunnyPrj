@@ -144,42 +144,22 @@ public class ItemDAOImpl extends DBConnect {
         return courses;
     }
 
-    public List<Course> filterCoursesByCriteria(Boolean typeCourse, int categoryId) {
+    public List<Course> filterCoursesByCriteria(int categoryId) {
         List<Course> courses = new ArrayList<>();
-        StringBuilder sqlBuilder = new StringBuilder("SELECT * FROM tblCourse WHERE 1=1");
-
-        // Build the SQL query dynamically based on provided criteria
-        List<Object> params = new ArrayList<>();
-
-        // Filter by typeCourse
-        if (typeCourse != null) {
-            sqlBuilder.append(" AND type_course = ?");
-            params.add(typeCourse);
-        }
+        String sql = "SELECT * FROM tblCourse WHERE 1=1";
 
         // Filter by categoryId
         if (categoryId != 0) {
-            sqlBuilder.append(" AND id_category = ?");
-            params.add(categoryId);
+            sql += " AND id_category = ?";
         }
 
         // Order by createdDate descending by default
-        sqlBuilder.append(" ORDER BY createdDate DESC");
+        sql+= " ORDER BY createdDate DESC";
 
-        String sql = sqlBuilder.toString();
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            // Set parameters
-            for (int i = 0; i < params.size(); i++) {
-                Object param = params.get(i);
-                if (param instanceof Boolean) {
-                    statement.setBoolean(i + 1, (Boolean) param);
-                } else if (param instanceof Long) {
-                    statement.setLong(i + 1, (Long) param);
-                }
-                // Add other types if necessary
-            }
+            if(categoryId != 0) statement.setInt(1, categoryId);
 
             ResultSet resultSet = statement.executeQuery();
 
@@ -279,8 +259,8 @@ public class ItemDAOImpl extends DBConnect {
         String sql = "SELECT * FROM tblCategory";
 
         try (
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql)) {
+                PreparedStatement statement = connection.prepareStatement(sql);
+                ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {
                 Category category = new Category();

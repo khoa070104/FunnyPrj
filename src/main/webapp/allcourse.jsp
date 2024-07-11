@@ -33,14 +33,6 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
-    <style>
-        /* CSS cho slider */
-        #price-slider {
-            margin-top: 20px;
-            width: 80%;
-            margin: 20px auto;
-        }
-    </style>
     <script type="text/javascript">
     function change(){
         document.getElementById(Filter).submit();
@@ -230,52 +222,9 @@
                                     <a href="javascript:;" class="text-13px fw-500" id="city-toggle-btn"
                                        onclick="showToggle(this, 'hidden-categories')">Cho xem nhiều hơn</a>
                                 </div>
-                                <hr>
-                                <div class="filter_type px-4">
-                                    <div class="form-group">
-                                        <h5 class="fw-700 mb-3">Thể loại</h5>
 
-                                        <ul class="ul" style="list-style: none;">
-                                            <li>
-                                                <div class="ms-3">
-                                                    <input type="radio" id="price_all" name="type_course"
-                                                           class="prices custom-radio" value="null"
-                                                           onclick="filter(this)"
-                                                           checked>
-                                                    <label for="price_all">Tất cả</label>
-                                                    <div class="ms-auto">(<%= totalCount %>)</div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="ms-3">
-                                                    <input type="radio" id="price_free" name="type_course"
-                                                           class="prices custom-radio" value="true"
-                                                           onclick="filter(this)">
-                                                    <label for="price_free">Zoom</label>
-                                                    <div id="count-zoom" class="ms-auto">(<%=zoom%>)</div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="ms-3">
-                                                    <input type="radio" id="price_paid" name="type_course"
-                                                           class="prices custom-radio" value="false"
-                                                           onclick="filter(this)">
-                                                    <label for="price_paid">Record</label>
-                                                    <div id="count-record" class="ms-auto">(<%=record%>)</div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
 
                             </form>
-                            <hr>
-                            <div class="filter_type px-4">
-                                <h5 class="fw-700 mb-3">Giá</h5>
-                                <%--                                thanh trượt--%>
-                                <div id="price-slider"></div>
-                                <div id="amount" class="mt-2"></div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -419,12 +368,16 @@
             <h3>Danh mục hàng đầu</h3>
         </div>
         <div class="footer-list-info">
-            <ul class="footer-list-info-ul two-columns">
-                <li><a href="list.html?id=1">Kì 1</a></li>
-                <li><a href="list.html?id=1">Kì 2</a></li>
-                <li><a href="list.html?id=1">Kì 3</a></li>
-                <li><a href="list.html?id=1">Kì 4</a></li>
-            </ul>
+            <form id="footer-filter-form" action="Filter" method="post">
+                <input type="hidden" id="footer-category-id" name="id_category" value="${cid}" />
+                <ul class="footer-list-info-ul two-columns">
+                    <c:forEach items="${sessionScope.categories}" var="c">
+                        <li>
+                            <a href="javascript:;" class="btn-link" onclick="filterCategory(${c.id})">Kì ${c.id}</a>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </form>
         </div>
     </div>
     <div class="footer-favorite">
@@ -457,30 +410,16 @@
 <script src="js/hompage.js"></script>
 
 <script>
-    $(document).ready(function () {
-        // Khởi tạo slider
-        $("#price-slider").slider({
-            range: true,  // Cho phép chọn khoảng giá
-            min: 0,       // Giá trị tối thiểu
-            max: 400000,  // Giá trị tối đa
-            values: [0, 400000],  // Khoảng giá ban đầu
-            step: 1000,   // Bước nhảy khi di chuyển slider
-            slide: function (event, ui) {
-                // Cập nhật giá trị hiển thị
-                $("#amount").text(ui.values[0] + " VNĐ - " + ui.values[1] + " VNĐ");
-            }
-        });
-
-        // Hiển thị giá trị ban đầu
-        $("#amount").text($("#price-slider").slider("values", 0) + " VNĐ - " + $("#price-slider").slider("values", 1) + " VNĐ");
-    });
-
     function filter(radio) {
         // Trigger form submission on radio button change
         radio.form.submit();
     }
-
-
+</script>
+<script>
+    function filterCategory(categoryId) {
+        document.getElementById('footer-category-id').value = categoryId;
+        document.getElementById('footer-filter-form').submit();
+    }
 </script>
 </body>
 
