@@ -10,13 +10,13 @@
 
 <%
     IItemService i = new ItemServiceImpl();
-    int totalCount = i.countTotal();
-    int ki1 = i.countNumCourse(1);
-    int ki2 = i.countNumCourse(2);
-    int ki3 = i.countNumCourse(3);
-    int ki4 = i.countNumCourse(4);
-    int zoom = i.countTotalTypeCourse(1);
-    int record = i.countTotalTypeCourse(0);
+    int totalCount = i.countTotalCourses();
+    int ki1 = i.countCoursesByCategory(1);
+    int ki2 = i.countCoursesByCategory(2);
+    int ki3 = i.countCoursesByCategory(3);
+    int ki4 = i.countCoursesByCategory(4);
+    int zoom = i.countCoursesByCategory(1);
+    int record = i.countCoursesByCategory(0);
 %>
 <%--cái này để hiển thị lỗi khi ngta nhập vào chỗ price không phải số nguyên --%>
 <% String error = (String) request.getAttribute("error");
@@ -225,7 +225,7 @@
                                                 <div class="d-flex">
                                                     <input type="radio" name="id_category" class="categories custom-radio" value="${c.id}" ${cid==c.id ? 'checked' : ''} onclick="filter(this)">
                                                     <label for="sub_category-${c.id}">Kì ${c.id}</label>
-                                                    <div  class="ms-auto">(<%= i.countNumCourse(index++)%>)</div>
+                                                    <div  class="ms-auto">(<%= i.countCoursesByCategory(index++)%>)</div>
                                                 </div>
                                             </li>
                                         </c:forEach>

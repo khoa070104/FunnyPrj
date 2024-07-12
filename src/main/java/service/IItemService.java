@@ -13,7 +13,7 @@ public interface IItemService {
     public List<Course> getCoursesByCategory(long categoryId);
     public List<Course> filterCoursesByCriteria(int categoryId);
     public Category getCategoryById(int id);
-    public List<Course> getCoursesByCategoryId(int idCategory);
+    //public List<Course> getCoursesByCategoryId(int idCategory);
     public List<Category> getAll();
     public List<Course> searchCourses(String searchQuery);
 }

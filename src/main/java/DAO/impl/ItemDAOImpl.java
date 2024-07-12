@@ -49,6 +49,7 @@ public class ItemDAOImpl extends DBConnect implements IItemDao {
         return courses;
     }
 
+    @Override
     public int countCoursesByCategory(int id) {
         int courseCount = 0;
         String sql = "SELECT COUNT(*) AS course_count FROM tblCourse WHERE id_category = ?";
@@ -211,8 +212,8 @@ public class ItemDAOImpl extends DBConnect implements IItemDao {
                 course.setIdLessonTime(resultSet.getString("id_lesson_time"));
                 course.setIdCategory(resultSet.getInt("id_category"));
                 course.setImg(resultSet.getString("img"));
-                course.setCreatedDate(resultSet.getDate("createdDate"));
-                course.setUpdatedDate(resultSet.getDate("updatedDate"));
+                course.setCreatedDate(resultSet.getString("createdDate"));
+                course.setUpdatedDate(resultSet.getString("updatedDate"));
                 course.setCreatedBy(resultSet.getString("createdBy"));
                 course.setUpdatedBy(resultSet.getString("updatedBy"));
                 course.setTotalLesson(resultSet.getInt("total_lesson"));
@@ -253,39 +254,39 @@ public class ItemDAOImpl extends DBConnect implements IItemDao {
         return category;
     }
 
-    public Course getCoursesByCategoryId(int idCategory) {
-        Course course = new Course();
-        String sql = "SELECT * FROM tblCourse WHERE id_category = ?";
-
-        try (PreparedStatement statement = getConnection().prepareStatement(sql)) {
-            statement.setInt(1, idCategory);
-            ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                course.setId(resultSet.getInt("id"));
-                course.setName(resultSet.getString("name"));
-                course.setRate(resultSet.getInt("rate"));
-                course.setPrice(resultSet.getDouble("price"));
-                course.setTimeCourse(resultSet.getString("time_course"));
-                course.setDescription(resultSet.getString("description"));
-                course.setCreatedDate(resultSet.getString("createdDate"));
-                course.setUpdatedDate(resultSet.getString("updatedDate"));
-                course.setCreatedBy(resultSet.getString("createdBy"));
-                course.setUpdatedBy(resultSet.getString("updatedBy"));
-                course.setIdCategory(resultSet.getInt("id_category"));
-                course.setTypeCourse(resultSet.getBoolean("type_course"));
-                course.setIdLessonTime(resultSet.getString("id_lesson_time"));
-                course.setTotalLesson(resultSet.getInt("total_lesson"));
-                course.setImg(resultSet.getString("img"));
-
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Handle SQLException here or throw it to caller
-        }
-
-        return course;
-    }
+//    public List<Course> getCoursesByCategoryId(int idCategory) {
+//        Course course = new Course();
+//        String sql = "SELECT * FROM tblCourse WHERE id_category = ?";
+//
+//        try (PreparedStatement statement = getConnection().prepareStatement(sql)) {
+//            statement.setInt(1, idCategory);
+//            ResultSet resultSet = statement.executeQuery();
+//
+//            while (resultSet.next()) {
+//                course.setId(resultSet.getInt("id"));
+//                course.setName(resultSet.getString("name"));
+//                course.setRate(resultSet.getInt("rate"));
+//                course.setPrice(resultSet.getDouble("price"));
+//                course.setTimeCourse(resultSet.getString("time_course"));
+//                course.setDescription(resultSet.getString("description"));
+//                course.setCreatedDate(resultSet.getString("createdDate"));
+//                course.setUpdatedDate(resultSet.getString("updatedDate"));
+//                course.setCreatedBy(resultSet.getString("createdBy"));
+//                course.setUpdatedBy(resultSet.getString("updatedBy"));
+//                course.setIdCategory(resultSet.getInt("id_category"));
+//                course.setTypeCourse(resultSet.getBoolean("type_course"));
+//                course.setIdLessonTime(resultSet.getString("id_lesson_time"));
+//                course.setTotalLesson(resultSet.getInt("total_lesson"));
+//                course.setImg(resultSet.getString("img"));
+//
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            // Handle SQLException here or throw it to caller
+//        }
+//
+//        return course;
+//    }
 
     public List<Category> getAll() {
         List<Category> categories = new ArrayList<>();

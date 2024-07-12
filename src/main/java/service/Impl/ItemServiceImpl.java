@@ -44,10 +44,10 @@ public class ItemServiceImpl implements IItemService {
         return itemDao.getCategoryById(id);
     }
 
-    @Override
-    public List<Course> getCoursesByCategoryId(int idCategory) {
-        return itemDao.getCoursesByCategoryId(idCategory);
-    }
+//    @Override
+//    public List<Course> getCoursesByCategoryId(int idCategory) {
+//        return itemDao.getCoursesByCategoryId(idCategory);
+//    }
 
     @Override
     public List<Category> getAll() {
