@@ -5,6 +5,7 @@ import DAO.DBConnect;
 import DAO.IItemDao;
 import model.Category;
 import model.Course;
+import model.LessonTime;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -192,6 +193,39 @@ public class ItemDAOImpl extends DBConnect implements IItemDao {
         return courses;
     }
 
+    public Course getCourseById(int id) {
+        Course course = null;
+        String sql = "SELECT * FROM tblCourse WHERE id = ?";
+
+        try (PreparedStatement statement = getConnection().prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                course = new Course();
+                course.setId(resultSet.getInt("id"));
+                course.setName(resultSet.getString("name"));
+                course.setPrice(resultSet.getDouble("price"));
+                course.setDescription(resultSet.getString("description"));
+                course.setTypeCourse(resultSet.getBoolean("type_course"));
+                course.setIdLessonTime(resultSet.getString("id_lesson_time"));
+                course.setIdCategory(resultSet.getInt("id_category"));
+                course.setImg(resultSet.getString("img"));
+                course.setCreatedDate(resultSet.getDate("createdDate"));
+                course.setUpdatedDate(resultSet.getDate("updatedDate"));
+                course.setCreatedBy(resultSet.getString("createdBy"));
+                course.setUpdatedBy(resultSet.getString("updatedBy"));
+                course.setTotalLesson(resultSet.getInt("total_lesson"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle SQLException here or throw it to caller
+        }
+
+        return course;
+    }
+
+
     public Category getCategoryById(int id) {
         Category category = null;
         String sql = "SELECT * FROM tblCategory WHERE id = ?";
@@ -219,8 +253,8 @@ public class ItemDAOImpl extends DBConnect implements IItemDao {
         return category;
     }
 
-    public List<Course> getCoursesByCategoryId(int idCategory) {
-        List<Course> courses = new ArrayList<>();
+    public Course getCoursesByCategoryId(int idCategory) {
+        Course course = new Course();
         String sql = "SELECT * FROM tblCourse WHERE id_category = ?";
 
         try (PreparedStatement statement = getConnection().prepareStatement(sql)) {
@@ -228,7 +262,6 @@ public class ItemDAOImpl extends DBConnect implements IItemDao {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                Course course = new Course();
                 course.setId(resultSet.getInt("id"));
                 course.setName(resultSet.getString("name"));
                 course.setRate(resultSet.getInt("rate"));
@@ -245,14 +278,13 @@ public class ItemDAOImpl extends DBConnect implements IItemDao {
                 course.setTotalLesson(resultSet.getInt("total_lesson"));
                 course.setImg(resultSet.getString("img"));
 
-                courses.add(course);
             }
         } catch (SQLException e) {
             e.printStackTrace();
             // Handle SQLException here or throw it to caller
         }
 
-        return courses;
+        return course;
     }
 
     public List<Category> getAll() {
@@ -329,6 +361,106 @@ public class ItemDAOImpl extends DBConnect implements IItemDao {
             e.printStackTrace();
         }
         return courses;
+    }
+
+    public void deleteCourse(int courseId) {
+        String sql = "DELETE FROM tblCourse WHERE id = ?";
+
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+            ps.setInt(1, courseId);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean createCourse(String name, Double price, String description, int typeCourse, String idLessonTime, int idCategory, String img) {
+        String sql = "INSERT INTO tblCourse (name, price, description, type_course, id_lesson_time, id_category, img) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, name);
+            ps.setDouble(2, price);
+            ps.setString(3, description);
+            ps.setInt(4, typeCourse);
+            ps.setString(5, idLessonTime);
+            ps.setInt(6, idCategory);
+            ps.setString(7, img);
+
+            ps.executeUpdate();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+    public List<LessonTime> getAllLessonTimes() {
+        List<LessonTime> lessonTimes = new ArrayList<>();
+        String sql = "SELECT * FROM tblLessonTime";
+
+        try (
+                PreparedStatement statement = connection.prepareStatement(sql);
+                ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                LessonTime lessonTime = new LessonTime();
+                lessonTime.setId(resultSet.getString("id"));
+                lessonTime.setName(resultSet.getString("name"));
+
+                lessonTimes.add(lessonTime);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle SQLException here or throw it to caller
+        }
+
+        return lessonTimes;
+    }
+
+    public void updateCourse(Course course) {
+        String sql = "UPDATE tblCourse SET name=?, price=?, description=?, type_course=?, " +
+                "id_lesson_time=?, id_category=?, img=? WHERE id=?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, course.getName());
+            stmt.setDouble(2, course.getPrice());
+            stmt.setString(3, course.getDescription());
+            stmt.setBoolean(4, course.getTypeCourse());
+            stmt.setString(5, course.getIdLessonTime());
+            stmt.setInt(6, course.getIdCategory());
+            stmt.setString(7, course.getImg());
+            stmt.setInt(8, course.getId());
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateCourseWithoutImg(Course course) {
+        String sql = "UPDATE tblCourse SET name=?, price=?, description=?, type_course=?, " +
+                "id_lesson_time=?, id_category=? WHERE id=?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, course.getName());
+            stmt.setDouble(2, course.getPrice());
+            stmt.setString(3, course.getDescription());
+            stmt.setBoolean(4, course.getTypeCourse());
+            stmt.setString(5, course.getIdLessonTime());
+            stmt.setInt(6, course.getIdCategory());
+            stmt.setInt(7, course.getId());
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        ItemDAOImpl i = new ItemDAOImpl();
+        i.deleteCourse(3);
     }
 
 
