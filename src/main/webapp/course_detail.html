@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>LAB211 - OOP with Java Lab</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, minimum-scale=0.86">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="./css/course_detail.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="white-bg">
+<div class="cover">
+    <div class="header_info">
+        <div class="phone_header">
+            <div class="phone_header-logo">
+                <img src="icon/phone.svg" alt="">
+            </div>
+            <div class="phone_header-info">
+                <p>0333333333</p>
+            </div>
+            <div class="mail_header">
+                <div class="mail_header-logo">
+                    <img src="icon/mail.png" alt="">
+                </div>
+                <div class="mail_header-info">
+                    <a href="mamgh789@gmail.com">mamgh789@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="language_header">
+            <select name="" id="language_option">
+                <option value="VIE">Vietnamese</option>
+                <option value="ENG">English</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="header_bar">
+        <div class="header_barlogosearch">
+            <div class="header_bar-logo">
+                <img src="icon/Logo.png" alt="">
+            </div>
+            <div class="header_bar-danhMuc" id="danhMuc">
+                <div class="header_bar-danhMuc-icon">
+                    <img src="icon/list-solid.svg" alt="">
+                </div>
+                <i class="header_bar-danhMuc-info">
+                    Danh Mục
+                </i>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
+                    <a href="mycourses.html" class="dropdown-item" href="#">
+                        <i class="fas fa-book mr-2"></i> Khóa học
+                    </a>
+                    <a href="homework.html" class="dropdown-item" href="#">
+                        <i class="fas fa-pencil-alt mr-2"></i> Bài tập
+                    </a>
+                    <a href="cart.html" class="dropdown-item" href="#">
+                        <i class="fas fa-store mr-2"></i> Cửa hàng
+                    </a>
+                </div>
+            </div>
+
+            <div class="header_bar-search">
+                <div class="header_bar-search-info">
+                    <input type="text" placeholder="Tìm kiếm">
+                    <div class="header_bar-search-icon">
+                        <img src="icon/search.svg" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="header_bar-cart">
+            <!-- Giảng viên Link -->
+            <a href="lecturer.html" class="header-icon">
+                <div class="header_bar-cart-icon ">
+                    <p class="icon-text">Giảng viên</p>
+                </div>
+            </a>
+
+            <!-- Khóa học của tôi Link -->
+            <a href="mycourses.html">
+                <div class="header_bar-cart-icon no-icon">
+                    <p class="icon-text">Khóa học của tôi</p>
+                </div>
+            </a>
+
+            <!-- Yêu thích Link -->
+            <a href="lovecourse.html">
+                <div class="header_bar-cart-icon">
+                    <img src="icon/heart-regular.svg" alt="Yêu thích">
+                </div>
+            </a>
+
+            <!-- Giỏ hàng Link -->
+            <a href="cart.html">
+                <div class="header_bar-cart-icon">
+                    <img src="icon/cart.svg" alt="Giỏ hàng">
+                </div>
+            </a>
+
+            <!-- Hồ sơ Link -->
+            <div class="header_bar-cart header_bar-cart-user">
+                <a class="profile-link">
+                    <div class="header_bar-cart-icon">
+                        <img src="icon/user.png" alt="Hồ sơ" style="border-radius: 50%; height: 65%;">
+                    </div>
+                </a>
+                <div class="profile-dropdown">
+                    <!-- Nội dung menu dropdown -->
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <i class="fas fa-user mr-2"></i> Tên người dùng: John Doe
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <i class="fas fa-envelope mr-2"></i> Email: john.doe@example.com
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <i class="fas fa-book mr-2"></i> Khóa học của tôi
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <i class="fas fa-heart mr-2"></i> Khóa học yêu thích
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <i class="fas fa-history mr-2"></i> Lịch sử mua hàng
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <i class="fas fa-id-card mr-2"></i> Hồ sơ người dùng
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <i class="fas fa-users mr-2"></i> Trở thành affiliate
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <i class="fas fa-sign-out-alt mr-2"></i> Đăng xuất
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!-- Banner -->
+<section class="course-header-area" style="background-image: url('https://4user.net/uploads/system/course_page_banner.png'); background-size: cover; background-position: right;">
+    <div class="container">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="course-header-wrap">
+                    <h1 class="title">LAB211 - OOP with Java Lab</h1>
+                    <p class="subtitle"></p>
+                    <div class="rating-row">
+                        <span class="course-badge best-seller">Người mới bắt đầu</span>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="d-inline-block average-rating">5</span><span>(1 Xếp hạng)</span>
+                        <span class="comment"><i class="fas fa-comment"></i>English</span>
+                    </div>
+                    <div class="created-row">
+                            <span class="created-by">
+                                Tạo bởi
+                                <a class="text-14px fw-600 text-decoration-none" href="https://4user.net/home/instructor_page/1">4 User</a>
+                            </span>
+                        <br>
+                        <span class="last-updated-date d-inline-block mt-2">Cập nhật lần cuối Sat, 13-Jan-2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="course-content-area">
+    <div class="container">
+        <div class="row">
+            <!-- Danh mục -->
+            <div class="col-lg-8 order-last order-lg-first radius-10 mt-4 bg-white p-30-40 box-shadow-5">
+                <div class="row bg-white d-flex justify-content-center">
+                    <ul class="nav nav-tabs sNav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="summary-tab" data-bs-toggle="tab" data-bs-target="#course-curriculum-box" type="button" role="tab" aria-controls="course-curriculum-box" aria-selected="false">Chương trình giảng dạy</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="summary-tab" data-bs-toggle="tab" data-bs-target="#description-box" type="button" role="tab" aria-controls="home" aria-selected="true">Tổng quan khóa học</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="author-tab" data-bs-toggle="tab" data-bs-target="#author" type="button" role="tab" aria-controls="author" aria-selected="false">Giảng viên</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="false">Đánh giá</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content mt-4" id="myTabContent">
+                        <div class="tab-pane fade" id="description-box" role="tabpanel" aria-labelledby="author-tab">
+                            <div class="description-box view-more-parent">
+                                <div class="description-content-wrap">
+                                    <div class="description-content">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Đánh giá -->
+                        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="student-feedback-box pb-3">
+                                <div class="student-feedback-title">
+                                    Phản hồi của sinh viên </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="average-rating ms-auto me-auto float-md-start mb-sm-4">
+                                            <div class="num">
+                                                5 </div>
+                                            <div class="rating">
+                                                <div class="stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <div class="title text-15px fw-700">1 Đánh giá</div>
+                                        </div>
+                                        <div class="individual-rating">
+                                            <ul>
+                                                <li>
+                                                    <div>
+                                                            <span class="rating">
+                                                                <div class="stars">
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                </div>
+                                                            </span>
+                                                    </div>
+                                                    <div class="progress ms-2 mt-1">
+                                                        <div class="progress-bar" style="width: 0%"></div>
+                                                    </div>
+                                                    <span class="d-inline-block ps-2 text-15px fw-500">(0)</span>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                            <span class="rating">
+                                                                <div class="stars">
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                </div>
+                                                            </span>
+                                                    </div>
+                                                    <div class="progress ms-2 mt-1">
+                                                        <div class="progress-bar" style="width: 0%"></div>
+                                                    </div>
+                                                    <span class="d-inline-block ps-2 text-15px fw-500">(0)</span>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                            <span class="rating">
+                                                                <div class="stars">
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                </div>
+                                                            </span>
+                                                    </div>
+                                                    <div class="progress ms-2 mt-1">
+                                                        <div class="progress-bar" style="width: 0%"></div>
+                                                    </div>
+                                                    <span class="d-inline-block ps-2 text-15px fw-500">(0)
+                                                        </span>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                            <span class="rating">
+                                                                <div class="stars">
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                </div>
+                                                            </span>
+                                                    </div>
+                                                    <div class="progress ms-2 mt-1">
+                                                        <div class="progress-bar" style="width: 0%"></div>
+                                                    </div>
+                                                    <span class="d-inline-block ps-2 text-15px fw-500">(0)
+                                                        </span>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                            <span class="rating">
+                                                                <div class="stars">
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                    <i class="fas fa-star"></i>
+                                                                </div>
+                                                            </span>
+                                                    </div>
+                                                    <div class="progress ms-2 mt-1">
+                                                        <div class="progress-bar" style="width: 100%"></div>
+                                                    </div>
+                                                    <span class="d-inline-block ps-2 text-15px fw-500">(1)
+                                                        </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="reviews mt-5">
+                                    <h3>Đánh giá</h3>
+                                    <ul>
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-auto">
+                                                    <div class="reviewer-details clearfix">
+                                                        <div class="reviewer-img">
+                                                            <img src="https://4user.net/uploads/user_image/placeholder.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="review-time">
+                                                        <div class="reviewer-name fw-500">
+                                                            nguyen bien </div>
+                                                    </div>
+                                                    <div class="review-details">
+                                                        <div class="rating">
+                                                            <div class="stars">
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="review-text text-13px">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Chương trình giảng dạy -->
+                        <div class="tab-pane fade active show" id="course-curriculum-box" role="tabpanel" aria-labelledby="course-curriculum-box">
+                            <div class="course-curriculum-box">
+                                <div class="course-curriculum-title clearfix mb-3">
+                                    <div class="title float-start">Chương trình giảng dạy của khóa học này</div>
+                                    <div class="float-end mt-2">
+                                            <span class="total-lectures course-badge best-seller">
+                                            107 Bài học </span>
+                                    </div>
+                                </div>
+                                <div class="course-curriculum-accordion">
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="border-radius: 10px 10px 0px 0px;" data-bs-toggle="collapse" data-bs-target="#collapse96" aria-expanded="true">
+                                            <div class="title float-start"> Introduction </div>
+                                            <div class="float-end">
+                                                <span class="total-lectures"> 4 Bài học </span>
+                                            </div>
+                                        </div>
+                                        <div id="collapse96" class="lecture-list collapse show">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-file-pdf"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '876')">Cực kỳ quan trọng</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-time ps-2">
+                                                                <span class="opacity-0">.</span>
+                                                            </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '877')">Winmerge</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                        <span class="lecture-time ps-2"> 00:07:40</span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title text-primary" onclick="go_course_playing_page('35', '309')">Overview Course</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-preview" onclick="lesson_preview('https://4user.net/home/preview_free_lesson/309', 'Bài học: Overview Course')">
+                                                                <i class="fas fa-eye"></i>
+                                                                Xem trước
+                                                            </span>
+                                                        <span class="lecture-time ps-2"> 00:06:23 </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-file-alt"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '361')">Link Given</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-time ps-2">
+                                                                <span class="opacity-0">.</span>
+                                                            </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse24" aria-expanded="false">
+                                            <div class="title float-start"> Base </div>
+                                            <div class="float-end">
+                                                <span class="total-lectures"> 15 Bài học </span>
+                                            </div>
+                                        </div>
+                                        <div id="collapse24" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title text-primary" onclick="go_course_playing_page('35', '310')">Variable</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-preview" onclick="lesson_preview('https://4user.net/home/preview_free_lesson/310', 'Bài học: Variable')">
+                                                                <i class="fas fa-eye"></i> Xem trước </span>
+                                                        <span class="lecture-time ps-2">00:08:28 </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-file-pdf"></i>
+                                                    <span class="lecture-title text-primary" onclick="go_course_playing_page('35', '312')">Docs Variable</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-preview" onclick="lesson_preview('https://4user.net/home/preview_free_lesson/312', 'Bài học: Docs Variable')">
+                                                                <i class="fas fa-eye"></i>
+                                                                    Xem trước
+                                                            </span>
+                                                        <span class="lecture-time ps-2">
+                                                                <span class="opacity-0">.</span>
+                                                            </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-question-circle"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '317')">Quiz Variable</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-time ps-2">
+                                                                 0:10:00 </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '311')">Data types</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-time ps-2">
+                                                                00:07:21 </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-file-pdf"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '313')">Docs Data types</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-time ps-2">
+                                                                <span class="opacity-0">.</span>
+                                                            </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-question-circle"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '318')">Quiz Data types</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-time ps-2">
+                                                                0:10:00
+                                                            </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '353')">Function</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-time ps-2">
+                                                                00:07:34  </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-file-pdf"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '321')">Docs Function</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-time ps-2">
+                                                                <span class="opacity-0">.</span>
+                                                            </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-question-circle"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '322')">Quiz function</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-time ps-2">
+                                                                0:10:00  </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '354')">Condition</span>
+                                                    <div class="lecture-info float-lg-end">
+                                                            <span class="lecture-time ps-2">
+                                                                 00:12:42   </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-file-pdf"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '323')">Docs Condition</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                          <span class="opacity-0">.</span> </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-question-circle"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '324')">Quiz Condition</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    0:10:00                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '355')">Loop</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:08:21                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-file-pdf"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '325')">Docs Loop</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                          <span class="opacity-0">.</span> </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-question-circle"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '326')">Quiz Loop</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    0:10:00                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse133" aria-expanded="false">
+                                            <div class="title float-start">
+                                                Base 2 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    9 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse133" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '348')">How to use try .. catch... finally</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:10:26                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-file-pdf"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '352')">Docs How to use try .. catch... finally</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                          <span class="opacity-0">.</span> </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-question-circle"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '356')">Quiz How to use try .. catch... finally</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    0:10:00                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '349')">Validate 01</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:03:40                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '350')">Validate 02</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:04:57                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '351')">Validate 03</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:10:49                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '371')">Regex</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:20:40                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '372')">Validate 04</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:03:09                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="fa fa-file"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '362')">Source Code </span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                          <span class="opacity-0">.</span> </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse134" aria-expanded="false">
+                                            <div class="title float-start">
+                                                Base 3 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    6 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse134" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '357')">Random in java</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:11:43                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-file-pdf"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '358')">Docs Random in java</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                          <span class="opacity-0">.</span> </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-question-circle"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '359')">Quiz Random in java</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    0:10:00                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '360')">Practice Random in Java</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:12:41                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '915')">Static</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:16:25                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-file-pdf"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '916')">Docs PDF</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                          <span class="opacity-0">.</span> </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse25" aria-expanded="false">
+                                            <div class="title float-start">
+                                                LAB 01 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    8 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse25" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '363')">Requirement</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:08:08                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '364')">Example 01</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:00:43                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '369')">Example 02</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:00:46                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '365')">Design</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:05:38                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '366')">Implement</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:16:09                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '370')">Implement  02</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:06:32                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '367')">Additional challenge</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    23:20:15                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-question-circle"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '368')">Quiz LAB 01</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    0:10:00                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse135" aria-expanded="false">
+                                            <div class="title float-start">
+                                                LAB 02 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    5 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse135" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '384')">Example </span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:00:18                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '390')">Requirement</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:04:59                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '391')">Design</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:02:43                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '392')">Implement 01 and Explaination</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:11:16                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '393')">Implement 02</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:05:14                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse26" aria-expanded="false">
+                                            <div class="title float-start">
+                                                LAB 03 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    1 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse26" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '330')">Demo</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:55:43                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse27" aria-expanded="false">
+                                            <div class="title float-start">
+                                                LAB 05 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    8 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse27" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '376')">Requirement</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:06:42                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '377')">Design</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:07:44                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '378')">Implement 01</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:19:49                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '382')">Format String trong Java</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:07:12                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '379')">Implement 02</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:01:45                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '380')">Implement 03</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:31:20                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '381')">Implement 04</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:07:06                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '383')">Question</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:02:20                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse147" aria-expanded="false">
+                                            <div class="title float-start">
+                                                LAB 06 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    1 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse147" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '452')">Read and Write File</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    01:00:15                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse149" aria-expanded="false">
+                                            <div class="title float-start">
+                                                LAB 07 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    12 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse149" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '518')">Requirement </span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:07:18                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '519')">Analyze</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:14:01                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '520')">Implement 01</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:09:26                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '521')">Implement 02</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:04:07                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '522')">Implement 03</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:09:54                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '523')">Implement 04</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:15:01                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '524')">Implement 05</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:04:02                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '525')">Implement 06</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:13:55                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '526')">Implement 07</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:03:22                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '527')">Implement 08</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:03:22                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '528')">Implement 09</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:02:54                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="fa fa-file"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '612')">Code</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                          <span class="opacity-0">.</span> </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse150" aria-expanded="false">
+                                            <div class="title float-start">
+                                                LAB 08 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    9 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse150" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '491')">Requirement</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:07:00                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '492')">Implement 01</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:29:34                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '493')">Implement 02</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:01:09                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '494')">Implement 03</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:04:58                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '495')">Implement 04</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:21:18                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '496')">Implement 05</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:02:26                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '497')">Implement 06</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:13:53                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '498')">Implement 07</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:05:29                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '499')">Implement 08</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:20:27                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse165" aria-expanded="false">
+                                            <div class="title float-start">
+                                                LAB 09 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    6 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse165" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '567')">Requirement</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:04:04                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '568')">Implement 01</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:20:55                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '569')">Implement 02</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:06:10                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '570')">Implement 03</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:40:23                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '571')">Implement 04</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:05:48                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '572')">Implement 05</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:04:15                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse169" aria-expanded="false">
+                                            <div class="title float-start">
+                                                LAB Bonus 01 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    2 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse169" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '610')">Video</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:25:15                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="fa fa-file"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '611')">Code</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                          <span class="opacity-0">.</span> </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse170" aria-expanded="false">
+                                            <div class="title float-start">
+                                                LAB Bonus 02 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    2 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse170" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '614')">Instruction</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    01:11:35                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="fa fa-file"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '615')">Code</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                          <span class="opacity-0">.</span> </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="" data-bs-toggle="collapse" data-bs-target="#collapse28" aria-expanded="false">
+                                            <div class="title float-start">
+                                                LAB XAVALO 01 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    15 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse28" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '387')">Requirement </span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:11:10                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="fa fa-file"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '388')">Implement ver 01</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                          <span class="opacity-0">.</span> </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '417')">Design Package diagram LAB 01</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:13:10                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '418')">Implement 01</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:10:44                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-question-circle"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '412')">Quiz 01</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    0:00:00                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '419')">Implement 02</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:05:35                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-question-circle"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '413')">Quiz 02</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    0:00:00                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '420')">Implement 03</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:10:51                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-question-circle"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '414')">Quiz 03</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    0:00:00                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '421')">Implement 04</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:07:46                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '422')">Implement 05</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:06:01                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '423')">Implement 06</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:08:38                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '424')">Implement 07</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:07:48                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '433')">Implement 08</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:08:54                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="fa fa-file"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '434')">SOlution</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                          <span class="opacity-0">.</span> </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lecture-group-wrapper">
+                                        <div class="lecture-group-title clearfix" style="border-radius: 0px 0px 10px 10px;" data-bs-toggle="collapse" data-bs-target="#collapse164" aria-expanded="false">
+                                            <div class="title float-start">
+                                                LAB XAVALO 02 </div>
+                                            <div class="float-end">
+                                                    <span class="total-lectures">
+                                    4 Bài học                                  </span>
+                                            </div>
+                                        </div>
+
+                                        <div id="collapse164" class="lecture-list collapse ">
+                                            <ul>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="fa fa-file"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '566')">Code</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                          <span class="opacity-0">.</span> </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '581')">Instruction 01</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:14:21                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '582')">Instruction 02</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:12:48                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="lecture has-preview text-14px ">
+                                                    <i class="far fa-clock"></i>
+                                                    <span class="lecture-title " onclick="go_course_playing_page('35', '583')">Instruction 03</span>
+                                                    <div class="lecture-info float-lg-end">
+
+                                                            <span class="lecture-time ps-2">
+                                                                                    00:06:08                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Giảng viên -->
+                        <div class="tab-pane fade" id="author" role="tabpanel" aria-labelledby="author-tab">
+                            <div class="about-instructor-box">
+                                <div class="about-instructor-title">
+                                    Giới thiệu về giảng viên </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-4 top-instructor-img w-sm-100">
+                                        <a href="https://4user.net/home/instructor_page/1">
+                                            <img class="radius-10" src="https://4user.net/uploads/user_image/optimized/6981af2b9220e61af0f42817a2574122.jpg" width="100%">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8 py-0 px-3 text-center text-md-start">
+                                        <h4 class="mb-1 fw-600 v"><a class="text-decoration-none" href="https://4user.net/home/instructor_page/1">4 User</a></h4>
+                                        <p class="fw-500 text-14px w-100"></p>
+                                        <div class="rating">
+                                            <div class="d-inline-block mb-2">
+                                                <span class="text-dark fw-800 text-muted ms-1 text-13px">5 Đánh giá</span> |
+                                                <span class="text-dark fw-800 text-14px text-muted">
+                                  26 Khóa học và Bài tập                                </span>
+                                            </div>
+                                        </div>
+                                        <span class="badge badge-sub-warning text-12px my-1 py-2"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Chỗ tính tiền, thêm giỏ hàng, yêu thích, so sánh -->
+            <div class="col-lg-4 order-first order-lg-last">
+                <div class="course-sidebar box-shadow-5 natural">
+                    <div class="course-sidebar-text-box">
+                        <div class="price text-center">
+                            <span class="current-price"><span class="current-price">₫500,000</span></span>
+                            <input type="hidden" id="total_price_of_checking_out" value="₫500,000">
+                        </div>
+
+                        <!-- WISHLIST BUTTON -->
+                        <div class="buy-btns">
+                            <button class="btn btn-add-wishlist " type="button" id="35" onclick="handleAddToWishlist(this)">
+                                Thêm vào danh sách yêu thích                </button>
+                        </div>
+
+                        <div class="buy-btns">
+                            <button class="btn btn-buy-now" type="button" id="35" onclick="handleCartItems(this)">Thêm vào giỏ hàng</button>
+
+                            <button class="btn btn-buy" type="button" id="course_35" onclick="handleBuyNow(this)">Mua ngay</button>
+                        </div>
+
+
+                        <div class="includes mt-3">
+                            <div class="title"><b>Bao gồm:</b></div>
+                            <ul>
+
+                                <li><i class="far fa-file-video"></i> 39:51:31 Giờ Video theo yêu cầu </li>
+                                <li><i class="far fa-file"></i>107 Bài học</li>
+                                <li class="text-center pt-3">
+                                    <a class="badge-sub-warning text-decoration-none fw-600 hover-shadow-1 d-inline-block" href="https://4user.net/home/compare?course-1=lab211-oop-with-java-lab&&course-id-1=35"><i class="fas fa-balance-scale"></i> So sánh khóa học này với khóa học khác</a>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- List course gợi ý -->
+    <div class="course-carousel-area">
+        <div class="container">
+            <div>
+                <div>
+                    <h3 class="course-carousel-title">
+                        <div class="header-underline-2">Top 10 Khóa học mới</div>
+                    </h3>
+                </div>
+                <div class="scroll">
+                    <button class="carousel-button left" onclick="scrollLeft1()">‹</button>
+                    <div class="course-list draggble">
+                        <div class="course-list row">
+                            <!-- Course 1 -->
+                            <div class="course-box-wrap course-box-wrap-1" id="course-1">
+                                <a href=""></a>
+                                <div class="course-box">
+                                    <div class="course-image">
+                                        <p>₫500,000</p>
+                                        <img src="icon/Logo.png" alt="">
+                                    </div>
+                                    <div class="course-details">
+                                        <div>
+                                            <span>Người mới bắt đầu</span>
+                                        </div>
+                                        <div class="row">
+                                            <h2>PRJ301</h2>
+                                            <h5>Lập trình Java Web (PRJ301)</h5>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <span class="text-dark ms-1 text-12px">(5)</span>
+                                                <span class="text-dark text-12px text-muted ms-2">(5 Đánh giá)</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div>
+                                                <img src="icon/Logo.png" alt="" width="70">
+                                            </div>
+                                            <div>
+                                                <button class="btn-compare-sm">Compare</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="course-meta">
+                                                <span>29:58:59 Giờ</span>
+                                                <span>62 Lectures</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Course 2 -->
+                            <div class="course-box-wrap course-box-wrap-1" id="course-2">
+                                <a href=""></a>
+                                <div class="course-box">
+                                    <div class="course-image">
+                                        <p>₫500,000</p>
+                                        <img src="icon/Logo.png" alt="">
+                                    </div>
+                                    <div class="course-details">
+                                        <div>
+                                            <span>Người mới bắt đầu</span>
+                                        </div>
+                                        <div class="row">
+                                            <h2>PRJ302</h2>
+                                            <h5>Lập trình Python Web (PRJ302)</h5>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <span class="text-dark ms-1 text-12px">(4)</span>
+                                                <span class="text-dark text-12px text-muted ms-2">(4 Đánh giá)</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div>
+                                                <img src="icon/Logo.png" alt="" width="70">
+                                            </div>
+                                            <div>
+                                                <button class="btn-compare-sm">Compare</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="course-meta">
+                                                <span>25:00:00 Giờ</span>
+                                                <span>50 Lectures</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Course 3 -->
+                            <div class="course-box-wrap course-box-wrap-1" id="course-3">
+                                <a href=""></a>
+                                <div class="course-box">
+                                    <div class="course-image">
+                                        <p>₫500,000</p>
+                                        <img src="icon/Logo.png" alt="">
+                                    </div>
+                                    <div class="course-details">
+                                        <div>
+                                            <span>Người mới bắt đầu</span>
+                                        </div>
+                                        <div class="row">
+                                            <h2>PRJ303</h2>
+                                            <h5>Lập trình C++ Web (PRJ303)</h5>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <span class="text-dark ms-1 text-12px">(3)</span>
+                                                <span class="text-dark text-12px text-muted ms-2">(3 Đánh giá)</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div>
+                                                <img src="icon/Logo.png" alt="" width="70">
+                                            </div>
+                                            <div>
+                                                <button class="btn-compare-sm">Compare</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="course-meta">
+                                                <span>30:00:00 Giờ</span>
+                                                <span>60 Lectures</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Course 4 -->
+                            <div class="course-box-wrap course-box-wrap-1" id="course-4">
+                                <a href=""></a>
+                                <div class="course-box">
+                                    <div class="course-image">
+                                        <p>₫500,000</p>
+                                        <img src="icon/Logo.png" alt="">
+                                    </div>
+                                    <div class="course-details">
+                                        <div>
+                                            <span>Người mới bắt đầu</span>
+                                        </div>
+                                        <div class="row">
+                                            <h2>PRJ304</h2>
+                                            <h5>Lập trình Web (WED201)</h5>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <span class="text-dark ms-1 text-12px">(4.5)</span>
+                                                <span class="text-dark text-12px text-muted ms-2">(4 Đánh giá)</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div>
+                                                <img src="icon/Logo.png" alt="" width="70">
+                                            </div>
+                                            <div>
+                                                <button class="btn-compare-sm">Compare</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="course-meta">
+                                                <span>35:00:00 Giờ</span>
+                                                <span>55 Lectures</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Course 5 -->
+                            <div class="course-box-wrap course-box-wrap-1" id="course-5">
+                                <a href=""></a>
+                                <div class="course-box">
+                                    <div class="course-image">
+                                        <p>₫500,000</p>
+                                        <img src="icon/Logo.png" alt="">
+                                    </div>
+                                    <div class="course-details">
+                                        <div>
+                                            <span>Người mới bắt đầu</span>
+                                        </div>
+                                        <div class="row">
+                                            <h2>PRJ305</h2>
+                                            <h5>Lập trình PHP Web (PRJ305)</h5>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <span class="text-dark ms-1 text-12px">(4)</span>
+                                                <span class="text-dark text-12px text-muted ms-2">(4 Đánh giá)</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div>
+                                                <img src="icon/Logo.png" alt="" width="70">
+                                            </div>
+                                            <div>
+                                                <button class="btn-compare-sm">Compare</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="course-meta">
+                                                <span>28:00:00 Giờ</span>
+                                                <span>65 Lectures</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Course 6 -->
+                            <div class="course-box-wrap hidden course-box-wrap-1" id="course-6">
+                                <a href=""></a>
+                                <div class="course-box">
+                                    <div class="course-image">
+                                        <p>₫500,000</p>
+                                        <img src="icon/Logo.png" alt="">
+                                    </div>
+                                    <div class="course-details">
+                                        <div>
+                                            <span>Người mới bắt đầu</span>
+                                        </div>
+                                        <div class="row">
+                                            <h2>PRJ306</h2>
+                                            <h5>Lập trình C# Web (PRJ306)</h5>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <span class="text-dark ms-1 text-12px">(5)</span>
+                                                <span class="text-dark text-12px text-muted ms-2">(5 Đánh giá)</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div>
+                                                <img src="icon/Logo.png" alt="" width="70">
+                                            </div>
+                                            <div>
+                                                <button class="btn-compare-sm">Compare</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="course-meta">
+                                                <span>32:00:00 Giờ</span>
+                                                <span>70 Lectures</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Course 7 -->
+                            <div class="course-box-wrap hidden course-box-wrap-1" id="course-7">
+                                <a href=""></a>
+                                <div class="course-box">
+                                    <div class="course-image">
+                                        <p>₫500,000</p>
+                                        <img src="icon/Logo.png" alt="">
+                                    </div>
+                                    <div class="course-details">
+                                        <div>
+                                            <span>Người mới bắt đầu</span>
+                                        </div>
+                                        <div class="row">
+                                            <h2>PRJ307</h2>
+                                            <h5>Lập trình Ruby Web (PRJ307)</h5>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <span class="text-dark ms-1 text-12px">(4)</span>
+                                                <span class="text-dark text-12px text-muted ms-2">(4 Đánh giá)</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div>
+                                                <img src="icon/Logo.png" alt="" width="70">
+                                            </div>
+                                            <div>
+                                                <button class="btn-compare-sm">Compare</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="course-meta">
+                                                <span>27:00:00 Giờ</span>
+                                                <span>45 Lectures</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-button right" onclick="scrollRight1()">›</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="footer_content">
+    <div class="footer-lienket">
+        <div class="footer-lienket-title">
+            <h3>Study and topic, any thing with </h3>
+        </div>
+        <div class="footer-lienket-info">
+            <ul>
+                <li><a href="facebook.com"><img src="icon/facebook.svg" alt=""></a></li>
+                <li><a href="instagram.com"><img src="icon/instagram.svg" alt=""></a></li>
+                <li><a href="twitter.com"><img src="icon/twitter.svg" alt=""></a></li>
+                <li><a href="youtube.com"><img src="icon/youtube.svg" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-list">
+        <div class="footer-list-title">
+            <h3>Danh mục hàng đầu</h3>
+        </div>
+        <div class="footer-list-info">
+            <ul class="footer-list-info-ul">
+                <li><a href="list.html?id=1">Kì 1</a></li>
+                <li><a href="list.html?id=1">Kì 1</a></li>
+                <li><a href="list.html?id=1">Kì 1</a></li>
+                <li><a href="list.html?id=1">Bài tập</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-favorite">
+        <div class="footer-list-title">
+            <h3>Liên kết hữu ích</h3>
+        </div>
+        <div class="footer-favorite-info">
+            <ul class="footer-list-info-ul">
+                <li><a href="">Blog</a></li>
+                <li><a href="">Login</a></li>
+                <li><a href="">SignUp</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer-logo">
+        <img src="icon/logo.png" alt="">
+    </div>
+    <div class="footer-info">
+        <p>© 2024 Study and topic, any thing with. All Rights Reserved.</p>
+    </div>
+    <div class="language_footer">
+        <select name="" id="">
+            <option value="VIE">Vietnamese</option>
+            <option value="ENG">English</option>
+        </select>
+    </div>
+</footer>
+<script src="js/hompage.js"></script>
+</body>
+
+</html>
