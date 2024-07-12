@@ -20,6 +20,7 @@
             document.getElementById("passwordError").innerText = "";
             return true;
         }
+
     </script>
 </head>
 <body>
@@ -85,13 +86,13 @@
             </a>
         </div>
         <div class="header_bar-signUp">
-            <a href="signup.html">
-                <p>Sign Up</p>
+            <a href="login">
+                <p>Log in</p>
             </a>
         </div>
         <div class="header_bar-signIn">
-            <a href="signin.html">
-                <p>Sign In</p>
+            <a href="#">
+                <p>Register</p>
             </a>
         </div>
     </div>
@@ -116,7 +117,7 @@
                     <strong>${requestScope.msg}</strong>
                 </div>
             </c:if>
-            <form action="register" method="post" onsubmit="return validatePassword()">
+            <form id="signupForm" action="register" method="post" onsubmit="return validatePassword()">
                 <div class="body_form-input-firstname">
                     <label for="name">Username:</label>
                     <div class="input_form">
@@ -221,5 +222,9 @@
     </div>
 </footer>
 <script src="js/hompage.js"></script>
+<script>
+
+</script>
+
 </body>
 </html>

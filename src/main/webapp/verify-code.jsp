@@ -73,13 +73,13 @@
             </a>
         </div>
         <div class="header_bar-signUp">
-            <a href="signup.html">
-                <p>Sign Up</p>
+            <a href="login">
+                <p>Login</p>
             </a>
         </div>
         <div class="header_bar-signIn">
-            <a href="signin.html">
-                <p>Sign In</p>
+            <a href="register">
+                <p>Register</p>
             </a>
         </div>
     </div>

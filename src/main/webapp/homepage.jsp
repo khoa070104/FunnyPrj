@@ -122,17 +122,17 @@
                 </a>
                 <div class="profile-dropdown">
                     <!-- Nội dung menu dropdown -->
-                    <a href="#" class="list-group-item list-group-item-action">
+                    <a href="profile" class="list-group-item list-group-item-action">
                         <i class="fas fa-user mr-2"></i> Tên người dùng: ${sessionScope.user.username}
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
+                    <a href="profile" class="list-group-item list-group-item-action">
                         <i class="fas fa-envelope mr-2"></i> Email: ${sessionScope.user.email}
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="list-group-item list-group-item-action">
                         <i class="fas fa-book mr-2"></i> Khóa học của tôi
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
+                    <a href="profile" class="list-group-item list-group-item-action">
                         <i class="fas fa-id-card mr-2"></i> Hồ sơ người dùng
                     </a>
                     <div class="dropdown-divider"></div>
