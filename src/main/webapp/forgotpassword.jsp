@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quên mật khẩu</title>
-    <link rel="stylesheet" href="css/forgetpass.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/forgetpass.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <jsp:include page="WEB-INF/components/header.jsp"/>
+    <jsp:include page="components/header.jsp"/>
     <div class="container body_container">
         <div class="row body_singup_all">
             <div class="col-md-12 body_signin">
@@ -26,7 +26,7 @@
                         <label for="em">Email của bạn</label>
                         <div class="input_form">
                                 <span class="iconstyle">
-                                    <img src="icon/logo_username.svg" class="input_icon" alt="">
+                                    <img src="${pageContext.request.contextPath}/icon/logo_username.svg" class="input_icon" alt="">
                                 </span>
                             <input type="text" placeholder="Email" id="em" name="email">
                         </div>
@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-<jsp:include page="WEB-INF/components/footer.jsp"/>
+<jsp:include page="components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 </body>
 

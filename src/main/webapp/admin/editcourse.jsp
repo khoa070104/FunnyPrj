@@ -3,7 +3,6 @@
 
 <%@ page import="service.IItemService" %>
 <%@ page import="service.Impl.ItemServiceImpl" %>
-<%@ page import="DAO.impl.ItemDAOImpl" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
@@ -11,12 +10,6 @@
 <%
     IItemService i = new ItemServiceImpl();
     int totalCount = i.countTotalCourses();
-    int ki1 = i.countCoursesByCategory(1);
-    int ki2 = i.countCoursesByCategory(2);
-    int ki3 = i.countCoursesByCategory(3);
-    int ki4 = i.countCoursesByCategory(4);
-    int zoom = i.countCoursesByCategory(1);
-    int record = i.countCoursesByCategory(0);
 %>
 <%--cái này để hiển thị lỗi khi ngta nhập vào chỗ price không phải số nguyên --%>
 <% String error = (String) request.getAttribute("error");
@@ -35,7 +28,7 @@
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/homepage_after.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/dist/css/edit.css">
 
     <!-- Thêm thư viện jQuery và jQuery UI -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -49,7 +42,7 @@
 
     <script type="text/javascript">
         function change(){
-            document.getElementById(FilterEdit).submit();
+            document.getElementById(editpage).submit();
         }
     </script>
 </head>
@@ -58,14 +51,14 @@
     <div class="header_info">
         <div class="phone_header">
             <div class="phone_header-logo">
-                <img src="icon/phone.svg" alt="">
+                <img src="${pageContext.request.contextPath}/admin/dist/icon/phone.svg" alt="">
             </div>
             <div class="phone_header-info">
                 <p>03333333333</p>
             </div>
             <div class="mail_header">
                 <div class="mail_header-logo">
-                    <img src="icon/mail.png" alt="">
+                    <img src="${pageContext.request.contextPath}/admin/dist/icon/mail.png" alt="">
                 </div>
                 <div class="mail_header-info">
                     <a href="mamgh789@gmail.com">mamgh789@gmail.com</a>
@@ -84,11 +77,11 @@
     <div class="header_bar">
         <div class="header_barlogosearch">
             <div class="header_bar-logo">
-                <img src="icon/Logo.png" alt="">
+                <img src="${pageContext.request.contextPath}/admin/dist/icon/Logo.png" alt="">
             </div>
             <div class="header_bar-danhMuc" id="danhMuc">
                 <div class="header_bar-danhMuc-icon">
-                    <img src="icon/list-solid.svg" alt="">
+                    <img src="${pageContext.request.contextPath}/admin/dist/icon/list-solid.svg" alt="">
                 </div>
                 <i class="header_bar-danhMuc-info">
                     Danh Mục
@@ -107,7 +100,7 @@
                 <div class="header_bar-search-info">
                     <input type="text" placeholder="Tìm kiếm">
                     <div class="header_bar-search-icon">
-                        <img src="icon/search.svg" alt="">
+                        <img src="${pageContext.request.contextPath}/admin/dist/icon/search.svg" alt="">
                     </div>
                 </div>
 
@@ -133,7 +126,7 @@
             <!-- Giỏ hàng Link -->
             <a href="cart.html">
                 <div class="header_bar-cart-icon">
-                    <img src="icon/cart.svg" alt="Giỏ hàng">
+                    <img src="${pageContext.request.contextPath}/admin/dist/icon/cart.svg" alt="Giỏ hàng">
                 </div>
             </a>
 
@@ -141,7 +134,7 @@
             <div class="header_bar-cart header_bar-cart-user">
                 <a class="profile-link">
                     <div class="header_bar-cart-icon">
-                        <img src="icon/user.png" alt="Hồ sơ" style="border-radius: 50%; height: 65%;">
+                        <img src="${pageContext.request.contextPath}/admin/dist/icon/user.png" alt="Hồ sơ" style="border-radius: 50%; height: 65%;">
                     </div>
                 </a>
                 <div class="profile-dropdown">
@@ -172,13 +165,13 @@
 </div>
 
 <section class="category-header-area"
-         style="background-image: url('icon/course_page_banner.png'); background-size: cover; background-position: right;">
+         style="background-image: url('${pageContext.request.contextPath}/admin/dist/icon/course_page_banner.png'); background-size: cover; background-position: right;">
     <div class="image-placeholder-3"></div>
     <div class="container-lg breadcrumb-container row align-items-center">
         <nav class="col-auto" aria-label="breadcrumb">
             <ol class="breadcrumb" style="background-color: #6245E1 ">
                 <li class="breadcrumb-item display-6 fw-bold">
-                    <a href="allcourse.html" style="font-size: 40px; font-weight: 500; color:white">
+                    <a href="../allcourse.html" style="font-size: 40px; font-weight: 500; color:white">
                         Tất cả các khóa học </a>
                 </li>
                 <li class="breadcrumb-item active text-light display-6 fw-bold"
@@ -189,7 +182,7 @@
         </nav>
         <div class="col-3 ms-auto d-none d-sm-inline-block">
             <div class="book-img">
-                <img src="icon/brd-book.png" style="width: 200px; height: 200px;">
+                <img src="${pageContext.request.contextPath}/admin/dist/icon/brd-book.png" style="width: 200px; height: 200px;">
             </div>
         </div>
     </div>
@@ -204,7 +197,7 @@
                          data-parent="#accordion">
                         <div class="card-body p-0">
                             <c:set var="cid" value="${requestScope.cid}"/>
-                            <form action="FilterEdit" method="post">
+                            <form action="editpage" method="post">
                                 <div class="filter_type px-4 pt-4">
                                     <h5 class="fw-700 mb-4">Danh mục</h5>
 
@@ -390,10 +383,10 @@
         </div>
         <div class="footer-lienket-info">
             <ul>
-                <li><a href="facebook.com"><img src="icon/facebook.svg" alt=""></a></li>
-                <li><a href="instagram.com"><img src="icon/instagram.svg" alt=""></a></li>
-                <li><a href="twitter.com"><img src="icon/twitter.svg" alt=""></a></li>
-                <li><a href="youtube.com"><img src="icon/youtube.svg" alt=""></a></li>
+                <li><a href="facebook.com"><img src="${pageContext.request.contextPath}/admin/dist/icon/facebook.svg" alt=""></a></li>
+                <li><a href="instagram.com"><img src="${pageContext.request.contextPath}/admin/dist/icon/instagram.svg" alt=""></a></li>
+                <li><a href="twitter.com"><img src="${pageContext.request.contextPath}/admin/dist/icon/twitter.svg" alt=""></a></li>
+                <li><a href="youtube.com"><img src="${pageContext.request.contextPath}/admin/dist/icon/youtube.svg" alt=""></a></li>
             </ul>
         </div>
     </div>
@@ -429,7 +422,7 @@
 </div>
 <footer class="footer">
     <div class="footer-logo">
-        <img src="./icon/Logo.png" alt="">
+        <img src="${pageContext.request.contextPath}/admin/dist/icon/Logo.png" alt="">
     </div>
     <div class="footer-info">
         <p>© 2024 Study and topic, any thing with. All Rights Reserved.</p>
@@ -578,7 +571,7 @@
 
 
 
-<script src="js/hompage.js"></script>
+<script src="../js/hompage.js"></script>
 
 <script>
     function filter(radio) {

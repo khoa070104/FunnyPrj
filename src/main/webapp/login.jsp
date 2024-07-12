@@ -7,11 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Đăng nhập</title>
-    <link rel="stylesheet" href="./css/login.css">
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage.css">
 </head>
 <body>
-    <jsp:include page="WEB-INF/components/header.jsp"/>
+    <jsp:include page="components/header.jsp"/>
     <div class="container">
         <div class="row">
             <div class="col-md-12 body_signin">
@@ -21,7 +21,7 @@
         </div>
         <div class="row body_form">
             <div class="col-md-6 body_form-img">
-                <img src="icon/login_banner.png"  alt="">
+                <img src="${pageContext.request.contextPath}/icon/login_banner.png"  alt="">
             </div>
             <div class="col-md-6 body_form-input">
                 <c:if test="${requestScope.error != null}">
@@ -37,7 +37,7 @@
                         <label for="em">Username</label>
                         <div class="input_form">
                                 <span class="iconstyle">
-                                    <img src="icon/logo_username.svg" class="input_icon" alt="" >
+                                    <img src="${pageContext.request.contextPath}/icon/logo_username.svg" class="input_icon" alt="" >
                                 </span>
                             <input type="text" placeholder="Username" id="em" value="${sessionScope.username}" name="username" >
                         </div>
@@ -47,7 +47,7 @@
                         <label for="pa">Password</label>
                         <div class="input_form">
                                 <span class="iconstyle">
-                                    <img src="icon/logo_password.svg" class="input_icon" alt="" >
+                                    <img src="${pageContext.request.contextPath}/icon/logo_password.svg" class="input_icon" alt="" >
                                 </span>
                             <input type="password" placeholder="Password" id="pa" name="password">
                         </div>
@@ -66,7 +66,7 @@
             </div>
         </div>
     </div>
-<jsp:include page="WEB-INF/components/footer.jsp"/>
+<jsp:include page="components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 </body>
 

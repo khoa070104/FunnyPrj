@@ -7,8 +7,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Đăng kí</title>
-    <link rel="stylesheet" href="css/register.css">
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage.css">
     <script>
         function validatePassword() {
             var password = document.getElementById("pa").value;
@@ -23,7 +23,7 @@
     </script>
 </head>
 <body>
-<jsp:include page="WEB-INF/components/header.jsp"/>
+<jsp:include page="components/header.jsp"/>
 <div class="container">
     <div class="row">
         <div class="col-md-12 body_signup">
@@ -34,7 +34,7 @@
 
     <div class="row body_form">
         <div class="col-md-6 body_form-img">
-            <img src="icon/signup_banner.png" alt="">
+            <img src="${pageContext.request.contextPath}/icon/signup_banner.png" alt="">
         </div>
         <div class="col-md-6 body_form-input">
             <c:if test="${requestScope.msg != null}">
@@ -47,7 +47,7 @@
                     <label for="name">Username:</label>
                     <div class="input_form">
                           <span class="iconstyle">
-                            <img src="icon/user.png" class="input_icon" alt="">
+                            <img src="${pageContext.request.contextPath}/icon/user.png" class="input_icon" alt="">
                           </span>
                         <input type="text" placeholder="Tên" id="name" name="username">
                     </div>
@@ -56,7 +56,7 @@
                     <label for="em">Email</label>
                     <div class="input_form">
                           <span class="iconstyle">
-                             <img src="icon/logo_email.svg" class="input_icon" alt="">
+                             <img src="${pageContext.request.contextPath}/icon/logo_email.svg" class="input_icon" alt="">
                           </span>
                         <input type="email" placeholder="Email" id="em" name="email">
                     </div>
@@ -65,7 +65,7 @@
                     <label for="pa">Mật Khẩu</label>
                     <div class="input_form">
                           <span class="iconstyle">
-                               <img src="icon/logo_password.svg" class="input_icon" alt="">
+                               <img src="${pageContext.request.contextPath}/icon/logo_password.svg" class="input_icon" alt="">
                           </span>
                         <input type="password" placeholder="Mật Khẩu" id="pa" name="password">
                     </div>
@@ -74,7 +74,7 @@
                     <label for="cpass">Nhập lại mật khẩu</label>
                     <div class="input_form">
                           <span class="iconstyle">
-                            <img src="icon/user.png" class="input_icon" alt="">
+                            <img src="${pageContext.request.contextPath}/icon/user.png" class="input_icon" alt="">
                           </span>
                         <input type="password" placeholder="Nhập lại password" id="cpass" name="confirm_password">
                     </div>
@@ -91,7 +91,7 @@
     </div>
 </div>
 
-<jsp:include page="WEB-INF/components/footer.jsp"/>
+<jsp:include page="components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 </body>
 </html>

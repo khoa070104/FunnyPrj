@@ -18,4 +18,5 @@ public interface IUserService {
     User checkEmail(String email);
     User checkUsername(String username);
     void updateProfile(User user);
+    void updateAvatar(User user);
 }

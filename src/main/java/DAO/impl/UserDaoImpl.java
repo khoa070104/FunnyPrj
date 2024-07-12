@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.*;
 
 public class UserDaoImpl extends DBConnect implements IUserDao {
+
     @Override
     public List<User> findAll() {
         List<User> users = new ArrayList<>();
@@ -167,6 +168,21 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
         }
         return duplicate;
     }
+
+
+
+    public void updateAvatar(User user) {
+        String sql = "UPDATE tblUsers SET avatar=? WHERE username=?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, user.getAvatar());
+            stmt.setString(2, user.getUsername());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     public static void main(String[] args) {
         new UserDaoImpl().updateProfile(new User("1","admin","admin"));

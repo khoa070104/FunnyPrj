@@ -7,6 +7,11 @@ import service.IUserService;
 import java.util.List;
 
 public class UserServiceImpl implements IUserService {
+    @Override
+    public void updateAvatar(User user) {
+        new UserDaoImpl().updateAvatar(user);
+    }
+
     UserDaoImpl userDao = new UserDaoImpl();
 
     @Override

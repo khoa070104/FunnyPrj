@@ -6,18 +6,18 @@ public class Category {
     private int id;
     private String name;
     private String description;
-    private Long updatedBy;
-    private Date updatedDate;
-    private Date createdDate;
-    private Long createdBy;
+    private String updatedBy;
+    private String updatedDate;
+    private String createdDate;
+    private String createdBy;
     private boolean status;
 
     // Constructors
     public Category() {
     }
 
-    public Category(int id, String name, String description, Long updatedBy, Date updatedDate,
-                    Date createdDate, Long createdBy, boolean status) {
+    public Category(int id, String name, String description, String updatedBy, String updatedDate,
+                    String createdDate, String createdBy, boolean status) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -53,35 +53,35 @@ public class Category {
         this.description = description;
     }
 
-    public Long getUpdatedBy() {
+    public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(Long updatedBy) {
+    public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public Date getUpdatedDate() {
+    public String getUpdatedDate() {
         return updatedDate;
     }
 
-    public void setUpdatedDate(Date updatedDate) {
+    public void setUpdatedDate(String updatedDate) {
         this.updatedDate = updatedDate;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 
-    public Long getCreatedBy() {
+    public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(Long createdBy) {
+    public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
 

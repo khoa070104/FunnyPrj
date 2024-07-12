@@ -240,10 +240,10 @@ public class ItemDAOImpl extends DBConnect implements IItemDao {
                 category.setId(resultSet.getInt("id"));
                 category.setName(resultSet.getString("name"));
                 category.setDescription(resultSet.getString("description"));
-                category.setUpdatedBy(resultSet.getLong("updatedBy"));
-                category.setUpdatedDate(resultSet.getDate("updatedDate"));
-                category.setCreatedDate(resultSet.getDate("createdDate"));
-                category.setCreatedBy(resultSet.getLong("createdBy"));
+                category.setUpdatedBy(resultSet.getString("updatedBy"));
+                category.setUpdatedDate(resultSet.getString("updatedDate"));
+                category.setCreatedDate(resultSet.getString("createdDate"));
+                category.setCreatedBy(resultSet.getString("createdBy"));
                 category.setStatus(resultSet.getBoolean("status"));
             }
         } catch (SQLException e) {
@@ -301,10 +301,10 @@ public class ItemDAOImpl extends DBConnect implements IItemDao {
                 category.setId(resultSet.getInt("id"));
                 category.setName(resultSet.getString("name"));
                 category.setDescription(resultSet.getString("description"));
-                category.setUpdatedBy(resultSet.getLong("updatedBy"));
-                category.setUpdatedDate(resultSet.getDate("updatedDate"));
-                category.setCreatedDate(resultSet.getDate("createdDate"));
-                category.setCreatedBy(resultSet.getLong("createdBy"));
+                category.setUpdatedBy(resultSet.getString("updatedBy"));
+                category.setUpdatedDate(resultSet.getString("updatedDate"));
+                category.setCreatedDate(resultSet.getString("createdDate"));
+                category.setCreatedBy(resultSet.getString("createdBy"));
                 category.setStatus(resultSet.getBoolean("status"));
 
                 categories.add(category);
@@ -466,6 +466,9 @@ public class ItemDAOImpl extends DBConnect implements IItemDao {
 
 
 }
+
+
+
 
 
 

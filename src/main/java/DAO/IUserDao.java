@@ -17,4 +17,5 @@ public interface IUserDao {
     void delete(int id); // hàm này xóa 1 đối tượng User
     boolean checkExistEmail(String email); // hàm này kiểm tra email đã tồn tại chưa
     boolean checkExistUsername(String username); // hàm này kiểm tra username đã tồn tại chưa
+    public void updateAvatar(User user);
 }

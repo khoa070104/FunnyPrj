@@ -10,13 +10,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
-    <link rel="stylesheet" href="css/homepage_after.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage_after.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
-<jsp:include page="WEB-INF/components/header_loged.jsp"/>
+<jsp:include page="components/header_loged.jsp"/>
 
 <div class="container my-4">
     <!-- Display search results -->
@@ -80,7 +80,7 @@
     </c:choose>
 </div>
 
-<jsp:include page="WEB-INF/components/footer.jsp"/>
+<jsp:include page="components/footer.jsp"/>
 
 <script src="js/hompage.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

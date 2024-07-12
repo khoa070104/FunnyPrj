@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xác thực email</title>
-    <link rel="stylesheet" href="css/mail.css">
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mail.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage.css">
 </head>
 <body>
-<jsp:include page="WEB-INF/components/header.jsp"/>
+<jsp:include page="components/header.jsp"/>
 
 <div class="container">
     <div class="row">
@@ -23,7 +23,7 @@
                     <label for="maxn">Mã xác nhận</label>
                     <div class="input_form">
                             <span class="iconstyle">
-                                <img src="icon/user.png" class="input_icon" alt="">
+                                <img src="${pageContext.request.contextPath}/icon/user.png" class="input_icon" alt="">
                             </span>
                         <input type="text" placeholder="Mã xác nhận" id="maxn" name="code">
                     </div>
@@ -41,7 +41,7 @@
 </div>
 
 
-<jsp:include page="WEB-INF/components/footer.jsp"/>
+<jsp:include page="components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 </body>
 </html>

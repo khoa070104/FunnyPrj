@@ -10,10 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="User profile page with contact information, profile details, and footer links.">
     <title>Hồ Sơ Người Dùng</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="css/homepage_after.css">
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage_after.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/profile.css">
     <style>
         .default_input {
             background-color: white !important;
@@ -23,13 +23,13 @@
 
 
 <body class="white-bg">
-<jsp:include page="WEB-INF/components/header_loged.jsp"/>
+<jsp:include page="components/header_loged.jsp"/>
 <section class="user-dashboard-area pt-3">
     <div class="container">
         <div class="row">
             <div class="col-md-4 profile-image">
                 <form id="photo-form" enctype="multipart/form-data">
-                    <img src="icon/anh.jpg" alt="Ảnh đại diện" id="profile-img" style="width: 200px; height: 200px;">
+                    <img src="${pageContext.request.contextPath}/icon/anh.jpg" alt="Ảnh đại diện" id="profile-img" style="width: 200px; height: 200px;">
                     <input type="file" id="photo-input" class="hidden" onchange="previewPhoto()">
                     <button type="button" id="edit-photo-btn" class="btn btn-secondary" onclick="enablePhotoInput()">Edit</button>
                     <button type="button" id="save-photo-btn" class="btn btn-primary hidden" onclick="changePhoto()">Save</button>
@@ -65,7 +65,7 @@
     </div>
 </section>
 
-<jsp:include page="WEB-INF/components/footer.jsp"/>
+<jsp:include page="components/footer.jsp"/>
 
 <script src="js/hompage.js"></script>
 

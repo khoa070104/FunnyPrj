@@ -25,7 +25,7 @@
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/homepage_after.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage_after.css">
 
     <!-- Thêm thư viện jQuery và jQuery UI -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -39,9 +39,9 @@
     </script>
 </head>
 <body onload="checkCategoryAll()">
-<jsp:include page="WEB-INF/components/header_loged.jsp"/>
+<jsp:include page="components/header_loged.jsp"/>
 <section class="category-header-area"
-         style="background-image: url('icon/course_page_banner.png'); background-size: cover; background-position: right;">
+         style="background-image: url('${pageContext.request.contextPath}/icon/course_page_banner.png'); background-size: cover; background-position: right;">
     <div class="image-placeholder-3"></div>
     <div class="container-lg breadcrumb-container row align-items-center">
         <nav class="col-auto" aria-label="breadcrumb">
@@ -58,7 +58,7 @@
         </nav>
         <div class="col-3 ms-auto d-none d-sm-inline-block">
             <div class="book-img">
-                <img src="icon/brd-book.png" style="width: 200px; height: 200px;">
+                <img src="${pageContext.request.contextPath}/icon/brd-book.png" style="width: 200px; height: 200px;">
             </div>
         </div>
     </div>
@@ -232,7 +232,7 @@
     </ul>
 </section>
 
-<jsp:include page="WEB-INF/components/footer.jsp"/>
+<jsp:include page="components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 
 <script>

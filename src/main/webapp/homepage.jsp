@@ -24,13 +24,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="./css/homepage_after.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage_after.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
-<jsp:include page="WEB-INF/components/header_loged.jsp"/>
+<jsp:include page="components/header_loged.jsp"/>
 <div class="home-banner-area py-5" id="home-banner-area">
     <div class="container-lg">
         <div class="d-flex ">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 order-md-2 order-sm-2 order-1 pt-0 pt-md-5 ">
                     <div id="tilt">
-                        <img src="icon/homebanner.png" alt="">
+                        <img src="${pageContext.request.contextPath}/icon/homebanner.png" alt="">
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@
         <div class="row">
             <div class="col-md-4 d-flex">
                 <div class="home-fact-box d-flex align-items-center justify-content-center mr-md-auto mr-auto">
-                    <img src="icon/play-button.png" alt="">
+                    <img src="${pageContext.request.contextPath}/icon/play-button.png" alt="">
                     <div class="text-box">
                         <h4>12 Khóa học trực tuyến</h4>
                         <p>Khám phá nhiều chủ đề mới</p>
@@ -129,7 +129,7 @@
 
             <div class="col-md-4 d-flex">
                 <div class="home-fact-box d-flex align-items-center justify-content-center mr-md-auto mr-auto">
-                    <img src="icon/leaderboard-4.svg" alt="">
+                    <img src="${pageContext.request.contextPath}/icon/leaderboard-4.svg" alt="">
                     <div class="text-box">
                         <h4>Chuyên gia đầu ngành</h4>
                     </div>
@@ -138,7 +138,7 @@
 
             <div class="col-md-4 d-flex">
                 <div class="home-fact-box mr-md-auto d-flex justify-content-center align-items-center mr-auto">
-                    <img src="icon/repeat.png" alt="">
+                    <img src="${pageContext.request.contextPath}/icon/repeat.png" alt="">
                     <div class="text-box">
                         <h4>Truy cập trọn đời</h4>
                         <p>Học theo lịch trình của bạn</p>
@@ -149,7 +149,7 @@
     </div>
 </div>
 </div>
-<jsp:include page="WEB-INF/components/footer.jsp"/>
+<jsp:include page="components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 </body>
 

@@ -6,15 +6,22 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import model.Category;
 import model.Course;
+import model.User;
 import service.IItemService;
+import service.IUserService;
 import service.Impl.ItemServiceImpl;
+import service.Impl.UserServiceImpl;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/list","/search"})
+@WebServlet(urlPatterns = {"/list","/search","/update-avatar"})
 public class FeatureController extends HttpServlet {
+    //private AvatarDAOImpl avatarDAO = new AvatarDAOImpl();
     IItemService itemDAO = new ItemServiceImpl();
+    IUserService userService = new UserServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = request.getRequestURI().toString();
@@ -23,6 +30,8 @@ public class FeatureController extends HttpServlet {
             getList(request,response);
         } else if(url.contains("search")){
             request.getRequestDispatcher("search.jsp").forward(request,response);
+        } else if (url.contains("update-avatar")) {
+            request.getRequestDispatcher("profile.jsp").forward(request,response);
         }
     }
 
@@ -34,6 +43,8 @@ public class FeatureController extends HttpServlet {
             postList(request,response);
         } else if(url.contains("search")){
             postSearch(request,response);
+        } else if(url.contains("update-avatar")){
+            postAvatar(request,response);
         }
     }
 
@@ -106,6 +117,38 @@ public class FeatureController extends HttpServlet {
             // Xử lý lỗi cơ sở dữ liệu và chuyển tiếp đến JSP với thông báo lỗi
             request.setAttribute("error", "Database error: " + e.getMessage());
             request.getRequestDispatcher("/search.jsp").forward(request, response);
+        }
+    }
+    protected void postAvatar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            String username = request.getParameter("username");
+            Part part = request.getPart("photo");
+
+            // Thư mục lưu trữ ảnh upload trong ứng dụng
+            String uploadPath = request.getServletContext().getRealPath("/upload");
+            String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+
+            // Tạo thư mục upload nếu chưa tồn tại
+            if (!Files.exists(Paths.get(uploadPath))) {
+                Files.createDirectories(Paths.get(uploadPath));
+            }
+            // Lưu file ảnh vào thư mục upload
+            part.write(uploadPath + "/" + fileName);
+
+            // Cập nhật đường dẫn ảnh mới vào đối tượng User trong session
+            HttpSession session = request.getSession();
+            User sessionUser = (User) session.getAttribute("user");
+            if (sessionUser != null) {
+                sessionUser.setAvatar("upload/" + fileName);
+                session.setAttribute("user", sessionUser); // Lưu lại thông tin User vào session
+                userService.updateAvatar(sessionUser); // Cập nhật đường dẫn ảnh mới vào cơ sở dữ liệu
+            }
+
+            response.sendRedirect("profile.jsp");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.getWriter().println("Lỗi khi upload file: " + e.getMessage());
         }
     }
 
