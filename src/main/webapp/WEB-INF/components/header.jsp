@@ -21,7 +21,7 @@
                 <img src="icon/phone.svg" alt="">
             </div>
             <div class="phone_header-info">
-                <p>03333333333</p>
+                <p>0333333333</p>
             </div>
             <div class="mail_header">
                 <div class="mail_header-logo">
@@ -39,8 +39,6 @@
             </select>
         </div>
     </div>
-
-
     <div class="header_bar">
         <div class="header_barlogosearch">
             <div class="header_bar-logo">
@@ -62,71 +60,35 @@
                     </a>
                 </div>
             </div>
-
             <div class="header_bar-search">
                 <div class="header_bar-search-info">
-                    <input type="text" placeholder="Tìm kiếm">
-                    <div class="header_bar-search-icon">
-                        <img src="icon/search.svg" alt="">
-                    </div>
+                    <input  type="text" placeholder="Tìm kiếm">
                 </div>
-
+                <div class="header_bar-search-icon">
+                    <img src="icon/search.svg" alt="">
+                </div>
             </div>
         </div>
-
-
-        <div class="header_bar-cart">
-            <!-- Giảng viên Link -->
-            <a href="lecturer.html" class="header-icon">
-                <div class="header_bar-cart-icon ">
-                    <p class="icon-text">Mentor</p>
-                </div>
-            </a>
-
-            <!-- Khóa học của tôi Link -->
-            <a href="mycourses.html">
-                <div class="header_bar-cart-icon no-icon">
-                    <p class="icon-text">Khóa học của tôi</p>
-                </div>
-            </a>
-
-            <!-- Giỏ hàng Link -->
-            <a href="cart.html">
-                <div class="header_bar-cart-icon">
-                    <img src="icon/cart.svg" alt="Giỏ hàng">
-                </div>
-            </a>
-
-            <!-- Hồ sơ Link -->
-            <div class="header_bar-cart header_bar-cart-user">
-                <a class="profile-link">
+        <div class="header_bar-cartsign">
+            <div class="header_bar-cart">
+                <a href="cart.html">
                     <div class="header_bar-cart-icon">
-                        <img src="icon/user.png" alt="Hồ sơ" style="border-radius: 50%; height: 65%;">
+                        <img src="icon/cart.svg" alt="">
                     </div>
                 </a>
-                <div class="profile-dropdown">
-                    <!-- Nội dung menu dropdown -->
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-user mr-2"></i> Tên người dùng: ${sessionScope.user.username}
+            </div>
+            <div class="header_bar-sign">
+                <div class="header_bar-signUp ">
+                    <a href="login">
+                        <p>Log in</p>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-envelope mr-2"></i> Email: ${sessionScope.user.email}
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-book mr-2"></i> Khóa học của tôi
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-id-card mr-2"></i> Hồ sơ người dùng
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="logout" class="list-group-item list-group-item-action">
-                        <i class="fas fa-sign-out-alt mr-2"></i> Đăng xuất
+                </div>
+                <div class="header_bar-signIn">
+                    <a href="register">
+                        <p>Register</p>
                     </a>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>

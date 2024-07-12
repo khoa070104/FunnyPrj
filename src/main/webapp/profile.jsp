@@ -1,8 +1,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<%@ page import="DAO.impl.ItemDAOImpl" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,132 +23,17 @@
 
 
 <body class="white-bg">
-<div class="cover">
-    <div class="header_info">
-        <div class="phone_header">
-            <div class="phone_header-logo">
-
-                <img src="icon/phone.svg" alt="Phone icon">
-            </div>
-            <div class="phone_header-info">
-                <p>0333333333</p>
-            </div>
-            <div class="mail_header">
-                <div class="mail_header-logo">
-                    <img src="icon/mail.png" alt="Mail icon">
-                </div>
-                <div class="mail_header-info">
-                    <a href="mailto:mamgh789@gmail.com">mamgh789@gmail.com</a>
-
-                </div>
-            </div>
-        </div>
-        <div class="language_header">
-
-            <label for="language_option" class="visually-hidden">Select Language</label>
-            <select id="language_option">
-
-                <option value="VIE">Vietnamese</option>
-                <option value="ENG">English</option>
-            </select>
-        </div>
-    </div>
-
-
-    <div class="header_bar">
-        <div class="header_barlogosearch">
-            <div class="header_bar-logo">
-                <img src="icon/Logo.png" alt="Website Logo">
-            </div>
-            <div class="header_bar-danhMuc" id="danhMuc">
-                <div class="header_bar-danhMuc-icon">
-                    <img src="icon/list-solid.svg" alt="Menu icon">
-                </div>
-                <i class="header_bar-danhMuc-info">
-                    Danh Mục
-                </i>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
-                    <a href="mycourses.html" class="dropdown-item">
-                        <i class="fas fa-book mr-2"></i> Khóa học
-                    </a>
-                    <a href="cart.html" class="dropdown-item">
-                        <i class="fas fa-store mr-2"></i> Cửa hàng
-                    </a>
-                </div>
-            </div>
-
-            <div class="header_bar-search">
-                <div class="header_bar-search-info">
-                    <input type="text" placeholder="Tìm kiếm" aria-label="Search">
-                    <div class="header_bar-search-icon">
-                        <img src="icon/search.svg" alt="Search icon">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="header_bar-cart">
-            <a href="lecturer.html" class="header-icon" aria-label="Giảng viên">
-                <div class="header_bar-cart-icon">
-                    <p class="icon-text">Mentor</p>
-                </div>
-            </a>
-
-            <a href="mycourses.html" aria-label="Khóa học của tôi">
-                <div class="header_bar-cart-icon no-icon">
-                    <p class="icon-text">Khóa học của tôi</p>
-                </div>
-            </a>
-
-            <a href="cart.html" aria-label="Giỏ hàng">
-                <div class="header_bar-cart-icon">
-                    <img src="icon/cart.svg" alt="Giỏ hàng">
-                </div>
-            </a>
-
-            <div class="header_bar-cart header_bar-cart-user">
-                <a href="#" class="profile-link" aria-label="Hồ sơ">
-                    <div class="header_bar-cart-icon">
-                        <img src="icon/user.png" alt="Hồ sơ" style="border-radius: 50%; height: 65%;">
-                    </div>
-                </a>
-                <div class="profile-dropdown">
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-user mr-2"></i> Tên người dùng: John Doe
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-envelope mr-2"></i> Email: john.doe@example.com
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="allcourse.jsp" class="list-group-item list-group-item-action">
-                        <i class="fas fa-book mr-2"></i> Giỏ hàng cùa tôi
-                    </a>
-                    <a href="user-profile.html" class="list-group-item list-group-item-action">
-                        <i class="fas fa-id-card mr-2"></i> Hồ sơ người dùng
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="logout" class="list-group-item list-group-item-action">
-                        <i class="fas fa-sign-out-alt mr-2"></i> Đăng xuất
-
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<jsp:include page="WEB-INF/components/header_loged.jsp"/>
 <section class="user-dashboard-area pt-3">
     <div class="container">
         <div class="row">
             <div class="col-md-4 profile-image">
-
-                <form id="photo-form" action="update-avatar" method="post" enctype="multipart/form-data">
-                    <img src="${sessionScope.user.avatar}" alt="Ảnh đại diện" id="profile-img" style="width: 200px; height: 200px;">
-                    <input type="file" id="photo-input" class="hidden" name="photo" onchange="previewPhoto()">
+                <form id="photo-form" enctype="multipart/form-data">
+                    <img src="icon/anh.jpg" alt="Ảnh đại diện" id="profile-img" style="width: 200px; height: 200px;">
+                    <input type="file" id="photo-input" class="hidden" onchange="previewPhoto()">
                     <button type="button" id="edit-photo-btn" class="btn btn-secondary" onclick="enablePhotoInput()">Edit</button>
-                    <button type="submit" id="save-photo-btn" class="btn btn-primary hidden">Save</button>
+                    <button type="button" id="save-photo-btn" class="btn btn-primary hidden" onclick="changePhoto()">Save</button>
                 </form>
-
             </div>
             <div class="col-md-7 profile-info">
                 <form id="profile-form" action="update-profile" method="POST">
@@ -182,65 +65,7 @@
     </div>
 </section>
 
-<div class="footer_content">
-    <div class="footer-lienket">
-        <div class="footer-lienket-title">
-            <h3>Study and topic, any thing with </h3>
-        </div>
-        <div class="footer-lienket-info">
-
-            <ul>
-                <li><a href="facebook.com"><img src="icon/facebook.svg" alt=""></a></li>
-                <li><a href="instagram.com"><img src="icon/instagram.svg" alt=""></a></li>
-                <li><a href="twitter.com"><img src="icon/twitter.svg" alt=""></a></li>
-                <li><a href="youtube.com"><img src="icon/youtube.svg" alt=""></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-list">
-        <div class="footer-list-title">
-            <h3>Danh mục hàng đầu</h3>
-        </div>
-        <div class="footer-list-info">
-
-            <ul>
-                <li><a href="list.html?id=1">Kì 1</a></li>
-                <li><a href="list.html?id=1">Kì 1</a></li>
-                <li><a href="list.html?id=1">Kì 1</a></li>
-                <li><a href="list.html?id=1">Kì 1</a></li>
-                <li><a href="list.html?id=1">Bài tập</a></li>
-
-            </ul>
-        </div>
-    </div>
-    <div class="footer-favorite">
-        <div class="footer-favorite-title">
-            <h3>Liên kết hữu ích</h3>
-        </div>
-        <div class="footer-favorite-info">
-            <ul>
-                <li><a href="">Blog</a></li>
-                <li><a href="">Login</a></li>
-                <li><a href="">SignUp</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<footer>
-    <div class="footer-logo">
-        <img src="icon/Logo.png" alt="">
-
-    </div>
-    <div class="footer-info">
-        <p>© 2024 Study and topic, any thing with. All Rights Reserved.</p>
-    </div>
-    <div class="language_footer">
-        <select name="" id="">
-            <option value="VIE">Vietnamese</option>
-            <option value="ENG">English</option>
-        </select>
-    </div>
-</footer>
+<jsp:include page="WEB-INF/components/footer.jsp"/>
 
 <script src="js/hompage.js"></script>
 

@@ -231,10 +231,11 @@ body {
     color: #6c757d;
     font-weight: 550;
 }
-
-.body_form-input-firstname {
-    margin-bottom: 20px; 
+.body_form-input-firstname  , .body_form-input-lastname
+, .body_form-input-email , .body_form-input-password {
+    margin-top: 10px;
 }
+
 
 .input-form > div:not(.input-group):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
     margin-left: -1px;
@@ -250,7 +251,7 @@ body {
 }
 
 .input_form input {
-    padding-left: 40px; 
+    padding-left: 10px;
     width: 100%;
     height: 40px;
     border: 1px solid #ccc;
@@ -313,6 +314,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .body_form-input-submit input:hover {
