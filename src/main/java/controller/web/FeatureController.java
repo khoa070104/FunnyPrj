@@ -16,7 +16,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
+@MultipartConfig(maxFileSize = 1024 * 1024 * 10)
 @WebServlet(urlPatterns = {"/list","/search","/update-avatar"})
 public class FeatureController extends HttpServlet {
     //private AvatarDAOImpl avatarDAO = new AvatarDAOImpl();

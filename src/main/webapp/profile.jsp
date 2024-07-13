@@ -28,11 +28,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 profile-image">
-                <form id="photo-form" enctype="multipart/form-data">
-                    <img src="${pageContext.request.contextPath}/icon/anh.jpg" alt="Ảnh đại diện" id="profile-img" style="width: 200px; height: 200px;">
-                    <input type="file" id="photo-input" class="hidden" onchange="previewPhoto()">
+                <form id="photo-form" enctype="multipart/form-data" action="update-avatar" method="post">
+                    <img src="${sessionScope.user.avatar}" alt="Ảnh đại diện" id="profile-img" style="width: 200px; height: 200px;">
+                    <input type="file" id="photo-input" class="hidden" name="photo" onchange="previewPhoto()">
                     <button type="button" id="edit-photo-btn" class="btn btn-secondary" onclick="enablePhotoInput()">Edit</button>
-                    <button type="button" id="save-photo-btn" class="btn btn-primary hidden" onclick="changePhoto()">Save</button>
+                    <button type="submit" id="save-photo-btn" class="btn btn-primary hidden" >Save</button>
                 </form>
             </div>
             <div class="col-md-7 profile-info">
