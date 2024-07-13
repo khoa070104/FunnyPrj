@@ -7,14 +7,19 @@ import jakarta.servlet.annotation.*;
 import model.Category;
 import model.Course;
 import model.LessonTime;
+import service.IItemService;
+import service.Impl.ItemServiceImpl;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
+@MultipartConfig(maxFileSize = 1024 * 1024 * 10)
 @WebServlet(urlPatterns = {"/CreateCourse","/EditCourse","/DeleteCourse","/ListCourse","/editpage"})
 public class HomeController extends HttpServlet {
+    IItemService i = new ItemServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = request.getRequestURI().toString();
@@ -43,84 +48,97 @@ public class HomeController extends HttpServlet {
         }
     }
     protected void getEditPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ItemDAOImpl itemDAO = new ItemDAOImpl();
 
-        // Lấy danh sách các category để hiển thị trên giao diện
-        List<Category> list = itemDAO.getAll();
+        List<Category> list = i.getAll();
         HttpSession session = request.getSession();
         session.setAttribute("categories", list);
         request.getRequestDispatcher("admin/editcourse.jsp").forward(request, response);
 
     }
     protected void postEditPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ItemDAOImpl itemDAO = new ItemDAOImpl();
 
-        // Lấy giá trị typeCourse từ request parameter
         String cid_raw = request.getParameter("id_category");
         int cid = 0;
         try {
             cid = (cid_raw == null) ? 0 : Integer.parseInt(cid_raw);
         } catch (NumberFormatException e) {
-            // Xử lý ngoại lệ khi không thể chuyển đổi thành số nguyên
             e.printStackTrace();
         }
-
-        // Lọc các khóa học dựa trên categoryId và typeCourse (nếu có)
-        List<Course> courses = itemDAO.filterCoursesByCriteria(cid);
-
-        // Lưu danh sách khóa học đã lọc vào request attribute để truyền đến JSP
+        List<Course> courses = i.filterCoursesByCriteria(cid);
         request.setAttribute("courses", courses);
-
-        // Lưu lại các giá trị lọc để hiển thị lại trên giao diện
         request.setAttribute("cid", cid);
-
-        // Điều hướng đến trang filter.jsp để hiển thị kết quả lọc
         request.getRequestDispatcher("admin/editcourse.jsp").forward(request, response);
     }
     protected void getDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Forward the request to doPost method
-        ItemDAOImpl itemDAO = new ItemDAOImpl();
 
-        // Lấy giá trị courseId từ request parameter để xóa khóa học
         String deleteCourseId = request.getParameter("id");
-        //if (deleteCourseId != null) {
         try {
             int courseId = Integer.parseInt(deleteCourseId);
-            itemDAO.deleteCourse(courseId);
+            i.deleteCourse(courseId);
         } catch (NumberFormatException e) {
-            // Xử lý ngoại lệ khi không thể chuyển đổi thành số nguyên
             e.printStackTrace();
         }
-        //}
-
-        // Điều hướng lại về trang editcourse.jsp sau khi xóa thành công
         response.sendRedirect("editcourse.jsp");
     }
     protected void getCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ItemDAOImpl itemDAO = new ItemDAOImpl();
-
-        // Lấy danh sách các category để hiển thị trên giao diện
-        List<Category> list = itemDAO.getAll();
-        HttpSession session = request.getSession();
-        session.setAttribute("categories", list);
-
-        // Lấy danh sách các lesson time để hiển thị trên giao diện
-        List<LessonTime> listLessonTimes = itemDAO.getAllLessonTimes();
-        session.setAttribute("lessonTimes", listLessonTimes);
-
-        // Forward to editcourse.jsp for displaying the form
-        request.getRequestDispatcher("editcourse.jsp").forward(request, response);
+//
+//        List<Category> list = i.getAll();
+//        HttpSession session = request.getSession();
+//        session.setAttribute("categories", list);
+//        List<LessonTime> listLessonTimes = i.getAllLessonTimes();
+//        session.setAttribute("lessonTimes", listLessonTimes);
+//        request.getRequestDispatcher("editcourse.jsp").forward(request, response);
+//        String name = request.getParameter("name");
+//        String priceStr = request.getParameter("price");
+//        String description = request.getParameter("description");
+//        String typeCourseStr = request.getParameter("typeCourse");
+//        String idLessonTime = request.getParameter("idLessonTime"); // Nhận giá trị trực tiếp từ input text
+//        int idCategory = Integer.parseInt(request.getParameter("idCategory"));
+//        System.out.println(priceStr);
+//        System.out.printf(typeCourseStr);
+//        System.out.println("-----");
+//        try {
+//            double price = Double.parseDouble(priceStr);
+//            int typeCourse = Integer.parseInt(typeCourseStr);
+//            Part imgPart = request.getPart("img");
+//
+//            // Đường dẫn thư mục lưu trữ ảnh upload
+//            String uploadPath = request.getServletContext().getRealPath("/upload");
+//            String fileName = Paths.get(imgPart.getSubmittedFileName()).getFileName().toString();
+//
+//            // Tạo thư mục upload nếu chưa tồn tại
+//            if (!Files.exists(Paths.get(uploadPath))) {
+//                Files.createDirectories(Paths.get(uploadPath));
+//            }
+//
+//            // Lưu file ảnh vào thư mục upload
+//            imgPart.write(uploadPath + "/" + fileName);
+//            String imgPath = "upload/" + fileName;
+//            ItemDAOImpl courseDAO = new ItemDAOImpl();
+//            boolean test = courseDAO.createCourse(name, price, description, typeCourse, idLessonTime, idCategory, imgPath);
+//            if (test) {
+//                response.sendRedirect("editcourse.jsp");
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            response.getWriter().println("Error: " + e.getMessage());
+//        }
     }
+
     protected void postCreate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String priceStr = request.getParameter("price");
+        String description = request.getParameter("description");
+        String typeCourseStr = request.getParameter("typeCourse");
+        String idLessonTime = request.getParameter("idLessonTime"); // Nhận giá trị trực tiếp từ input text
+        int idCategory = Integer.parseInt(request.getParameter("idCategory"));
+        System.out.println(priceStr);
+        System.out.printf(typeCourseStr);
+        System.out.println("-----");
         try {
-            // Retrieve form parameters from the request
-            String name = request.getParameter("name");
-            double price = Double.parseDouble(request.getParameter("price"));
-            String description = request.getParameter("description");
-            int typeCourse = Integer.parseInt(request.getParameter("typeCourse"));
-            String idLessonTime = request.getParameter("idLessonTime"); // Nhận giá trị trực tiếp từ input text
-            int idCategory = Integer.parseInt(request.getParameter("idCategory"));
+            double price = Double.parseDouble(priceStr);
+            int typeCourse = Integer.parseInt(typeCourseStr);
             Part imgPart = request.getPart("img");
 
             // Đường dẫn thư mục lưu trữ ảnh upload
@@ -134,18 +152,11 @@ public class HomeController extends HttpServlet {
 
             // Lưu file ảnh vào thư mục upload
             imgPart.write(uploadPath + "/" + fileName);
-
-            // Tạo đường dẫn ảnh
             String imgPath = "upload/" + fileName;
-
-            // Tạo đối tượng Course và lưu vào cơ sở dữ liệu
             ItemDAOImpl courseDAO = new ItemDAOImpl();
             boolean test = courseDAO.createCourse(name, price, description, typeCourse, idLessonTime, idCategory, imgPath);
-
             if (test) {
                 response.sendRedirect("editcourse.jsp");
-
-
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -155,24 +166,13 @@ public class HomeController extends HttpServlet {
     protected void getEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Lấy ID của khóa học cần chỉnh sửa từ request
         int courseId = Integer.parseInt(request.getParameter("id"));
-
-        // Tạo đối tượng DAO và lấy thông tin chi tiết của khóa học từ cơ sở dữ liệu
-        ItemDAOImpl itemDAO = new ItemDAOImpl();
-        Course course = itemDAO.getCourseById(courseId);
-
-        // Lưu thông tin chi tiết của khóa học vào session để sử dụng trong form chỉnh sửa
+        Course course = i.getCourseById(courseId);
         HttpSession session = request.getSession();
         session.setAttribute("course", course);
-
-        // Lấy danh sách các category để hiển thị trên giao diện
-        List<Category> list = itemDAO.getAll();
+        List<Category> list = i.getAll();
         session.setAttribute("categories", list);
-
-        // Lấy danh sách các lesson time để hiển thị trên giao diện
-        List<LessonTime> listLessonTimes = itemDAO.getAllLessonTimes();
+        List<LessonTime> listLessonTimes = i.getAllLessonTimes();
         session.setAttribute("lessonTimes", listLessonTimes);
-
-        // Forward to editcourse.jsp for displaying the form
         response.sendRedirect("admin/editcourse.jsp");
     }
     protected void postEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -209,8 +209,6 @@ public class HomeController extends HttpServlet {
                 imgPath = "upload/" + fileName;
             }
 
-            // Cập nhật thông tin khóa học trong cơ sở dữ liệu
-            ItemDAOImpl courseDAO = new ItemDAOImpl();
             Course courseToUpdate = new Course();
             courseToUpdate.setId(courseId);
             courseToUpdate.setName(name);
@@ -222,9 +220,9 @@ public class HomeController extends HttpServlet {
 
             if (imgPath != null) {
                 courseToUpdate.setImg(imgPath);
-                courseDAO.updateCourse(courseToUpdate);
+                i.updateCourse(courseToUpdate);
             } else {
-                courseDAO.updateCourseWithoutImg(courseToUpdate);
+                i.updateCourseWithoutImg(courseToUpdate);
             }
 
             // Redirect về trang danh sách khóa học sau khi cập nhật thành công

@@ -3,7 +3,6 @@ package controller.web;
 import DAO.impl.ItemDAOImpl;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
 import model.Category;
 import model.Course;
 import model.User;
@@ -82,6 +81,7 @@ public class FeatureController extends HttpServlet {
         // Điều hướng đến trang filter.jsp để hiển thị kết quả lọc
         request.getRequestDispatcher("allcourse.jsp").forward(request, response);
     }
+
     protected void postSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Reset lại dữ liệu tìm kiếm
         request.removeAttribute("courses");

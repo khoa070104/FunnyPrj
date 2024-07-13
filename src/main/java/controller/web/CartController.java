@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/cart", "/removecart"})
-public class CartServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/cart", "/removecart","/add-to-cart"})
+public class CartController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,6 +24,56 @@ public class CartServlet extends HttpServlet {
         } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
+    }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String url = request.getRequestURI();
+        if (url.endsWith("/add-to-cart")) {
+            postAddToCart(request, response);
+        }
+    }
+    protected void postAddToCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User user = null;
+        user = (User) session.getAttribute("user");
+        if (user == null) {
+            response.sendRedirect("login");// sửa lại url parttent cho đúng theo dự án
+        }
+        String courseId = request.getParameter("courseId");
+
+        // Retrieve cookies
+        Cookie[] cookies = request.getCookies();
+        Cookie cartCookie = null;
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("cart")) {
+                    cartCookie = cookie;
+                    break;
+                }
+            }
+        }
+
+        // Create a new cookie if it doesn't exist
+        if (cartCookie == null) {
+            cartCookie = new Cookie("cart", "");
+        }
+
+        // Append new courseId to the cart cookie value
+        String cartValue = cartCookie.getValue();
+        if (cartValue.isEmpty()) {
+            cartValue = user.getUsername() + "_" + courseId;
+        } else {
+            cartValue += "_" + user.getUsername() + "_" + courseId;
+        }
+        String[] coursesitemlist = cartValue.split("_");
+        int count = coursesitemlist.length / 2;
+        cartCookie.setValue(cartValue);
+        cartCookie.setMaxAge(60 * 60 * 24 * 30); // Cookie valid for 30 day
+        response.addCookie(cartCookie);
+        session.setAttribute("countcart", count);
+        // Redirect to home page or cart page
+        response.sendRedirect("home");// này sao k dùng getRequestDispatcher í như này nó reload trang mất
+
     }
 
     private void viewCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

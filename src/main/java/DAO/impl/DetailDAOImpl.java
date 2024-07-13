@@ -2,7 +2,7 @@ package DAO.impl;
 
 import DAO.DBConnect;
 
-import model.Course;
+import DAO.IDetail;
 import model.detail.CourseDetail;
 import model.detail.Lesson;
 
@@ -11,57 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class LessonDAOImpl extends DBConnect {
-
-    public List<Lesson> getAllLessons() {
-        List<Lesson> lessons = new ArrayList<>();
-        String sql = "SELECT * FROM tblLesson";
-
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                Lesson lesson = new Lesson();
-                lesson.setId(resultSet.getInt("id"));
-                lesson.setNameLesson(resultSet.getString("namelesson"));
-                lesson.setIdCourse(resultSet.getInt("id_course"));
-                lesson.setContent(resultSet.getString("content"));
-                lesson.setTimeLesson(resultSet.getString("time_lesson"));
-
-                lessons.add(lesson);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Handle SQLException here or throw it to caller
-        }
-
-        return lessons;
-    }
-
-    public Lesson getLessonById(int lessonId) {
-        Lesson lesson = null;
-        String sql = "SELECT * FROM tblLesson WHERE id = ?";
-
-        try (PreparedStatement statement = getConnection().prepareStatement(sql)) {
-            statement.setInt(1, lessonId);
-            ResultSet resultSet = statement.executeQuery();
-
-            if (resultSet.next()) {
-                lesson = new Lesson();
-                lesson.setId(resultSet.getInt("id"));
-                lesson.setNameLesson(resultSet.getString("namelesson"));
-                lesson.setIdCourse(resultSet.getInt("id_course"));
-                lesson.setContent(resultSet.getString("content"));
-                lesson.setTimeLesson(resultSet.getString("time_lesson"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Handle SQLException here or throw it to caller
-        }
-
-        return lesson;
-    }
-
+public class DetailDAOImpl extends DBConnect implements IDetail {
 
 
     public List<Lesson> getLessonsByCourseId(int courseId) {
@@ -213,7 +163,7 @@ public class LessonDAOImpl extends DBConnect {
     }
 
     public static void main(String[] args) {
-        LessonDAOImpl d = new LessonDAOImpl();
+        DetailDAOImpl d = new DetailDAOImpl();
         //List<Lesson> lessons = d.getLessonsByCourseId(16);
 //        for (Lesson lesson : lessons) {
 //            System.out.println(lesson);

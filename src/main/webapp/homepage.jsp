@@ -118,7 +118,7 @@
                                 <% if (cartIds.contains(String.valueOf(course.getId()))) { %>
                                 <button type="button" class="btn btn-secondary" disabled>Đã thêm vào giỏ</button>
                                 <% } else { %>
-                                <form action="AddToCartServlet" method="post">
+                                <form action="add-to-cart" method="post">
                                     <input type="hidden" name="courseId" value="<%= course.getId() %>">
                                     <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
                                 </form>

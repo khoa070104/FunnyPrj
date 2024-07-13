@@ -449,23 +449,22 @@
                 <form action="CreateCourse" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input class="form-control" id="name" name="name" rows="3" required></input>
+                        <input class="form-control" id="name" name="name" required>
                     </div>
 
                     <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="number" class="form-control" id="price" name="price" rows="3" required>
+                        <input type="text" class="form-control" id="price" name="price" required>
                     </div>
-
 
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <input class="form-control" id="description" name="description" rows="5" required></input>
+                        <input class="form-control" id="description" name="description" required>
                     </div>
+
                     <div class="form-group">
                         <label for="typeCourse">Type Course</label>
                         <select class="form-control" id="typeCourse" name="typeCourse" required>
-<%--                             thể loại kiểu boolean--%>
                             <option value="1">Zoom</option>
                             <option value="0">Record</option>
                         </select>
@@ -492,9 +491,10 @@
 
                     <img id="img-preview" src="#" alt="Image preview" style="display: none; max-width: 200px; max-height: 200px;" />
 
-
                     <button type="submit" class="btn btn-primary">Create Course</button>
                 </form>
+
+
             </div>
         </div>
     </div>
