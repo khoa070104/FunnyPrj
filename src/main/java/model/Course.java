@@ -26,6 +26,7 @@ public class Course {
     public Course(String name, Integer rate, Double price, String timeCourse, String description,
                   String createdDate, String updatedDate, String createdBy, String updatedBy,
                   int idCategory, Boolean typeCourse, String idLessonTime, Integer totalLesson, String img) {
+
         this.name = name;
         this.rate = rate;
         this.price = price;
