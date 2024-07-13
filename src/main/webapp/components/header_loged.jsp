@@ -91,9 +91,10 @@
             </a>
 
             <!-- Giỏ hàng Link -->
-            <a href="cart.html">
+            <a href="cart">
                 <div class="header_bar-cart-icon">
                     <img src="icon/cart.svg" alt="Giỏ hàng">
+                    <p>${sessionScope.countcart}</p>
                 </div>
             </a>
 

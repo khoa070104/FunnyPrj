@@ -8,13 +8,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.stream.Collectors" %>
+<%@ page import="jakarta.servlet.http.Cookie" %>
 <%@ page import="model.Course" %>
 <%@ page import="DAO.impl.ItemDAOImpl" %>
-
 <%
     ItemDAOImpl itemDAO = new ItemDAOImpl();
     List<Course> courses = itemDAO.getTop10CoursesByDate();
     request.setAttribute("courses", courses);
+    // Lấy danh sách ID sản phẩm từ cookie
+    Cookie[] cookies = request.getCookies();
+    List<String> cartIds = Arrays.stream(cookies)
+            .filter(cookie -> cookie.getName().equals("cart"))
+            .map(cookie -> cookie.getValue())
+            .flatMap(value -> Arrays.stream(value.split(",")))
+            .collect(Collectors.toList());
 %>
 
 <!DOCTYPE html>
@@ -96,12 +105,25 @@
                                         <span class="text-dark text-12px text-muted ms-2">(5 Đánh giá)</span>
                                     </div>
                                 </div>
+
+
                                 <div class="row">
                                     <div class="course-meta">
                                         <span><%= course.getTimeCourse() %> Giờ</span>
                                         <span><%= course.getTotalLesson() %> Lectures</span>
                                     </div>
                                 </div>
+
+                                <!-- Add to Cart Button -->
+                                <% if (cartIds.contains(String.valueOf(course.getId()))) { %>
+                                <button type="button" class="btn btn-secondary" disabled>Đã thêm vào giỏ</button>
+                                <% } else { %>
+                                <form action="AddToCartServlet" method="post">
+                                    <input type="hidden" name="courseId" value="<%= course.getId() %>">
+                                    <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+                                </form>
+                                <% } %>
+
                             </div>
                         </div>
                     </div>
