@@ -290,7 +290,7 @@
                             <li>
                                 <div class="course-box-2">
                                     <div class="course-image">
-                                        <a href="#">
+                                        <a href="FilterCourseDetail?id=${course.id}">
                                             <img src="${course.img}" alt="" class="img-fluid">
                                         </a>
                                     </div>
