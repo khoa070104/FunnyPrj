@@ -56,7 +56,7 @@ public class FeatureController extends HttpServlet {
         request.setAttribute("lessons", lessons);
 
         // Forward to JSP to render course details
-        request.getRequestDispatcher("course_detail.jsp").forward(request,response);
+        request.getRequestDispatcher("edit_course_detail.jsp").forward(request,response);
     }
     protected void postCreateLesson(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String courseID_raw = request.getParameter("courseId");
