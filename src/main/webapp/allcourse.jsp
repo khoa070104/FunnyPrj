@@ -25,7 +25,9 @@
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage_after.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
+
 
     <!-- Thêm thư viện jQuery và jQuery UI -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -33,13 +35,13 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
     <script type="text/javascript">
-    function change(){
-        document.getElementById(Filter).submit();
-    }
+        function change(){
+            document.getElementById(Filter).submit();
+        }
     </script>
 </head>
 <body onload="checkCategoryAll()">
-<jsp:include page="components/header_loged.jsp"/>
+<jsp:include page="./components/header_loged.jsp"/>
 <section class="category-header-area"
          style="background-image: url('${pageContext.request.contextPath}/icon/course_page_banner.png'); background-size: cover; background-position: right;">
     <div class="image-placeholder-3"></div>
@@ -82,24 +84,24 @@
                                             <div class="text-15px fw-700 d-flex">
                                                 <input type="radio" id="category_all" name="id_category"
                                                        class="categories custom-radio" value="0" onclick="filter(this)"
-                                                       >
+                                                >
                                                 <label for="category_all">Tất cả danh mục</label>
                                                 <div class="ms-auto">(<%= totalCount %>)</div>
                                             </div>
                                         </li>
                                         <%int index = 1;%>
-                                <c:forEach items="${sessionScope.categories}" var="c">
+                                        <c:forEach items="${sessionScope.categories}" var="c">
 
-                                    <li class="ms-3">
-                                        <div class="d-flex">
-                                            <input type="radio" name="id_category" id="id_cate" class="categories custom-radio" value="${c.id}" ${cid==c.id ? 'checked' : ''} onclick="filter(this)">
-                                            <label for="sub_category-${c.id}">Kì ${c.id}</label>
-                                            <div  class="ms-auto">(<%= i.countCoursesByCategory(index++)%>)</div>
-                                        </div>
-                                    </li>
-                                </c:forEach>
+                                            <li class="ms-3">
+                                                <div class="d-flex">
+                                                    <input type="radio" name="id_category" id="id_cate" class="categories custom-radio" value="${c.id}" ${cid==c.id ? 'checked' : ''} onclick="filter(this)">
+                                                    <label for="sub_category-${c.id}">Kì ${c.id}</label>
+                                                    <div  class="ms-auto">(<%= i.countCoursesByCategory(index++)%>)</div>
+                                                </div>
+                                            </li>
+                                        </c:forEach>
 
-                                <!-- Other categories here -->
+                                        <!-- Other categories here -->
                                     </ul>
 
                                     <a href="javascript:;" class="text-13px fw-500" id="city-toggle-btn"
@@ -212,6 +214,10 @@
                                         <div class="rating-number">
                                             1 Xếp hạng
                                         </div>
+                                        <span style="cursor: pointer"
+                                              class="badge badge-primary">
+                                          Thêm vào giỏ hàng
+                                    </span>
                                     </div>
                                 </div>
                             </li>
@@ -228,11 +234,11 @@
                     </ul>
                 </nav>
             </div>
-    </ul>
+        </ul>
     </ul>
 </section>
 
-<jsp:include page="components/footer.jsp"/>
+<jsp:include page="./components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 
 <script>

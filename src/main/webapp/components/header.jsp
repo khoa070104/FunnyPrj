@@ -11,7 +11,7 @@
     <title>Header</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/homepage_after.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 </head>
 <body>
 <div class="cover">
@@ -21,7 +21,7 @@
                 <img src="icon/phone.svg" alt="">
             </div>
             <div class="phone_header-info">
-                <p>0333333333</p>
+                0333333333
             </div>
             <div class="mail_header">
                 <div class="mail_header-logo">

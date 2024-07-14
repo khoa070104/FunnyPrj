@@ -33,13 +33,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage_after.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
-<jsp:include page="components/header_loged.jsp"/>
+<jsp:include page="./components/header.jsp"/>
 <div class="home-banner-area py-5" id="home-banner-area">
     <div class="container-lg">
         <div class="d-flex ">
@@ -171,7 +171,7 @@
     </div>
 </div>
 </div>
-<jsp:include page="components/footer.jsp"/>
+<jsp:include page="./components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 </body>
 

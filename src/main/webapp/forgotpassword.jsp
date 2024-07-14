@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <jsp:include page="components/header.jsp"/>
+    <jsp:include page="./components/header.jsp"/>
     <div class="container body_container">
         <div class="row body_singup_all">
             <div class="col-md-12 body_signin">
@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-<jsp:include page="components/footer.jsp"/>
+<jsp:include page="./components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 </body>
 

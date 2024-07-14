@@ -1,0 +1,29 @@
+/* Root Variables */
+:root {
+    --primary-color: #00a7c1;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* Base Styles */
+body {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-family: var(--bs-font-sans-serif);
+}
+
+/* Layout Containers */
+.cover {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.course-detail {
+    display: none;
+}
+

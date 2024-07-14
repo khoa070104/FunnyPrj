@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Đăng kí</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage.css">
     <script>
         function validatePassword() {
             var password = document.getElementById("pa").value;
@@ -23,7 +22,7 @@
     </script>
 </head>
 <body>
-<jsp:include page="components/header.jsp"/>
+<jsp:include page="./components/header.jsp"/>
 <div class="container">
     <div class="row">
         <div class="col-md-12 body_signup">
@@ -91,7 +90,7 @@
     </div>
 </div>
 
-<jsp:include page="components/footer.jsp"/>
+<jsp:include page="./components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 </body>
 </html>
