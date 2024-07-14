@@ -26,7 +26,7 @@ public class ProcessVNPayPaymentServlet extends HttpServlet {
         String vnp_Version = "2.1.0";
         String vnp_Command = "pay";
         String orderType = "other";
-        long amount = Long.parseLong(req.getParameter("amount")) * 100; // tiền ở đây
+        long amount = (long) (Double.parseDouble(req.getParameter("amount")) * 100); // tiền ở đây của t
         String bankCode = req.getParameter("bankCode");
         String vnp_TxnRef = Config.getRandomNumber(8);
         String vnp_IpAddr = Config.getIpAddress(req);
@@ -49,7 +49,7 @@ public class ProcessVNPayPaymentServlet extends HttpServlet {
 
         // Collecting multiple products
         // List<Product> products = new ArrayList<>();
-        
+
         // int index = 0;
         // while (true) {
         //     String idProduct = req.getParameter("idproduct" + index);
@@ -123,6 +123,7 @@ public class ProcessVNPayPaymentServlet extends HttpServlet {
         String vnp_SecureHash = Config.hmacSHA512(Config.secretKey, hashData.toString());
         queryUrl += "&vnp_SecureHash=" + vnp_SecureHash;
         String paymentUrl = Config.vnp_PayUrl + "?" + queryUrl;
+        System.out.println(paymentUrl);
         resp.sendRedirect(paymentUrl);
     }
 }

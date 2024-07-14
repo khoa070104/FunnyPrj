@@ -136,7 +136,7 @@
         <nav class="col-auto" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item display-6 fw-bold">
-                    <a href="home.jsp">
+                    <a href="home">
                         Trang chủ
                     </a>
                 </li>
@@ -214,7 +214,12 @@
                             </button>
                         </div>
                     </div>
-                    <button type="button" class="btn red w-100 mb-3" onclick="handleCheckOut()">Thanh toán</button>
+                    <!-- Form thanh toán -->
+                    <form action="processVNPAYPayment" method="post">
+                        <input type="hidden" name="amount" value="${totalPrice}">
+                        <!-- Bạn có thể thêm các trường ẩn khác nếu cần -->
+                        <button type="submit" class="btn red w-100 mb-3">Thanh toán</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -296,6 +301,6 @@
         // Logic to handle checkout process
     }
 </script>
-
+<script src="js/hompage.js"></script>
 </body>
 </html>
