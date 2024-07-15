@@ -1,7 +1,7 @@
 package service.Impl;
 
-import DAO.IDetail;
-import DAO.impl.DetailDAOImpl;
+import DAO.IDetailDao;
+import DAO.impl.DetailDaoImpl;
 import model.detail.CourseDetail;
 import model.detail.Lesson;
 import service.IDetailService;
@@ -9,7 +9,7 @@ import service.IDetailService;
 import java.util.List;
 
 public class DetailServiceImpl implements IDetailService {
-    IDetail i = new DetailDAOImpl();
+    IDetailDao i = new DetailDaoImpl();
     @Override
     public List<Lesson> getLessonsByCourseId(int courseId) {
         return i.getLessonsByCourseId(courseId);

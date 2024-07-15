@@ -27,6 +27,8 @@ public class UserController extends HttpServlet {
 
         if(url.contains("profile")){
             getProfile(request,response);
+        } else if(url.contains("LoginGoogle")){
+            getLoginWithGoogle(request,response);
         }
     }
 

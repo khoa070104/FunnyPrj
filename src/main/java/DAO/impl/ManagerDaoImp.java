@@ -1,6 +1,7 @@
 package DAO.impl;
 
 import DAO.DBConnect;
+import DAO.IManagerDao;
 import model.User;
 
 import java.sql.PreparedStatement;
@@ -9,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditUserDAOImpl extends DBConnect {
+public class ManagerDaoImp extends DBConnect implements IManagerDao {
 
     public List<User> getAllUsers() {
         List<User> userList = new ArrayList<>();
@@ -70,7 +71,7 @@ public class EditUserDAOImpl extends DBConnect {
     }
 
     public boolean createUser(User user) {
-        EditUserDAOImpl editUserDAO = new EditUserDAOImpl();
+        ManagerDaoImp editUserDAO = new ManagerDaoImp();
         if (editUserDAO.checkExistEmail(user.getEmail()))
             return false;
         if (editUserDAO.checkExistUsername(user.getUsername())) {

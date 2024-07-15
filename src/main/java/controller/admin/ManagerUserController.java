@@ -1,17 +1,22 @@
 package controller.admin;
 
-import DAO.impl.EditUserDAOImpl;
+import DAO.impl.ManagerDaoImp;
 import DAO.impl.UserDaoImpl;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import model.User;
+import service.IManagerService;
+import service.IUserService;
+import service.Impl.ManagerService;
+import service.Impl.UserServiceImpl;
 
 import java.io.IOException;
 import java.util.List;
 
 @WebServlet(urlPatterns = {"/list-user","/edit-user","/delete-user","/create-user"})
 public class ManagerUserController extends HttpServlet {
+    IManagerService i = new ManagerService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = request.getRequestURI().toString();
@@ -29,12 +34,14 @@ public class ManagerUserController extends HttpServlet {
             postEditUser(request,response);
         } else if(url.contains("delete-user")){
             postDeleteUser(request,response);
+        } else if(url.contains("create-user")){
+            postCreateUser(request,response);
         }
     }
     protected void getUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        EditUserDAOImpl editUserDAO = new EditUserDAOImpl();
-        List<User> userList = editUserDAO.getAllUsers();
+
+        List<User> userList = i.getAllUsers();
 
         // Set attribute in request scope to be accessed in JSP
         request.setAttribute("userList", userList);
@@ -53,10 +60,8 @@ public class ManagerUserController extends HttpServlet {
 
         // Chuyển ID sang kiểu int
         int id = Integer.parseInt(idStr);
-
-        // Gọi DAO để lấy thông tin người dùng từ ID
-        UserDaoImpl userDao = new UserDaoImpl();
-        User user = userDao.findOne(id);
+        IUserService u = new UserServiceImpl();
+        User user = u.findOne(id);
 
         if (user == null) {
             // Xử lý nếu không tìm thấy người dùng
@@ -95,9 +100,7 @@ public class ManagerUserController extends HttpServlet {
         user.setStatus(status);
         user.setCode(code);
 
-        // Gọi DAO để cập nhật thông tin người dùng
-        EditUserDAOImpl userDao = new EditUserDAOImpl();
-        boolean success = userDao.updateUser(user);
+        boolean success = i.updateUser(user);
 
         if (success) {
             // Chuyển hướng đến trang danh sách người dùng
@@ -108,12 +111,12 @@ public class ManagerUserController extends HttpServlet {
         }
     }
     protected void postDeleteUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EditUserDAOImpl userDao = new EditUserDAOImpl();
+
         // Lấy userId từ request
         int userId = Integer.parseInt(request.getParameter("id"));
 
         // Gọi phương thức xóa người dùng từ DAO
-        boolean deleted = userDao.deleteUser(userId);
+        boolean deleted = i.deleteUser(userId);
 
         if (deleted) {
             // Nếu xóa thành công, có thể thực hiện các hành động khác (ví dụ: redirect đến trang danh sách người dùng)
@@ -135,9 +138,7 @@ public class ManagerUserController extends HttpServlet {
         String code = request.getParameter("code");
 
         User user = new User(username, email, fullName, password, avatar, phone, role, status, code);
-
-        EditUserDAOImpl userDAO = new EditUserDAOImpl();
-        userDAO.createUser(user);
+        i.createUser(user);
 
         response.sendRedirect("list-user"); // Redirect to the user list page
     }

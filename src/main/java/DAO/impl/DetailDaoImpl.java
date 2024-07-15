@@ -2,7 +2,7 @@ package DAO.impl;
 
 import DAO.DBConnect;
 
-import DAO.IDetail;
+import DAO.IDetailDao;
 import model.detail.CourseDetail;
 import model.detail.Lesson;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class DetailDAOImpl extends DBConnect implements IDetail {
+public class DetailDaoImpl extends DBConnect implements IDetailDao {
 
 
     public List<Lesson> getLessonsByCourseId(int courseId) {
@@ -106,10 +106,7 @@ public class DetailDAOImpl extends DBConnect implements IDetail {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle or rethrow SQLException as appropriate for your application
         }
-
-        // If no results were found, try the second SQL query
         if (!hasResults) {
             try (PreparedStatement statement = connection.prepareStatement(sql2)) {
                 statement.setInt(1, id);
@@ -201,7 +198,7 @@ public class DetailDAOImpl extends DBConnect implements IDetail {
     }
 
     public static void main(String[] args) {
-        DetailDAOImpl d = new DetailDAOImpl();
+        DetailDaoImpl d = new DetailDaoImpl();
         //List<Lesson> lessons = d.getLessonsByCourseId(16);
 //        for (Lesson lesson : lessons) {
 //            System.out.println(lesson);
@@ -209,5 +206,6 @@ public class DetailDAOImpl extends DBConnect implements IDetail {
         CourseDetail c = d.getCourseById(5);
         System.out.println(c);
     }
+
 }
 

@@ -104,7 +104,7 @@
         <h2>Create New Post</h2>
         <form id="createPostForm" action="CreatePost" method="post">
             <!-- Hidden input to store idUser -->
-            <input type="hidden" id="idUser" name="idUser" value="${user.id}">
+            <input type="hidden" id="idUser" name="idUser" value="${sessionScope.user.id}">
 
             <label for="title">Title:</label><br>
             <input type="text" id="title" name="title" required><br><br>
@@ -124,15 +124,15 @@
         <h2>Edit Post</h2>
         <form id="editPostForm" action="EditPost" method="post">
             <!-- Hidden input to store idUser -->
-            <input type="hidden" id="editIdUser" name="idUser" value="${user.id}">
+            <input type="hidden" id="editIdUser" name="idUser" value="${sessionScope.user.id}">
 
-            <input type="hidden" id="editPostId" name="id" value="${post.id}"><br><br>
+            <input type="hidden" id="editPostId" name="id" value="${sessionScope.post.id}"><br><br>
 
             <label for="editTitle">Title:</label><br>
-            <input type="text" id="editTitle" name="title" value="${post.title}" required><br><br>
+            <input type="text" id="editTitle" name="title" value="${sessionScope.post.title}" required><br><br>
 
             <label for="editContent">Content:</label><br>
-            <textarea id="editContent" name="content" rows="4" cols="50" required>${post.content}</textarea><br><br>
+            <textarea id="editContent" name="content" rows="4" cols="50" required>${sessionScope.post.content}</textarea><br><br>
 
             <button type="submit">Edit Post</button>
         </form>

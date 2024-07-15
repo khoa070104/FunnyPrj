@@ -165,7 +165,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <form id="editCommentForm${comment.id}" action="updateComment" method="post">
-                                        <input type="hidden" name="postId" value="${comment.id}">
+                                        <input type="hidden" name="postId" value="${post.id}">
                                         <input type="hidden" name="commentId" value="${comment.id}">
                                         <div class="form-group">
                                             <label for="message${comment.id}">Message</label>
