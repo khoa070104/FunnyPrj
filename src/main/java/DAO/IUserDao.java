@@ -18,4 +18,5 @@ public interface IUserDao {
     boolean checkExistEmail(String email); // hàm này kiểm tra email đã tồn tại chưa
     boolean checkExistUsername(String username); // hàm này kiểm tra username đã tồn tại chưa
     public void updateAvatar(User user);
+    public User checkEmail(String email);
 }

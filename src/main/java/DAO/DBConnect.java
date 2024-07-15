@@ -16,7 +16,6 @@ public class DBConnect {
                 return;
             }
 
-            // Load the properties file
             properties.load(input);
 
             String url = properties.getProperty("db.url");
@@ -32,12 +31,6 @@ public class DBConnect {
             if (connection != null) {
                 System.out.println("Connection established successfully.");
             }
-//        } catch (ClassNotFoundException e) {
-//            System.err.println("SQL Server JDBC Driver not found.");
-//            e.printStackTrace();
-//        } catch (SQLException e) {
-//            System.err.println("Connection failed. Check the output console.");
-//            e.printStackTrace();
         } catch (Exception e) {
             System.err.println("An error occurred.");
             e.printStackTrace();

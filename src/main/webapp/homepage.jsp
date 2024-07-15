@@ -22,7 +22,7 @@
     List<String> cartIds = Arrays.stream(cookies)
             .filter(cookie -> cookie.getName().equals("cart"))
             .map(cookie -> cookie.getValue())
-            .flatMap(value -> Arrays.stream(value.split(",")))
+            .flatMap(value -> Arrays.stream(value.split("_")))
             .collect(Collectors.toList());
 %>
 
