@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <title>LAB211 - OOP with Java Lab</title>
+    <title>${course.name}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, minimum-scale=0.86">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">

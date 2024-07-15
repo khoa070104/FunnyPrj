@@ -14,6 +14,7 @@ public interface IUserService {
     void updatestatus(User user); //hàm này dùng active tài khoản
     void delete(int id); // hàm này xóa 1 đối tượng User
     boolean register(String email, String password, String username, String fullname, String code, String pic);
+    boolean register(String email, String password, String username, String fullname, String code, String pic, int status);
     User login(String email, String password);
     User checkEmail(String email);
     User checkUsername(String username);

@@ -90,4 +90,15 @@ public class UserServiceImpl implements IUserService {
         User user = new UserServiceImpl().login("Mamgh789@gmail.com", "1");
         System.out.println(user);
     }
+
+    @Override
+    public boolean register(String email, String password, String username, String fullname, String code, String pic, int status) {
+        if (userDao.checkExistEmail(email))
+            return false;
+        if (userDao.checkExistUsername(username)) {
+            return false;
+        } //(String username, String email, String fullName, String password, String avatar, String phone, int role, int status,  String code)
+        userDao.insertregister(new User(username, email, fullname, password, pic, "NULL", 2,status,code));
+        return true;
+    }
 }

@@ -3,11 +3,11 @@ package model.google;
 
 public class Constants {
 
-    public static String GOOGLE_CLIENT_ID = "5244155433-lmsuq4cp6f7grgj4ppisneaf32ak2rf0.apps.googleusercontent.com";
+    public static String GOOGLE_CLIENT_ID = "957561951017-38543te6feepe3geb5sh6ae2jpgsksi4.apps.googleusercontent.com";
 
-    public static String GOOGLE_CLIENT_SECRET = "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";
+    public static String GOOGLE_CLIENT_SECRET = "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";
 
-    public static String GOOGLE_REDIRECT_URI = "http://localhost:8888/FunnyCodeWeb/LoginGoogle";
+    public static String GOOGLE_REDIRECT_URI = "http://localhost:8080/FunnyCodeWeb/LoginGoogle";
 
     public static String GOOGLE_LINK_GET_TOKEN = "https://accounts.google.com/o/oauth2/token";
 

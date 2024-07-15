@@ -1,6 +1,5 @@
 package controller.admin;
 
-import DAO.impl.DetailDAOImpl;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -12,7 +11,7 @@ import service.Impl.DetailServiceImpl;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/CourseDetail", "/CreateLesson", "/DeleteLesson","/EditLesson","/FilterCourseDetail"})
+@WebServlet(urlPatterns = {"/CourseDetail", "/CreateLesson", "/DeleteLesson","/EditLesson","/edit-detail-course"})
 public class FeatureController extends HttpServlet {
     IDetailService i = new DetailServiceImpl();
     @Override
@@ -25,7 +24,7 @@ public class FeatureController extends HttpServlet {
             request.getRequestDispatcher("FilterCourseDetail.jsp").forward(request, response);
         }else if(url.contains("EditLesson")){
             getEdit(request,response);
-        } else if(url.contains("FilterCourseDetail")){
+        } else if(url.contains("edit-detail-course")){
             getCourseDetail(request,response);
         }
     }

@@ -63,7 +63,7 @@
                     </div>
                 </form>
                 <div class="body_form-input-google">
-                    <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8888/FunnyCodeWeb/LoginGoogle&response_type=code&client_id=5244155433-lmsuq4cp6f7grgj4ppisneaf32ak2rf0.apps.googleusercontent.com&approval_prompt=force">
+                    <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/FunnyCodeWeb/LoginGoogle&response_type=code&client_id=957561951017-38543te6feepe3geb5sh6ae2jpgsksi4.apps.googleusercontent.com&approval_prompt=force">
                         <img src="${pageContext.request.contextPath}/icon/google_logo.png" alt="Google Logo" style="width:20px; height:20px; margin-right:10px;">
                         Login With Google
                     </a>

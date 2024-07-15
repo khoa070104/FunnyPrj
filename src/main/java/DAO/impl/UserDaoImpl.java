@@ -93,6 +93,7 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
         }
     }
 
+
     @Override
     public void update(User user) {
         String sql ="UPDATE tblUsers SET password=? WHERE email = ?";
