@@ -12,11 +12,19 @@
 <%@ page import="java.util.stream.Collectors" %>
 <%@ page import="jakarta.servlet.http.Cookie" %>
 <%@ page import="model.Course" %>
+<%@ page import="model.User" %>
 <%@ page import="DAO.impl.ItemDAOImpl" %>
 <%
     ItemDAOImpl itemDAO = new ItemDAOImpl();
     List<Course> courses = itemDAO.getTop10CoursesByDate();
     request.setAttribute("courses", courses);
+
+    // Lấy thông tin người dùng hiện tại từ session
+    User currentUser = (User) session.getAttribute("user");
+    String username = null;
+    if (currentUser != null) {
+        username = currentUser.getUsername();
+    }
     // Lấy danh sách ID sản phẩm từ cookie
     Cookie[] cookies = request.getCookies();
     List<String> cartIds = Arrays.stream(cookies)
@@ -33,9 +41,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage_after.css">
 </head>
 
 <body>
@@ -53,7 +62,7 @@
 
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 order-md-2 order-sm-2 order-1 pt-0 pt-md-5 ">
-                    <div id="tilt">
+                    <div id="tilte">
                         <img src="${pageContext.request.contextPath}/icon/homebanner.png" alt="">
                     </div>
                 </div>
@@ -115,7 +124,7 @@
                                 </div>
 
                                 <!-- Add to Cart Button -->
-                                <% if (cartIds.contains(String.valueOf(course.getId()))) { %>
+                                <% if (cartIds.contains(String.valueOf(course.getId())) && currentUser != null ) { %>
                                 <button type="button" class="btn btn-secondary" disabled>Đã thêm vào giỏ</button>
                                 <% } else { %>
                                 <form action="add-to-cart" method="post">

@@ -48,7 +48,7 @@
 </head>
 
 <body class="white-bg">
-<jsp:include page="./components/header_loged.jsp"/>
+<jsp:include page="./components/header.jsp"/>
 <!-- Banner -->
 <section class="course-header-area" style="background-image: url('https://4user.net/uploads/system/course_page_banner.png'); background-size: cover; background-position: right;">
     <div class="container">

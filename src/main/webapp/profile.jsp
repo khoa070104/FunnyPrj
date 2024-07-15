@@ -12,6 +12,7 @@
     <title>Hồ Sơ Người Dùng</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage_after.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/profile.css">
     <style>
         .default_input {
@@ -22,7 +23,7 @@
 
 
 <body class="white-bg">
-<jsp:include page="./components/header_loged.jsp"/>
+<jsp:include page="components/header.jsp"/>
 <section class="user-dashboard-area pt-3">
     <div class="container">
         <div class="row">
@@ -64,7 +65,7 @@
     </div>
 </section>
 
-<jsp:include page="./components/footer.jsp"/>
+<jsp:include page="components/footer.jsp"/>
 
 <script src="js/hompage.js"></script>
 

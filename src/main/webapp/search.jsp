@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<jsp:include page="./components/header_loged.jsp"/>
+<jsp:include page="./components/header.jsp"/>
 
 <div class="container my-4">
     <!-- Display search results -->

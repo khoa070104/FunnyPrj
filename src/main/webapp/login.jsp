@@ -53,13 +53,13 @@
                     </div>
                     <input type="checkbox" name="remember" value="on"> Remember Password
                     <div class="body_form-input-forget">
-                        <a href="forget.html">Quên mật khẩu?</a>
+                        <a href="forgotpass">Quên mật khẩu?</a>
                     </div>
                     <div class="body_form-input-submit">
                         <input type="submit" value="Đăng nhập">
                     </div>
                     <div class="body_form-input-signin">
-                        <p>Chưa có tài khoản, <a href="signin.html">Đăng kí.</a></p>
+                        <p>Chưa có tài khoản, <a href="register">Đăng kí.</a></p>
                     </div>
                 </form>
                 <div class="body_form-input-google">

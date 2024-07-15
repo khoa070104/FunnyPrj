@@ -17,14 +17,14 @@
 </head>
 
 <body class="white-bg">
-<jsp:include page="./components/header_loged.jsp"/>
+<jsp:include page="./components/header.jsp"/>
 <section class="category-header-area" style="background-image: url('https://4user.net/uploads/system/shopping_cart.png');
     background-size: cover;
     background-repeat: no-repeat;">
     <div class="image-placeholder-1"></div>
     <div class="container-lg breadcrumb-container row align-items-center">
         <nav class="col-auto" aria-label="breadcrumb">
-            <ol class="breadcrumb">
+            <ol class="breadcrumb" style="background-image: url('https://4user.net/uploads/system/shopping_cart.png')">
                 <li class="breadcrumb-item display-6 fw-bold">
                     <a href="home">
                         Trang chủ
@@ -35,7 +35,7 @@
                 </li>
             </ol>
         </nav>
-        <div class="col-3 ms-auto d-none d-sm-inline-block">
+        <div class="col-auto ms-auto d-none d-sm-inline-block">
             <div class="book-img">
                 <img src="./icon/brd-book.png">
             </div>
