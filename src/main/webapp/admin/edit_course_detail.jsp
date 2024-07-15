@@ -48,7 +48,7 @@
 </head>
 
 <body class="white-bg">
-<jsp:include page="./components/header_loged.jsp"/>
+<jsp:include page="../components/header_loged.jsp"/>
 <!-- Banner -->
 <section class="course-header-area" style="background-image: url('https://4user.net/uploads/system/course_page_banner.png'); background-size: cover; background-position: right;">
     <div class="container">
@@ -226,7 +226,7 @@
                                 <div class="course-box">
                                     <div class="course-image">
                                         <p>₫500,000</p>
-                                        <img src="icon/Logo.png" alt="">
+                                        <img src="../icon/Logo.png" alt="">
                                     </div>
                                     <div class="course-details">
                                         <div>
@@ -251,7 +251,7 @@
                                         </div>
                                         <div class="row">
                                             <div>
-                                                <img src="icon/Logo.png" alt="" width="70">
+                                                <img src="../icon/Logo.png" alt="" width="70">
                                             </div>
                                             <div>
                                                 <button class="btn-compare-sm">Compare</button>
@@ -282,10 +282,10 @@
         </div>
         <div class="footer-lienket-info">
             <ul>
-                <li><a href="facebook.com"><img src="icon/facebook.svg" alt=""></a></li>
-                <li><a href="instagram.com"><img src="icon/instagram.svg" alt=""></a></li>
-                <li><a href="twitter.com"><img src="icon/twitter.svg" alt=""></a></li>
-                <li><a href="youtube.com"><img src="icon/youtube.svg" alt=""></a></li>
+                <li><a href="facebook.com"><img src="../icon/facebook.svg" alt=""></a></li>
+                <li><a href="instagram.com"><img src="../icon/instagram.svg" alt=""></a></li>
+                <li><a href="twitter.com"><img src="../icon/twitter.svg" alt=""></a></li>
+                <li><a href="youtube.com"><img src="../icon/youtube.svg" alt=""></a></li>
             </ul>
         </div>
     </div>
@@ -371,11 +371,11 @@
         </form>
     </div>
 </div>
-<jsp:include page="./components/footer.jsp"/>
+<jsp:include page="../components/footer.jsp"/>
 
 
 
-<script src="js/hompage.js"></script>
+<script src="../js/hompage.js"></script>
 
 
 <script>
