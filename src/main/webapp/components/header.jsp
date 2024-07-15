@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 </head>
 <body>
-<div class="cover">
+<div class="cover" style="width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;">
     <div class="header_info">
         <div class="phone_header">
             <div class="phone_header-logo">
@@ -52,10 +54,10 @@
                     Danh Mục
                 </i>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
-                    <a href="mycourses.html" class="dropdown-item" href="#">
+                    <a href="allcourse.jsp" class="dropdown-item" href="#">
                         <i class="fas fa-book mr-2"></i> Khóa học
                     </a>
-                    <a href="cart.html" class="dropdown-item" href="#">
+                    <a href="cart.jsp" class="dropdown-item" href="#">
                         <i class="fas fa-store mr-2"></i> Cửa hàng
                     </a>
                 </div>
@@ -71,7 +73,7 @@
         </div>
         <div class="header_bar-cartsign">
             <div class="header_bar-cart">
-                <a href="cart.html">
+                <a href="cart.jsp">
                     <div class="header_bar-cart-icon">
                         <img src="icon/cart.svg" alt="">
                     </div>
