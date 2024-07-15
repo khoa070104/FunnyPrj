@@ -38,7 +38,7 @@
                         <input type="submit" value="Gửi yêu cầu">
                     </div>
                     <div class="body_form-input-signin">
-                        <p>Muốn quay lại? <a href="signin.html">Đăng nhập.</a></p>
+                        <p>Muốn quay lại? <a href="login.jsp">Đăng nhập.</a></p>
                     </div>
                 </form>
             </div>

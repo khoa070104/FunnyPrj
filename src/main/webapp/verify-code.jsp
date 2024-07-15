@@ -32,7 +32,7 @@
                 </div>
                 <button type="submit" class="continue-button">Tiếp tục</button>
                 <div class="body_form-input-signin">
-                    <p>Bạn muốn quay lại? <a href="signin.html">Đăng Nhập</a></p>
+                    <p>Bạn muốn quay lại? <a href="login.jsp">Đăng Nhập</a></p>
                 </div>
             </form>
         </div>

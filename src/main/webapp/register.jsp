@@ -83,7 +83,7 @@
                     <input type="submit" value="Đăng Ký">
                 </div>
                 <div class="body_form-input-signin">
-                    <p>Bạn đã có tài khoản ? <a href="signin.html">Đăng Nhập</a></p>
+                    <p>Bạn đã có tài khoản ? <a href="login.jsp">Đăng Nhập</a></p>
                 </div>
             </form>
         </div>

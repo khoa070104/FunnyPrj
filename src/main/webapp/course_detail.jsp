@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, minimum-scale=0.86">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
-    <<link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/coursedetail.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>

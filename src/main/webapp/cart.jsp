@@ -17,21 +17,21 @@
 </head>
 
 <body class="white-bg">
-<jsp:include page="./components/header_loged.jsp"/>
+<jsp:include page="./components/header.jsp"/>
 <section class="category-header-area" style="background-image: url('https://4user.net/uploads/system/shopping_cart.png');
     background-size: cover;
     background-repeat: no-repeat;">
     <div class="image-placeholder-1"></div>
     <div class="container-lg breadcrumb-container row align-items-center">
         <nav class="col-auto" aria-label="breadcrumb">
-            <ol class="breadcrumb">
+            <ol class="breadcrumb" style="background-color: transparent">
                 <li class="breadcrumb-item display-6 fw-bold">
-                    <a href="home.jsp">
+                    <a href="homepage.jsp">
                         Trang chủ
                     </a>
                 </li>
                 <li class="breadcrumb-item active text-light display-6 fw-bold">
-                    Giỏ hàng
+                        Giỏ hàng
                 </li>
             </ol>
         </nav>
@@ -112,7 +112,7 @@
 </section>
 
 <jsp:include page="./components/footer.jsp"/>
-
+<script src="js/hompage.js"></script>
 <script>
     function removeFromCartList(element) {
         const courseId = element.id;

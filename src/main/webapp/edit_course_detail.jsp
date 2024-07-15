@@ -372,9 +372,6 @@
     </div>
 </div>
 <jsp:include page="./components/footer.jsp"/>
-
-
-
 <script src="js/hompage.js"></script>
 
 

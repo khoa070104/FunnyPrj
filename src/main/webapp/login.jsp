@@ -59,7 +59,7 @@
                         <input type="submit" value="Đăng nhập">
                     </div>
                     <div class="body_form-input-signin">
-                        <p>Chưa có tài khoản, <a href="signin.html">Đăng kí.</a></p>
+                        <p>Chưa có tài khoản, <a href="register.jsp">Đăng kí.</a></p>
                     </div>
                 </form>
             </div>
