@@ -190,7 +190,7 @@ public class HomeController extends HttpServlet {
             if(test){
                 HttpSession s = request.getSession() ;
                 s.setAttribute("user",u);
-                if(userService.register(email,password,username,fullname,code)){
+                if(userService.register(email,password,username,fullname,code,"null")){
                     response.sendRedirect(request.getContextPath()+"/verify-code");
                 } else {
                     msg = "Register Error!!";

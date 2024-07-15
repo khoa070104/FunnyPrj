@@ -13,7 +13,7 @@ public interface IUserService {
     void update(User user); // hàm này cập nhật 1 đối tượng User
     void updatestatus(User user); //hàm này dùng active tài khoản
     void delete(int id); // hàm này xóa 1 đối tượng User
-    boolean register(String email, String password, String username, String fullname, String code);
+    boolean register(String email, String password, String username, String fullname, String code, String pic);
     User login(String email, String password);
     User checkEmail(String email);
     User checkUsername(String username);

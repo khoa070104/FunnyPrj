@@ -56,7 +56,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User checkEmail(String email) {
-        return null;
+        return userDao.checkEmail(email);
     }
 
     @Override
@@ -65,13 +65,13 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public boolean register(String email, String password, String username, String fullname, String code) {
+    public boolean register(String email, String password, String username, String fullname, String code, String pic) {
         if (userDao.checkExistEmail(email))
             return false;
         if (userDao.checkExistUsername(username)) {
             return false;
         }
-        userDao.insertregister(new User(username, email, fullname, password, 0, 2, code));
+        userDao.insertregister(new User(username, email, fullname, password, 0, 2, code,pic));
         return true;
     }
     @Override

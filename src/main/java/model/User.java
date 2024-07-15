@@ -32,6 +32,18 @@ public class User {
         this.code = code;
     }
 
+    public User(String username, String email, String fullName, String password, String avatar, String phone, int role, int status,  String code) {
+        this.status = status;
+        this.role = role;
+        this.username = username;
+        this.email = email;
+        this.fullName = fullName;
+        this.password = password;
+        this.avatar = avatar;
+        this.phone = phone;
+        this.code = code;
+    }
+
     public User(String username, String email, String fullName, String password, String code) {
         this.username = username;
         this.email = email;
@@ -48,6 +60,16 @@ public class User {
         this.status = status;
         this.role = role;
         this.code = code;
+    }
+    public User(String username, String email, String fullname, String password, int status, int role, String code, String pic) {
+        this.username = username;
+        this.email = email;
+        this.fullName = fullname;
+        this.password = password;
+        this.status = status;
+        this.role = role;
+        this.code = code;
+        this.avatar =pic;
     }
     public User(String username, String fullname, String phone){
         this.username = username;

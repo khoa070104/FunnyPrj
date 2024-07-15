@@ -63,6 +63,12 @@
                         <p>Chưa có tài khoản, <a href="signin.html">Đăng kí.</a></p>
                     </div>
                 </form>
+                <div class="body_form-input-google">
+                    <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8888/FunnyCodeWeb/LoginGoogle&response_type=code&client_id=5244155433-lmsuq4cp6f7grgj4ppisneaf32ak2rf0.apps.googleusercontent.com&approval_prompt=force">
+                        <img src="${pageContext.request.contextPath}/icon/google_logo.png" alt="Google Logo" style="width:20px; height:20px; margin-right:10px;">
+                        Login With Google
+                    </a>
+                </div>
             </div>
         </div>
     </div>

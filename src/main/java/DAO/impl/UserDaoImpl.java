@@ -77,7 +77,7 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
 
     @Override
     public void insertregister(User user) {
-        String sql = "INSERT INTO tblUsers(username,email,fullName,password,role,status,code) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO tblUsers(username,email,fullName,password,role,status,code,avatar) VALUES(?,?,?,?,?,?,?,?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
@@ -86,6 +86,7 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
             stmt.setInt(5, user.getRole());
             stmt.setInt(6, user.getStatus());
             stmt.setString(7, user.getCode());
+            stmt.setString(8, user.getAvatar());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -187,5 +188,19 @@ public class UserDaoImpl extends DBConnect implements IUserDao {
     public static void main(String[] args) {
         new UserDaoImpl().updateProfile(new User("1","admin","admin"));
 
+    }
+    // User(String username, String fullname, String phone)
+    public User checkEmail(String email){
+        User duplicate = null;
+        String sql = "SELECT * FROM tblUsers WHERE email = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                duplicate = new User(rs.getString(2),rs.getString(4),rs.getString(7));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();}
+        return duplicate;
     }
 }
