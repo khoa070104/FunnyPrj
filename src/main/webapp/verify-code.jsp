@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xác thực email</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mail.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage.css">
 </head>
 <body>
-<jsp:include page="components/header.jsp"/>
+<jsp:include page="./components/header.jsp"/>
 
 <div class="container">
     <div class="row">
@@ -41,7 +40,7 @@
 </div>
 
 
-<jsp:include page="components/footer.jsp"/>
+<jsp:include page="./components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 </body>
 </html>

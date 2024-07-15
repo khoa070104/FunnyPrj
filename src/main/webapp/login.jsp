@@ -8,14 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Đăng nhập</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage.css">
 </head>
 <body>
-    <jsp:include page="components/header.jsp"/>
+    <jsp:include page="./components/header.jsp"/>
     <div class="container">
         <div class="row">
             <div class="col-md-12 body_signin">
-                <h1> Đăng Nhập</h1>
+                <h1>Đăng Nhập</h1>
                 <p>Cung cấp thông tin đăng nhập hợp lệ của bạn!</p>
             </div>
         </div>
@@ -52,7 +51,7 @@
                             <input type="password" placeholder="Password" id="pa" name="password">
                         </div>
                     </div>
-                    <input type="checkbox" name="remember" value="on">
+                    <input type="checkbox" name="remember" value="on"> Remember Password
                     <div class="body_form-input-forget">
                         <a href="forget.html">Quên mật khẩu?</a>
                     </div>
@@ -72,7 +71,7 @@
             </div>
         </div>
     </div>
-<jsp:include page="components/footer.jsp"/>
+<jsp:include page="./components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 </body>
 

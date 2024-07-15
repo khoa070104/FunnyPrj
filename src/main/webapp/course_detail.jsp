@@ -7,149 +7,15 @@
     <title>LAB211 - OOP with Java Lab</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, minimum-scale=0.86">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/custom.css">
-    <link rel="stylesheet" href="./css/course_detail.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+    <<link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/coursedetail.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="white-bg">
-<div class="cover">
-    <div class="header_info">
-        <div class="phone_header">
-            <div class="phone_header-logo">
-                <img src="icon/phone.svg" alt="">
-            </div>
-            <div class="phone_header-info">
-                <p>0333333333</p>
-            </div>
-            <div class="mail_header">
-                <div class="mail_header-logo">
-                    <img src="icon/mail.png" alt="">
-                </div>
-                <div class="mail_header-info">
-                    <a href="mamgh789@gmail.com">mamgh789@gmail.com</a>
-                </div>
-            </div>
-        </div>
-        <div class="language_header">
-            <select name="" id="language_option">
-                <option value="VIE">Vietnamese</option>
-                <option value="ENG">English</option>
-            </select>
-        </div>
-    </div>
-
-
-    <div class="header_bar">
-        <div class="header_barlogosearch">
-            <div class="header_bar-logo">
-                <img src="icon/Logo.png" alt="">
-            </div>
-            <div class="header_bar-danhMuc" id="danhMuc">
-                <div class="header_bar-danhMuc-icon">
-                    <img src="icon/list-solid.svg" alt="">
-                </div>
-                <i class="header_bar-danhMuc-info">
-                    Danh Mục
-                </i>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
-                    <a href="mycourses.html" class="dropdown-item" href="#">
-                        <i class="fas fa-book mr-2"></i> Khóa học
-                    </a>
-                    <a href="homework.html" class="dropdown-item" href="#">
-                        <i class="fas fa-pencil-alt mr-2"></i> Bài tập
-                    </a>
-                    <a href="cart.html" class="dropdown-item" href="#">
-                        <i class="fas fa-store mr-2"></i> Cửa hàng
-                    </a>
-                </div>
-            </div>
-
-            <div class="header_bar-search">
-                <div class="header_bar-search-info">
-                    <input type="text" placeholder="Tìm kiếm">
-                    <div class="header_bar-search-icon">
-                        <img src="icon/search.svg" alt="">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-        <div class="header_bar-cart">
-            <!-- Giảng viên Link -->
-            <a href="lecturer.html" class="header-icon">
-                <div class="header_bar-cart-icon ">
-                    <p class="icon-text">Giảng viên</p>
-                </div>
-            </a>
-
-            <!-- Khóa học của tôi Link -->
-            <a href="mycourses.html">
-                <div class="header_bar-cart-icon no-icon">
-                    <p class="icon-text">Khóa học của tôi</p>
-                </div>
-            </a>
-
-            <!-- Yêu thích Link -->
-            <a href="lovecourse.html">
-                <div class="header_bar-cart-icon">
-                    <img src="icon/heart-regular.svg" alt="Yêu thích">
-                </div>
-            </a>
-
-            <!-- Giỏ hàng Link -->
-            <a href="cart.html">
-                <div class="header_bar-cart-icon">
-                    <img src="icon/cart.svg" alt="Giỏ hàng">
-                </div>
-            </a>
-
-            <!-- Hồ sơ Link -->
-            <div class="header_bar-cart header_bar-cart-user">
-                <a class="profile-link">
-                    <div class="header_bar-cart-icon">
-                        <img src="icon/user.png" alt="Hồ sơ" style="border-radius: 50%; height: 65%;">
-                    </div>
-                </a>
-                <div class="profile-dropdown">
-                    <!-- Nội dung menu dropdown -->
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-user mr-2"></i> Tên người dùng: John Doe
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-envelope mr-2"></i> Email: john.doe@example.com
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-book mr-2"></i> Khóa học của tôi
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-heart mr-2"></i> Khóa học yêu thích
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-history mr-2"></i> Lịch sử mua hàng
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-id-card mr-2"></i> Hồ sơ người dùng
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-users mr-2"></i> Trở thành affiliate
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-sign-out-alt mr-2"></i> Đăng xuất
-                    </a>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</div>
+<jsp:include page="./components/header_loged.jsp"/>
 <!-- Banner -->
 <section class="course-header-area" style="background-image: url('https://4user.net/uploads/system/course_page_banner.png'); background-size: cover; background-position: right;">
     <div class="container">
@@ -360,60 +226,7 @@
     </div>
 </section>
 
-<div class="footer_content">
-    <div class="footer-lienket">
-        <div class="footer-lienket-title">
-            <h3>Study and topic, any thing with </h3>
-        </div>
-        <div class="footer-lienket-info">
-            <ul>
-                <li><a href="facebook.com"><img src="icon/facebook.svg" alt=""></a></li>
-                <li><a href="instagram.com"><img src="icon/instagram.svg" alt=""></a></li>
-                <li><a href="twitter.com"><img src="icon/twitter.svg" alt=""></a></li>
-                <li><a href="youtube.com"><img src="icon/youtube.svg" alt=""></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-list">
-        <div class="footer-list-title">
-            <h3>Danh mục hàng đầu</h3>
-        </div>
-        <div class="footer-list-info">
-            <ul class="footer-list-info-ul">
-                <li><a href="list.html?id=1">Kì 1</a></li>
-                <li><a href="list.html?id=1">Kì 1</a></li>
-                <li><a href="list.html?id=1">Kì 1</a></li>
-                <li><a href="list.html?id=1">Bài tập</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-favorite">
-        <div class="footer-list-title">
-            <h3>Liên kết hữu ích</h3>
-        </div>
-        <div class="footer-favorite-info">
-            <ul class="footer-list-info-ul">
-                <li><a href="">Blog</a></li>
-                <li><a href="">Login</a></li>
-                <li><a href="">SignUp</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<footer>
-    <div class="footer-logo">
-        <img src="icon/logo.png" alt="">
-    </div>
-    <div class="footer-info">
-        <p>© 2024 Study and topic, any thing with. All Rights Reserved.</p>
-    </div>
-    <div class="language_footer">
-        <select name="" id="">
-            <option value="VIE">Vietnamese</option>
-            <option value="ENG">English</option>
-        </select>
-    </div>
-</footer>
+<jsp:include page="./components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 </body>
 

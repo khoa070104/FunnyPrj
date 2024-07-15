@@ -11,17 +11,19 @@
     <title>Title</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/homepage_after.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header_loged.css">
 </head>
 <body>
-<div class="cover">
+<div class="cover" style="width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;">
     <div class="header_info">
         <div class="phone_header">
             <div class="phone_header-logo">
                 <img src="icon/phone.svg" alt="">
             </div>
             <div class="phone_header-info">
-                <p>03333333333</p>
+                <p>0333333333</p>
             </div>
             <div class="mail_header">
                 <div class="mail_header-logo">
@@ -39,8 +41,6 @@
             </select>
         </div>
     </div>
-
-
     <div class="header_bar">
         <div class="header_barlogosearch">
             <div class="header_bar-logo">
