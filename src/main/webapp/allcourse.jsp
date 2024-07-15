@@ -84,6 +84,7 @@
                                             <div class="text-15px fw-700 d-flex">
                                                 <input type="radio" id="category_all" name="id_category"
                                                        class="categories custom-radio" value="0" onclick="filter(this)"
+                                                       ${cid == null ? 'checked' : ''}
                                                 >
                                                 <label for="category_all">Tất cả danh mục</label>
                                                 <div class="ms-auto">(<%= totalCount %>)</div>
@@ -94,7 +95,7 @@
 
                                             <li class="ms-3">
                                                 <div class="d-flex">
-                                                    <input type="radio" name="id_category" id="id_cate" class="categories custom-radio" value="${c.id}" ${cid==c.id ? 'checked' : ''} onclick="filter(this)">
+                                                    <input type="radio" name="id_category" id="sub_category-${c.id}" class="categories custom-radio" value="${c.id}" ${cid==c.id ? 'checked' : ''} onclick="filter(this)">
                                                     <label for="sub_category-${c.id}">Kì ${c.id}</label>
                                                     <div  class="ms-auto">(<%= i.countCoursesByCategory(index++)%>)</div>
                                                 </div>
@@ -251,10 +252,10 @@
 
     function checkCategoryAll() {
         //var idCateChecked = document.getElementById('id_cate').checked;
-
-        <c:if test="${empty cid}">
-        document.getElementById('category_all').checked = true;
-        document.getElementById('category_all').form.submit();
+        // If all categories are checked, check the "All" category
+        <c:if test="${courses == null}">
+        //document.getElementById('category_all').checked = true;
+            document.getElementById('category_all').form.submit();
         </c:if>
     }
 

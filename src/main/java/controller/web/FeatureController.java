@@ -74,9 +74,8 @@ public class FeatureController extends HttpServlet {
 
         // Lưu danh sách khóa học đã lọc vào request attribute để truyền đến JSP
         request.setAttribute("courses", courses);
-
-        // Lưu lại các giá trị lọc để hiển thị lại trên giao diện
-        request.setAttribute("cid", cid);
+        if(cid != 0)
+            request.setAttribute("cid", cid);
 
         // Điều hướng đến trang filter.jsp để hiển thị kết quả lọc
         request.getRequestDispatcher("allcourse.jsp").forward(request, response);
