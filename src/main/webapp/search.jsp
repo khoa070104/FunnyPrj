@@ -1,7 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="java.util.List" %>
-<%@ page import="model.Course" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +13,7 @@
 </head>
 
 <body>
-<jsp:include page="./components/header_loged.jsp"/>
+<jsp:include page="./components/header.jsp"/>
 
 <div class="container my-4">
     <!-- Display search results -->
@@ -80,6 +78,7 @@
 </div>
 
 <jsp:include page="./components/footer.jsp"/>
+
 <script src="js/hompage.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>

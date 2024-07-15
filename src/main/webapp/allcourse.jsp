@@ -253,8 +253,8 @@
         //var idCateChecked = document.getElementById('id_cate').checked;
 
         <c:if test="${empty cid}">
-        document.getElementById('category_all').checked = true;
-        document.getElementById('category_all').form.submit();
+            document.getElementById('category_all').checked = true;
+            document.getElementById('category_all').form.submit();
         </c:if>
     }
 
@@ -270,3 +270,5 @@
 </body>
 
 </html>
+
+

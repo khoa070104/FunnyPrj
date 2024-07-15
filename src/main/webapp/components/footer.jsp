@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ngoch
-  Date: 7/12/2024
-  Time: 9:52 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -35,8 +29,8 @@
         <div class="footer-list-info">
             <ul class="footer-list-info-ul">
                 <li ><a href="list.html?id=1">Kì 1</a></li>
-                <li ><a href="list.html?id=1">Kì 1</a></li>
-                <li ><a href="list.html?id=1">Kì 1</a></li>
+                <li ><a href="list.html?id=1">Kì 2</a></li>
+                <li ><a href="list.html?id=1">Kì 3</a></li>
                 <li ><a href="list.html?id=1">Bài tập</a></li>
             </ul>
         </div>
@@ -47,15 +41,14 @@
         </div>
         <div class="footer-favorite-info">
             <ul class="footer-list-info-ul">
-                <li><a href="">Blog</a></li>
-                <li><a href="">Login</a></li>
-                <li><a href="">SignUp</a></li>
+                <li><a href="login">Login</a></li>
+                <li><a href="register">SignUp</a></li>
             </ul>
         </div>
     </div>
 </div>
 <footer>
-    <div class="footer-logo">
+    <div href="home" class="footer-logo">
         <img src="icon/Logo.png" alt="">
     </div>
     <div class="footer-info">
