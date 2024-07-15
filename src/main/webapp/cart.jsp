@@ -17,21 +17,21 @@
 </head>
 
 <body class="white-bg">
-<jsp:include page="./components/header.jsp"/>
+<jsp:include page="./components/header_loged.jsp"/>
 <section class="category-header-area" style="background-image: url('https://4user.net/uploads/system/shopping_cart.png');
     background-size: cover;
     background-repeat: no-repeat;">
     <div class="image-placeholder-1"></div>
     <div class="container-lg breadcrumb-container row align-items-center">
         <nav class="col-auto" aria-label="breadcrumb">
-            <ol class="breadcrumb" style="background-color: transparent">
+            <ol class="breadcrumb">
                 <li class="breadcrumb-item display-6 fw-bold">
-                    <a href="homepage.jsp">
+                    <a href="home">
                         Trang chủ
                     </a>
                 </li>
                 <li class="breadcrumb-item active text-light display-6 fw-bold">
-                        Giỏ hàng
+                    Giỏ hàng
                 </li>
             </ol>
         </nav>
@@ -104,7 +104,12 @@
                             </button>
                         </div>
                     </div>
-                    <button type="button" class="btn red w-100 mb-3" onclick="handleCheckOut()">Thanh toán</button>
+                    <!-- Form thanh toán -->
+                    <form action="processVNPAYPayment" method="post">
+                        <input type="hidden" name="amount" value="${totalPrice}">
+                        <!-- Bạn có thể thêm các trường ẩn khác nếu cần -->
+                        <button type="submit" class="btn red w-100 mb-3">Thanh toán</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -112,7 +117,7 @@
 </section>
 
 <jsp:include page="./components/footer.jsp"/>
-<script src="js/hompage.js"></script>
+
 <script>
     function removeFromCartList(element) {
         const courseId = element.id;
@@ -127,6 +132,6 @@
         // Logic to handle checkout process
     }
 </script>
-
+<script src="js/hompage.js"></script>
 </body>
 </html>
