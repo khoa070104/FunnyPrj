@@ -14,12 +14,6 @@ body {
     font-family: var(--bs-font-sans-serif);
 }
 
-.cover {
-    width: 90%; 
-    max-width: 1200px; 
-    margin: 0 auto; 
-}
-
 .body_signin {
     text-align: center;
     margin: 70px 0 30px 0;
@@ -96,9 +90,6 @@ body {
     border-bottom-right-radius: 10px;
     box-sizing: border-box; 
     background-color: light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
-    color: white;
-    
-    
 }
 .input-form>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
     margin-left: -1px;

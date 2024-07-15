@@ -33,9 +33,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage.css">
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homepage.css">
 </head>
 
 <body>
@@ -88,13 +89,13 @@
                                     <span>Người mới bắt đầu</span>
                                 </div>
                                 <div class="row">
-                                    <h2><%= course.getName() %>
-                                    </h2>
-                                    <h5><%= course.getDescription() %>
-                                    </h5>
+                                    <h3 style="color: black"><%= course.getName() %>
+                                    </h3>
+                                    <h6><%= course.getDescription() %>
+                                    </h6>
                                 </div>
                                 <div class="rating">
-                                    <div class="stars">
+                                    <div class="stars" style="margin-bottom: 10px">
                                         <!-- Adjust rating stars based on course.getRate() -->
                                         <% for (int i = 0; i < course.getRate(); i++) { %>
                                         <i class="fas fa-star"></i>
@@ -120,7 +121,9 @@
                                 <% } else { %>
                                 <form action="add-to-cart" method="post">
                                     <input type="hidden" name="courseId" value="<%= course.getId() %>">
-                                    <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+                                    <button type="submit" class="btn btn-primary"
+                                            style="background-color: var(--primary-color); border-color: var(--primary-color)">
+                                            Thêm vào giỏ hàng</button>
                                 </form>
                                 <% } %>
 

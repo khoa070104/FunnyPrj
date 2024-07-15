@@ -160,7 +160,7 @@
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="editLessonModal('${lesson.id}', '${lesson.nameLesson}', '${lesson.content}', '${lesson.timeLesson}', '${lesson.idCourse}')">Edit</button>
 
                                                 <!-- Form for deleting lesson -->
-                                                <form action="DeleteLesson" method="post" style="display: inline-block;">
+                                                <form action="delete-lesson" method="post" style="display: inline-block;">
                                                     <input type="hidden" name="lessonId" value="${lesson.id}">
                                                     <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
                                                 </form>
@@ -335,7 +335,7 @@
     <div class="modal-content">
         <span class="close" onclick="hideCreateLessonModal()">&times;</span>
         <h2>Create New Lesson</h2>
-        <form id="createLessonForm" action="CreateLesson" method="post">
+        <form id="createLessonForm" action="create-lesson" method="post">
             <input type="text" id="courseid" name="courseId" value="${course.id}">
             <label for="lessonName">Lesson Name:</label><br>
             <input type="text" id="lessonName" name="lessonName" required><br><br>
@@ -356,7 +356,7 @@
     <div class="modal-content">
         <span class="close" onclick="hideEditLessonModal()">&times;</span>
         <h2>Edit Lesson</h2>
-        <form id="editLessonForm" action="EditLesson" method="get">
+        <form id="editLessonForm" action="edit-lesson" method="get">
             <input type="text" id="editlessonId" name="lessonId" value="${lesson.id}" hidden >
             <label for="lessonName">Lesson Name:</label><br>
             <input type="text" id="editlessonName" name="lessonName" value="${lesson.nameLesson}" required><br><br>

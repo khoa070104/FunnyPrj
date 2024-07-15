@@ -38,11 +38,11 @@
                 <form id="profile-form" action="update-profile" method="POST">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" value="${sessionScope.user.username}" readonly>
+                        <input type="text" class="form-control" id="username" name="username" value="${sessionScope.user.username}" readonly/>
                     </div>
                     <div class="form-group">
                         <label for="role">Role</label>
-                        <input type="text" class="form-control" id="role" name="role" value="${sessionScope.user.role==1?'Admin':'User'}" readonly>
+                        <input type="text" class="form-control" id="role" name="role" value="${sessionScope.user.role==1?'Admin':'User'}" readonly/>
                     </div>
                     <div class="form-group">
                         <label for="fullname">Full Name</label>
@@ -50,13 +50,16 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" value="${sessionScope.user.email}" readonly>
+                        <input type="text" class="form-control" id="email" name="email" value="${sessionScope.user.email}" readonly/>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="text" class="form-control" id="phone" name="phone" value="${sessionScope.user.phone}" readonly>
+                        <input type="text" class="form-control" id="phone" name="phone" value="${sessionScope.user.phone}" readonly/>
                     </div>
-                    <button type="button" id="edit-info-btn" class="btn btn-secondary" onclick="enableEdit(this)">Edit</button>
+                    <button type="button" id="edit-info-btn"
+                            class="btn btn-primary"
+
+                            onclick="enableEdit(this)">Edit</button>
                     <a href="profile" id="cancel-btn" class="btn btn-secondary" hidden>Cancel</a>
                 </form>
             </div>
@@ -65,7 +68,6 @@
 </section>
 
 <jsp:include page="./components/footer.jsp"/>
-
 <script src="js/hompage.js"></script>
 
 <script>
