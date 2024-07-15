@@ -161,12 +161,12 @@
                             <li>
                                 <div class="course-box-2">
                                     <div class="course-image">
-                                        <a href="CourseDetail?id=${course.id}">
+                                        <a href="course-detail?id=${course.id}">
                                             <img src="${course.img}" alt="" class="img-fluid">
                                         </a>
                                     </div>
                                     <div class="course-details">
-                                        <a href="#" class="course-title">${course.name}</a>
+                                        <a href="course-detail?id=${course.id}" class="course-title">${course.name}</a>
 
                                         <div class="course-subtitle d-none d-md-block">
                                             <!-- Course subtitle content -->

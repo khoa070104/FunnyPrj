@@ -11,18 +11,16 @@ import service.Impl.DetailServiceImpl;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/CourseDetail", "/CreateLesson", "/DeleteLesson","/EditLesson","/edit-detail-course"})
+@WebServlet(urlPatterns = {"/create-lesson", "/delete-lesson","/edit-lesson","/edit-detail-course"})
 public class FeatureController extends HttpServlet {
     IDetailService i = new DetailServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = request.getRequestURI().toString();
 
-        if(url.contains("CourseDetail")){
-            getDetail(request,response);
-        } else if(url.contains("CreateLesson")){
-            request.getRequestDispatcher("FilterCourseDetail.jsp").forward(request, response);
-        }else if(url.contains("EditLesson")){
+        if(url.contains("create-lesson")){
+            request.getRequestDispatcher("admin/edit_course_detail.jsp").forward(request, response);
+        }else if(url.contains("edit-lesson")){
             getEdit(request,response);
         } else if(url.contains("edit-detail-course")){
             getCourseDetail(request,response);
@@ -33,30 +31,15 @@ public class FeatureController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = request.getRequestURI().toString();
 
-        if(url.contains("CreateLesson")){
+        if(url.contains("create-lesson")){
             postCreateLesson(request,response);
-        } else if(url.contains("DeleteLesson")){
+        } else if(url.contains("delete-lesson")){
             postDelete(request,response);
-        } else if(url.contains("EditLesson")){
+        } else if(url.contains("edit-lesson")){
             postEdit(request,response);
         }
     }
-    protected void getDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Retrieve course ID from request parameter
-        int courseId = Integer.parseInt(request.getParameter("id"));
-        // Use DAO to fetch course details from the database/ Adjust to your actual DAO implementation
-        CourseDetail course = i.getCourseById(courseId);
 
-        // Set course object as attribute in request scope
-        request.setAttribute("course", course);
-
-        List<Lesson> lessons = i.getLessonsByCourseId(courseId);
-
-        request.setAttribute("lessons", lessons);
-
-        // Forward to JSP to render course details
-        request.getRequestDispatcher("edit_course_detail.jsp").forward(request,response);
-    }
     protected void postCreateLesson(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String courseID_raw = request.getParameter("courseId");
         String lessonName = request.getParameter("lessonName");
@@ -73,7 +56,7 @@ public class FeatureController extends HttpServlet {
             // Chuyển hướng đến trang xác nhận hoặc trang khác sau khi tạo bài học thành công
             HttpSession session = request.getSession();
             int id = (int) session.getAttribute("id_convert");
-            response.sendRedirect("FilterCourseDetail?id="+id); // Thay đổi URL thành trang bạn muốn chuyển hướng sau khi tạo thành công
+            response.sendRedirect("edit-detail-course?id="+id); // Thay đổi URL thành trang bạn muốn chuyển hướng sau khi tạo thành công
         } catch (Exception e) {
             e.printStackTrace();
             response.getWriter().println("Error: " + e.getMessage());
@@ -87,7 +70,7 @@ public class FeatureController extends HttpServlet {
         if (deleted) {
             HttpSession session = request.getSession();
             int id = (int) session.getAttribute("id_convert");
-            response.sendRedirect("FilterCourseDetail?id="+id);
+            response.sendRedirect("edit-detail-course?id="+id);
         } else {
             response.getWriter().println("Failed to delete lesson with ID " + lessonId);
         }
@@ -106,7 +89,7 @@ public class FeatureController extends HttpServlet {
             request.setAttribute("lessons", lesson);HttpSession session = request.getSession();
             int id = (int) session.getAttribute("id_convert");
 
-            request.getRequestDispatcher("FilterCourseDetail?id="+id).forward(request, response);
+            request.getRequestDispatcher("edit-detail-course?id="+id).forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             response.getWriter().println("Error: " + e.getMessage());
@@ -123,10 +106,11 @@ public class FeatureController extends HttpServlet {
 
             Lesson lesson = new Lesson(lessonId,lessonName,content,lessonTime);
             i.editLesson(lesson);
-            request.setAttribute("lessons", lesson);HttpSession session = request.getSession();
+            request.setAttribute("lessons", lesson);
+            HttpSession session = request.getSession();
             int id = (int) session.getAttribute("id_convert");
 
-            request.getRequestDispatcher("FilterCourseDetail?id="+id).forward(request, response);
+            response.sendRedirect("/edit-detail-course?id="+id);
         } catch (Exception e) {
             e.printStackTrace();
             response.getWriter().println("Error: " + e.getMessage());
@@ -145,7 +129,7 @@ public class FeatureController extends HttpServlet {
         request.setAttribute("course", course);
         List<Lesson> lessons = i.getLessonsByCourseId(courseId);
         request.setAttribute("lessons", lessons);
-        request.getRequestDispatcher("edit_course_detail.jsp").forward(request,response);
+        request.getRequestDispatcher("admin/edit_course_detail.jsp").forward(request,response);
     }
 
 }

@@ -71,7 +71,7 @@
                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="editUserModal('${user.id}', '${user.username}', '${user.email}', '${user.fullName}', '', '${user.avatar}', '${user.phone}', '${user.role}', '${user.status}', '${user.code}')">Edit</button>
 
                 <!-- Nút Delete -->
-                <form action="DeleteUser" method="post" style="display: inline;">
+                <form action="delete-user" method="post" style="display: inline;">
                     <input type="hidden" name="id" value="${user.id}">
                     <button type="submit">Delete</button>
                 </form>
@@ -86,7 +86,7 @@
     <div class="modal-content">
         <span class="close" onclick="hideCreateUserModal()">&times;</span>
         <h2>Create New User</h2>
-        <form id="createUserForm" action="CreateUser" method="post">
+        <form id="createUserForm" action="create-user" method="post">
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username" required><br><br>
 
@@ -168,7 +168,7 @@
     <div class="modal-content">
         <span class="close" onclick="hideEditUserModal()">&times;</span>
         <h2>Edit User</h2>
-        <form id="editUserForm" action="EditUser" method="post">
+        <form id="editUserForm" action="edit-user" method="post">
             <input type="hidden" id="editUserId" name="id" value="${user.id}"><br><br>
 
             <label for="editUsername">Username:</label><br>

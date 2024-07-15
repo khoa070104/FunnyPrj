@@ -3,7 +3,6 @@ package controller.admin;
 import DAO.impl.ItemDAOImpl;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
 import model.Category;
 import model.Course;
 import model.LessonTime;
@@ -17,20 +16,20 @@ import java.util.List;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 @MultipartConfig(maxFileSize = 1024 * 1024 * 10)
-@WebServlet(urlPatterns = {"/CreateCourse","/EditCourse","/DeleteCourse","/ListCourse","/editpage"})
+@WebServlet(urlPatterns = {"/create-course","/edit-course","/delete-course","/manage-course"})
 public class HomeController extends HttpServlet {
     IItemService i = new ItemServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = request.getRequestURI().toString();
 
-        if(url.contains("CreateCourse")){
+        if(url.contains("create-course")){
             getCreate(request,response);
-        } else if(url.contains("EditCourse")){
+        } else if(url.contains("edit-course")){
             getEdit(request,response);
-        } else if(url.contains("DeleteCourse")){
+        } else if(url.contains("delete-course")){
             getDelete(request,response);
-        } else if (url.contains("editpage")) {
+        } else if (url.contains("manage-course")) {
             getEditPage(request, response);
         }
     }
@@ -39,11 +38,11 @@ public class HomeController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = request.getRequestURI().toString();
 
-        if(url.contains("CreateCourse")){
+        if(url.contains("create-course")){
             postCreate(request,response);
-        } else if(url.contains("EditCourse")){
+        } else if(url.contains("edit-course")){
             postEdit(request,response);
-        } else if(url.contains("editpage")) {
+        } else if(url.contains("manage-course")) {
             postEditPage(request, response);
         }
     }
@@ -78,7 +77,7 @@ public class HomeController extends HttpServlet {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        response.sendRedirect("editcourse.jsp");
+        response.sendRedirect("admin/editcourse.jsp");
     }
     protected void getCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //

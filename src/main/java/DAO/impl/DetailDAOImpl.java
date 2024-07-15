@@ -45,12 +45,17 @@ public class DetailDAOImpl extends DBConnect implements IDetail {
         String sql = "select c.id, c.name, c.description, c.price, c.time_course, c.id_category, " +
                 "c.id_lesson_time, l.id as lesson_id, l.namelesson, l.content, l.time_lesson, c.total_lesson " +
                 "from tblCourse c join tblLesson l on c.id = l.id_course where c.id = ?";
+        String sql2 = "select * from tblCourse where id = ?";
 
+        boolean hasResults = false;
+
+        // Try the first SQL query
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
+                hasResults = true;
                 // Course details
                 int courseId = rs.getInt("id");
                 String courseName = rs.getString("name");
@@ -104,9 +109,42 @@ public class DetailDAOImpl extends DBConnect implements IDetail {
             // Handle or rethrow SQLException as appropriate for your application
         }
 
-        // Return the first course found (there should be only one as we're searching by ID)
+        // If no results were found, try the second SQL query
+        if (!hasResults) {
+            try (PreparedStatement statement = connection.prepareStatement(sql2)) {
+                statement.setInt(1, id);
+                ResultSet rs = statement.executeQuery();
+
+                if (rs.next()) {
+                    int courseId = rs.getInt("id");
+                    String courseName = rs.getString("name");
+                    String description = rs.getString("description");
+                    double price = rs.getDouble("price");
+                    String timeCourse = rs.getString("time_course");
+                    int categoryID = rs.getInt("id_category");
+                    String idLessonTime = rs.getString("id_lesson_time");
+                    int totalLesson = rs.getInt("total_lesson");
+
+                    CourseDetail course = new CourseDetail();
+                    course.setId(courseId);
+                    course.setName(courseName);
+                    course.setDescription(description);
+                    course.setPrice(price);
+                    course.setTimeCourse(timeCourse);
+                    course.setIdCategory(categoryID);
+                    course.setIdLessonTime(idLessonTime);
+                    course.setTotalLesson(totalLesson);
+                    course.setLessons(new ArrayList<>());
+
+                    courses.add(course);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
         return courses.isEmpty() ? null : courses.get(0);
     }
+
 
     public boolean deleteLesson(int lessonId) {
         String sql = "DELETE FROM tblLesson WHERE id = ?";
@@ -168,8 +206,8 @@ public class DetailDAOImpl extends DBConnect implements IDetail {
 //        for (Lesson lesson : lessons) {
 //            System.out.println(lesson);
 //        }
-        CourseDetail c = d.getCourseById(16);
-        System.out.println(c.getPrice());
+        CourseDetail c = d.getCourseById(5);
+        System.out.println(c);
     }
 }
 

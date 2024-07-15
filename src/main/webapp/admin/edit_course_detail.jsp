@@ -48,7 +48,7 @@
 </head>
 
 <body class="white-bg">
-<jsp:include page="./components/header_loged.jsp"/>
+<jsp:include page="../components/header_loged.jsp"/>
 <!-- Banner -->
 <section class="course-header-area" style="background-image: url('https://4user.net/uploads/system/course_page_banner.png'); background-size: cover; background-position: right;">
     <div class="container">
@@ -160,7 +160,7 @@
                                                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="editLessonModal('${lesson.id}', '${lesson.nameLesson}', '${lesson.content}', '${lesson.timeLesson}', '${lesson.idCourse}')">Edit</button>
 
                                                 <!-- Form for deleting lesson -->
-                                                <form action="DeleteLesson" method="post" style="display: inline-block;">
+                                                <form action="delete-lesson" method="post" style="display: inline-block;">
                                                     <input type="hidden" name="lessonId" value="${lesson.id}">
                                                     <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
                                                 </form>
@@ -226,7 +226,7 @@
                                 <div class="course-box">
                                     <div class="course-image">
                                         <p>₫500,000</p>
-                                        <img src="icon/Logo.png" alt="">
+                                        <img src="../icon/Logo.png" alt="">
                                     </div>
                                     <div class="course-details">
                                         <div>
@@ -251,7 +251,7 @@
                                         </div>
                                         <div class="row">
                                             <div>
-                                                <img src="icon/Logo.png" alt="" width="70">
+                                                <img src="../icon/Logo.png" alt="" width="70">
                                             </div>
                                             <div>
                                                 <button class="btn-compare-sm">Compare</button>
@@ -282,10 +282,10 @@
         </div>
         <div class="footer-lienket-info">
             <ul>
-                <li><a href="facebook.com"><img src="icon/facebook.svg" alt=""></a></li>
-                <li><a href="instagram.com"><img src="icon/instagram.svg" alt=""></a></li>
-                <li><a href="twitter.com"><img src="icon/twitter.svg" alt=""></a></li>
-                <li><a href="youtube.com"><img src="icon/youtube.svg" alt=""></a></li>
+                <li><a href="facebook.com"><img src="../icon/facebook.svg" alt=""></a></li>
+                <li><a href="instagram.com"><img src="../icon/instagram.svg" alt=""></a></li>
+                <li><a href="twitter.com"><img src="../icon/twitter.svg" alt=""></a></li>
+                <li><a href="youtube.com"><img src="../icon/youtube.svg" alt=""></a></li>
             </ul>
         </div>
     </div>
@@ -335,7 +335,7 @@
     <div class="modal-content">
         <span class="close" onclick="hideCreateLessonModal()">&times;</span>
         <h2>Create New Lesson</h2>
-        <form id="createLessonForm" action="CreateLesson" method="post">
+        <form id="createLessonForm" action="create-lesson" method="post">
             <input type="text" id="courseid" name="courseId" value="${course.id}">
             <label for="lessonName">Lesson Name:</label><br>
             <input type="text" id="lessonName" name="lessonName" required><br><br>
@@ -356,7 +356,7 @@
     <div class="modal-content">
         <span class="close" onclick="hideEditLessonModal()">&times;</span>
         <h2>Edit Lesson</h2>
-        <form id="editLessonForm" action="EditLesson" method="get">
+        <form id="editLessonForm" action="edit-lesson" method="get">
             <input type="text" id="editlessonId" name="lessonId" value="${lesson.id}" hidden >
             <label for="lessonName">Lesson Name:</label><br>
             <input type="text" id="editlessonName" name="lessonName" value="${lesson.nameLesson}" required><br><br>
@@ -371,11 +371,11 @@
         </form>
     </div>
 </div>
-<jsp:include page="./components/footer.jsp"/>
+<jsp:include page="../components/footer.jsp"/>
 
 
 
-<script src="js/hompage.js"></script>
+<script src="../js/hompage.js"></script>
 
 
 <script>

@@ -4,17 +4,23 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import model.User;
+import model.detail.CourseDetail;
+import model.detail.Lesson;
+import service.IDetailService;
 import service.IItemService;
 import service.IUserService;
+import service.Impl.DetailServiceImpl;
 import service.Impl.ItemServiceImpl;
 import service.Impl.UserServiceImpl;
 import utils.Email;
 
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(urlPatterns = {"/home","/login","/register","/logout","/forgotpass","/verify-code","/waiting"})
+@WebServlet(urlPatterns = {"/home","/login","/register","/logout","/forgotpass","/verify-code","/waiting","/course-detail"})
 public class HomeController extends HttpServlet {
     IUserService userService = new UserServiceImpl();
+    IDetailService i = new DetailServiceImpl();
 
 
     @Override
@@ -34,8 +40,9 @@ public class HomeController extends HttpServlet {
             request.getRequestDispatcher("verify-code.jsp").forward(request,response);
         } else if(url.contains("waiting")) {
             getWaiting(request, response);
-        }
-        else{
+        }else if(url.contains("course-detail")){
+            getDetail(request,response);
+        }else{
             getHomePage(request,response);
         }
     }
@@ -224,6 +231,21 @@ public class HomeController extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+    protected void getDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Retrieve course ID from request parameter
+        int courseId = Integer.parseInt(request.getParameter("id"));
+        System.out.println(courseId);
+        // Use DAO to fetch course details from the database/ Adjust to your actual DAO implementation
+        CourseDetail course = i.getCourseById(courseId);
+
+        request.setAttribute("course", course);
+
+        List<Lesson> lessons = i.getLessonsByCourseId(courseId);
+
+        request.setAttribute("lessons", lessons);
+
+        request.getRequestDispatcher("course_detail.jsp").forward(request,response);
     }
 
 

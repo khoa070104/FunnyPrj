@@ -197,7 +197,7 @@
                          data-parent="#accordion">
                         <div class="card-body p-0">
                             <c:set var="cid" value="${requestScope.cid}"/>
-                            <form action="editpage" method="post">
+                            <form action="manage-course" method="post">
                                 <div class="filter_type px-4 pt-4">
                                     <h5 class="fw-700 mb-4">Danh mục</h5>
 
@@ -446,7 +446,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="CreateCourse" method="post" enctype="multipart/form-data">
+                <form action="create-course" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input class="form-control" id="name" name="name" required>
@@ -510,7 +510,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="EditCourseInfo" method="post" enctype="multipart/form-data">
+                <form action="edit-course" method="post" enctype="multipart/form-data">
                     <!-- Hidden field for Course ID -->
                     <input type="hidden" id="editCourseId" name="id" value="${course.id}">
 
@@ -588,7 +588,7 @@
 <script>
     function remove(id){
         if(confirm("Are you sure delete this Course?")){
-            window.location = "DeleteCourse?id=" + id;
+            window.location = "delete-course?id=" + id;
 
         }
     }
