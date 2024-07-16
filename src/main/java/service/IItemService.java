@@ -23,4 +23,5 @@ public interface IItemService {
     public Course getCourseById(int id);
     public void updateCourse(Course course);
     public void updateCourseWithoutImg(Course course);
+    //List<Course> getAllCourses();
 }

@@ -87,10 +87,10 @@
                     Danh Mục
                 </i>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
-                    <a href="mycourses.html" class="dropdown-item" href="#">
+                    <a href="mycourses.html" class="dropdown-item" >
                         <i class="fas fa-book mr-2"></i> Khóa học
                     </a>
-                    <a href="cart.html" class="dropdown-item" href="#">
+                    <a href="cart.html" class="dropdown-item" >
                         <i class="fas fa-store mr-2"></i> Cửa hàng
                     </a>
                 </div>

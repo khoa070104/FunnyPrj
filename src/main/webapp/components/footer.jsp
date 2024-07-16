@@ -11,27 +11,28 @@
 <div class="footer_content">
     <div class="footer-lienket">
         <div class="footer-lienket-title">
-            <h3>Study and topic, any thing with </h3>
+            <h3> Học Funny Pass Code </h3>
         </div>
         <div class="footer-lienket-info">
             <ul >
-                <li><a href="facebook.com"><img src="icon/facebook.svg" alt=""></a></li>
+                <li><a href="facebook.com/groups/213350501681569"><img src="icon/facebook.svg" alt=""></a></li>
                 <li><a href="instagram.com"><img src="icon/instagram.svg" alt=""></a></li>
                 <li><a href="twitter.com"><img src="icon/twitter.svg" alt=""></a></li>
-                <li><a href="youtube.com"><img src="icon/youtube.svg" alt=""></a></li>
+                <li><a href="youtube.com/@FUNNYCODE"><img src="icon/youtube.svg" alt=""></a></li>
             </ul>
         </div>
     </div>
     <div class="footer-list">
         <div class="footer-list-title">
-            <h3>Danh mục hàng đầu</h3>
+            <h3>Danh mục</h3>
         </div>
         <div class="footer-list-info">
             <ul class="footer-list-info-ul">
-                <li ><a href="list.html?id=1">Kì 1</a></li>
-                <li ><a href="list.html?id=1">Kì 2</a></li>
-                <li ><a href="list.html?id=1">Kì 3</a></li>
-                <li ><a href="list.html?id=1">Bài tập</a></li>
+                <li ><a href="course-detail?id=1">Kì 1</a></li>
+                <li ><a href="course-detail?id=2">Kì 2</a></li>
+                <li ><a href="course-detail?id=3">Kì 3</a></li>
+                <li ><a href="course-detail?id=4">Kì 4</a></li>
+                <li ><a href="profile">Profile</a></li>
             </ul>
         </div>
     </div>
@@ -42,7 +43,7 @@
         <div class="footer-favorite-info">
             <ul class="footer-list-info-ul">
                 <li><a href="login">Login</a></li>
-                <li><a href="register">SignUp</a></li>
+                <li><a href="register">Register</a></li>
             </ul>
         </div>
     </div>
@@ -52,7 +53,7 @@
         <img src="icon/Logo.png" alt="">
     </div>
     <div class="footer-info">
-        <p>© 2024 Study and topic, any thing with. All Rights Reserved.</p>
+        <p>© 2024 FunnyCode, Pass Code To Funny - All Rights Reserved.</p>
     </div>
     <div class="language_footer">
         <select name="" id="">
