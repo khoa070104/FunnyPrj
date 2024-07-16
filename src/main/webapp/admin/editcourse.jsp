@@ -28,7 +28,9 @@
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/dist/css/main.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/dist/css/edit.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/dist/css/custom.css">
 
     <!-- Thêm thư viện jQuery và jQuery UI -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -47,123 +49,9 @@
     </script>
 </head>
 <body>
-<div class="cover">
-    <div class="header_info">
-        <div class="phone_header">
-            <div class="phone_header-logo">
-                <img src="${pageContext.request.contextPath}/admin/dist/icon/phone.svg" alt="">
-            </div>
-            <div class="phone_header-info">
-                <p>03333333333</p>
-            </div>
-            <div class="mail_header">
-                <div class="mail_header-logo">
-                    <img src="${pageContext.request.contextPath}/admin/dist/icon/mail.png" alt="">
-                </div>
-                <div class="mail_header-info">
-                    <a href="mamgh789@gmail.com">mamgh789@gmail.com</a>
-                </div>
-            </div>
-        </div>
-        <div class="language_header">
-            <select name="" id="language_option">
-                <option value="VIE">Vietnamese</option>
-                <option value="ENG">English</option>
-            </select>
-        </div>
-    </div>
 
 
-    <div class="header_bar">
-        <div class="header_barlogosearch">
-            <div class="header_bar-logo">
-                <img src="${pageContext.request.contextPath}/admin/dist/icon/Logo.png" alt="">
-            </div>
-            <div class="header_bar-danhMuc" id="danhMuc">
-                <div class="header_bar-danhMuc-icon">
-                    <img src="${pageContext.request.contextPath}/admin/dist/icon/list-solid.svg" alt="">
-                </div>
-                <i class="header_bar-danhMuc-info">
-                    Danh Mục
-                </i>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
-                    <a href="mycourses.html" class="dropdown-item" >
-                        <i class="fas fa-book mr-2"></i> Khóa học
-                    </a>
-                    <a href="cart.html" class="dropdown-item" >
-                        <i class="fas fa-store mr-2"></i> Cửa hàng
-                    </a>
-                </div>
-            </div>
-
-            <div class="header_bar-search">
-                <div class="header_bar-search-info">
-                    <input type="text" placeholder="Tìm kiếm">
-                    <div class="header_bar-search-icon">
-                        <img src="${pageContext.request.contextPath}/admin/dist/icon/search.svg" alt="">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-        <div class="header_bar-cart">
-            <!-- Giảng viên Link -->
-            <a href="lecturer.html" class="header-icon">
-                <div class="header_bar-cart-icon ">
-                    <p class="icon-text">Mentor</p>
-                </div>
-            </a>
-
-            <!-- Khóa học của tôi Link -->
-            <a href="mycourses.html">
-                <div class="header_bar-cart-icon no-icon">
-                    <p class="icon-text">Khóa học của tôi</p>
-                </div>
-            </a>
-
-            <!-- Giỏ hàng Link -->
-            <a href="cart.html">
-                <div class="header_bar-cart-icon">
-                    <img src="${pageContext.request.contextPath}/admin/dist/icon/cart.svg" alt="Giỏ hàng">
-                </div>
-            </a>
-
-            <!-- Hồ sơ Link -->
-            <div class="header_bar-cart header_bar-cart-user">
-                <a class="profile-link">
-                    <div class="header_bar-cart-icon">
-                        <img src="${pageContext.request.contextPath}/admin/dist/icon/user.png" alt="Hồ sơ" style="border-radius: 50%; height: 65%;">
-                    </div>
-                </a>
-                <div class="profile-dropdown">
-                    <!-- Nội dung menu dropdown -->
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-user mr-2"></i> Tên người dùng: ${sessionScope.user.username}
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-envelope mr-2"></i> Email: ${sessionScope.user.email}
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-book mr-2"></i> Khóa học của tôi
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-id-card mr-2"></i> Hồ sơ người dùng
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="logout" class="list-group-item list-group-item-action">
-                        <i class="fas fa-sign-out-alt mr-2"></i> Đăng xuất
-                    </a>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</div>
-
+<jsp:include page="./dist/components/header.jsp"/>
 <section class="category-header-area"
          style="background-image: url('${pageContext.request.contextPath}/admin/dist/icon/course_page_banner.png'); background-size: cover; background-position: right;">
     <div class="image-placeholder-3"></div>
@@ -278,7 +166,7 @@
                 </div>
                 <div class="category-course-list">
                     <div>
-                        <button type="button" class="btn btn-primary" onclick="showCreateCourseModal()">
+                        <button type="button" class="btn btn-primary" onclick="showCreateCourseModal()" style="background-color: #00a7c1">
                             Create
                         </button>
 
@@ -375,65 +263,7 @@
         </ul>
     </ul>
 </section>
-
-<div class="footer_content">
-    <div class="footer-lienket">
-        <div class="footer-lienket-title">
-            <h3>Study and topic, any thing with </h3>
-        </div>
-        <div class="footer-lienket-info">
-            <ul>
-                <li><a href="facebook.com"><img src="${pageContext.request.contextPath}/admin/dist/icon/facebook.svg" alt=""></a></li>
-                <li><a href="instagram.com"><img src="${pageContext.request.contextPath}/admin/dist/icon/instagram.svg" alt=""></a></li>
-                <li><a href="twitter.com"><img src="${pageContext.request.contextPath}/admin/dist/icon/twitter.svg" alt=""></a></li>
-                <li><a href="youtube.com"><img src="${pageContext.request.contextPath}/admin/dist/icon/youtube.svg" alt=""></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-list">
-        <div class="footer-list-title">
-            <h3>Danh mục hàng đầu</h3>
-        </div>
-        <div class="footer-list-info">
-            <form id="footer-filter-form" action="Filter" method="post">
-                <input type="hidden" id="footer-category-id" name="id_category" value="${cid}" />
-                <ul class="footer-list-info-ul two-columns">
-                    <c:forEach items="${sessionScope.categories}" var="c">
-                        <li>
-                            <a href="javascript:;" class="btn-link" onclick="filterCategory(${c.id})">Kì ${c.id}</a>
-                        </li>
-                    </c:forEach>
-                </ul>
-            </form>
-        </div>
-    </div>
-    <div class="footer-favorite">
-        <div class="footer-list-title">
-            <h3>Liên kết hữu ích</h3>
-        </div>
-        <div class="footer-favorite-info">
-            <ul class="footer-list-info-ul">
-                <li><a href="">Blog</a></li>
-                <li><a href="">Login</a></li>
-                <li><a href="">SignUp</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<footer class="footer">
-    <div class="footer-logo">
-        <img src="${pageContext.request.contextPath}/admin/dist/icon/Logo.png" alt="">
-    </div>
-    <div class="footer-info">
-        <p>© 2024 Study and topic, any thing with. All Rights Reserved.</p>
-    </div>
-    <div class="language_footer">
-        <select name="" id="">
-            <option value="VIE">Vietnamese</option>
-            <option value="ENG">English</option>
-        </select>
-    </div>
-</footer>
+<jsp:include page="./dist/components/footer.jsp"/>
 
 <!-- Modal -->
 <div class="modal fade" id="createCourseModal" tabindex="-1" role="dialog" aria-labelledby="createCourseModalLabel" aria-hidden="true">
@@ -491,7 +321,7 @@
 
                     <img id="img-preview" src="#" alt="Image preview" style="display: none; max-width: 200px; max-height: 200px;" />
 
-                    <button type="submit" class="btn btn-primary">Create Course</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #00a7c1">Create Course</button>
                 </form>
 
 
@@ -567,8 +397,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 <script src="../js/hompage.js"></script>

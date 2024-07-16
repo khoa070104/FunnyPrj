@@ -371,3 +371,18 @@ body {
     display: block;
 }
 
+#createLessonModal h2, label{
+    color: black;
+}
+#createLessonModal h2 {
+    align-content: center;
+}
+#createLessonModal button{
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 5px;
+}
+#createLessonModal span {
+    position: absolute;
+    left: 95%;
+}

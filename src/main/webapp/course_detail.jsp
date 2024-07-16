@@ -242,7 +242,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, minimum-scale=0.86">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
-    <<link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/coursedetail.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
@@ -259,13 +259,6 @@
                     <p class="subtitle">${course.description}</p>
                     <div class="rating-row">
                         <span class="course-badge best-seller">Người mới bắt đầu</span>
-                        <div class="stars">
-                            <c:forEach var="star" begin="1" end="5">
-                                <i class="fas fa-star"></i>
-                            </c:forEach>
-                        </div>
-                        <span class="d-inline-block average-rating">5</span><span>(1 Xếp hạng)</span>
-                        <span class="comment"><i class="fas fa-comment"></i>VietNamese</span>
                     </div>
                     <div class="created-row">
                             <span class="created-by">
@@ -273,7 +266,6 @@
                                 <a class="text-14px fw-600 text-decoration-none" href="#">FunnyCode</a>
                             </span>
                         <br>
-                        <span class="last-updated-date d-inline-block mt-2">Cập nhật lần cuối: ???</span>
                     </div>
                 </div>
             </div>
@@ -318,17 +310,6 @@
                                             <ul>
                                                 <%--                                                xem truoc --%>
                                                 <li class="lecture has-preview text-14px ">
-                                                    <i class="far fa-clock"></i>
-                                                    <span class="lecture-title text-primary" onclick="go_course_playing_page('35', '309')">Overview Course</span>
-                                                    <div class="lecture-info float-lg-end">
-                                                            <span class="lecture-preview" onclick="lesson_preview('https://4user.net/home/preview_free_lesson/309', 'Bài học: Overview Course')">
-                                                                <i class="fas fa-eye"></i>
-                                                                Xem trước
-                                                            </span>
-                                                        <span class="lecture-time ps-2"> 00:06:23 </span>
-                                                    </div>
-                                                </li>
-                                                <li class="lecture has-preview text-14px ">
                                                     <i class="far fa-file-alt"></i>
                                                     <span class="lecture-title " onclick="go_course_playing_page('35', '361')">Chi Tiết Bài Học</span>
                                                     <div class="lecture-info float-lg-end">
@@ -358,37 +339,6 @@
                 </div>
             </div>
             <!-- Chỗ tính tiền, thêm giỏ hàng, yêu thích, so sánh -->
-            <div class="col-lg-4 order-first order-lg-last">
-                <div class="course-sidebar box-shadow-5 natural">
-                    <div class="course-sidebar-text-box">
-                        <div class="price text-center">
-                            <span class="current-price"><span class="current-price">${course.price}</span></span>
-                            <%--                            <input type="hidden" id="total_price_of_checking_out" value="500000">--%>
-                        </div>
-
-                        <!-- WISHLIST BUTTON -->
-                        <div class="buy-btns">
-                            <button class="btn btn-add-wishlist " type="button" id="35" onclick="handleAddToWishlist(this)">
-                                Thêm vào danh sách yêu thích                </button>
-                        </div>
-
-                        <div class="buy-btns">
-                            <button class="btn btn-buy-now" type="button" id="35a" onclick="handleCartItems(this)">Thêm vào giỏ hàng</button>
-
-                            <button class="btn btn-buy" type="button" id="course_35" onclick="handleBuyNow(this)">Mua ngay</button>
-                        </div>
-
-
-                        <div class="includes mt-3">
-                            <div class="title"><b>Bao gồm:</b></div>
-                            <ul>
-                                <li><i class="far fa-file-video"></i> ${course.timeCourse} </li>
-                                <li><i class="far fa-file"></i>${course.totalLesson}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <!-- List course gợi ý -->

@@ -8,7 +8,7 @@
 
 .header_info {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     height: 40px;
     border-radius: 5px;
     border-bottom: 1px solid #ced4da;
@@ -22,6 +22,9 @@
 
 .phone_header-info {
     padding-top: 18px;
+}
+.phone_header-info p {
+    font-size: 1rem;
 }
 
 .language_header select {
@@ -68,7 +71,7 @@
     border-bottom: 1px solid #ced4da;
     height: 100px;
     flex: 1;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .header_barlogosearch {
@@ -90,7 +93,7 @@
     justify-content: center;
     position: relative;
     right: 50px;
-
+    width: 130px;
 }
 
 
@@ -179,11 +182,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 15px;
-    /* Khoảng cách giữa các phần tử */
     height: 50px;
 }
-
+.no-icon {
+    width: 130px;
+}
 /* Style cho khối chứa biểu tượng và menu dropdown */
 .header_bar-cart-user {
     position: relative;

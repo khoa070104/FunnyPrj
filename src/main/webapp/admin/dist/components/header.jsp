@@ -115,14 +115,14 @@
     <div class="header_info">
         <div class="phone_header">
             <div class="phone_header-logo">
-                <img src="icon/phone.svg" alt="">
+                <img src="${pageContext.request.contextPath}/admin/dist/icon/phone.svg" alt="">
             </div>
             <div class="phone_header-info">
                 <p>03333333333</p>
             </div>
             <div class="mail_header">
                 <div class="mail_header-logo">
-                    <img src="icon/mail.png" alt="">
+                    <img src="${pageContext.request.contextPath}/admin/dist/icon/mail.png" alt="">
                 </div>
                 <div class="mail_header-info">
                     <a href="mamgh789@gmail.com">mamgh789@gmail.com</a>
@@ -140,12 +140,12 @@
         <div class="header_barlogosearch">
             <a  href="home">
                 <div class="header_bar-logo">
-                    <img src="icon/Logo.png" alt="">
+                    <img src="${pageContext.request.contextPath}/admin/dist/icon/Logo.png" alt="">
                 </div>
             </a>
             <div class="header_bar-danhMuc" id="danhMuc">
                 <div class="header_bar-danhMuc-icon">
-                    <img src="icon/list-solid.svg" alt="">
+                    <img src="${pageContext.request.contextPath}/admin/dist/icon/list-solid.svg" alt="">
                 </div>
                 <i class="header_bar-danhMuc-info">
                     Danh Mục
@@ -163,7 +163,7 @@
                 <div class="header_bar-search-info">
                     <input type="text" placeholder="Tìm kiếm">
                     <div class="header_bar-search-icon">
-                        <img src="icon/search.svg" alt="">
+                        <img src="${pageContext.request.contextPath}/admin/dist/icon/search.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -190,7 +190,7 @@
             <!-- Giỏ hàng Link -->
             <a href="cart">
                 <div class="header_bar-cart-icon">
-                    <img src="icon/cart.svg" alt="Giỏ hàng">
+                    <img src="${pageContext.request.contextPath}/admin/dist/icon/cart.svg" alt="Giỏ hàng">
                     <p>${sessionScope.countcart}</p>
                 </div>
             </a>
@@ -199,7 +199,7 @@
             <div class="header_bar-cart header_bar-cart-user">
                 <a class="profile-link">
                     <div class="header_bar-cart-icon">
-                        <img src="icon/user.png" alt="Hồ sơ" style="border-radius: 50%; height: 65%;">
+                        <img src="${pageContext.request.contextPath}/admin/dist/icon/user.png" alt="Hồ sơ" style="border-radius: 50%; height: 65%;">
                     </div>
                 </a>
                 <div class="profile-dropdown">
@@ -230,7 +230,7 @@
                 <div class="header_bar-cart">
                     <a href="cart">
                         <div class="header_bar-cart-icon">
-                            <img src="icon/cart.svg" alt="Giỏ hàng">
+                            <img src="${pageContext.request.contextPath}/admin/dist/icon/cart.svg" alt="Giỏ hàng">
                         </div>
                     </a>
                 </div>

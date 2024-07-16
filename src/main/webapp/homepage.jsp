@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="row">
                                     <h2><%= course.getName() %></h2>
-                                    <h5><%= course.getDescription() %></h5>
+                                    <h6><%= course.getDescription() %></h6>
                                 </div>
                                 <div class="rating">
                                     <div class="stars">
@@ -129,13 +129,13 @@
 
                                 <!-- Add to Cart Button -->
                                 <% if (!isLoggedIn) { %>
-                                <button type="button" class="btn btn-warning" onclick="alert('Bạn cần đăng nhập để thêm vào giỏ hàng')">Đăng nhập để thêm vào giỏ hàng</button>
+                                <button type="button" class="btn btn-warning" style="background-color: #eceb98" onclick="alert('Bạn cần đăng nhập để thêm vào giỏ hàng')">Đăng nhập để thêm vào giỏ hàng</button>
                                 <% } else if (cartIds.contains(String.valueOf(course.getId()))) { %>
                                 <button type="button" class="btn btn-secondary" disabled>Đã thêm vào giỏ</button>
                                 <% } else { %>
                                 <form action="add-to-cart" method="post">
                                     <input type="hidden" name="courseId" value="<%= course.getId() %>">
-                                    <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+                                    <button type="submit" class="btn btn-primary" style="background-color: #00a7c1"> Thêm vào giỏ hàng</button>
                                 </form>
                                 <% } %>
 

@@ -48,7 +48,7 @@
 </head>
 
 <body class="white-bg">
-<jsp:include page="../components/header_loged.jsp"/>
+<jsp:include page="./dist/components/header.jsp"/>
 <!-- Banner -->
 <section class="course-header-area" style="background-image: url('https://4user.net/uploads/system/course_page_banner.png'); background-size: cover; background-position: right;">
     <div class="container">
@@ -59,13 +59,6 @@
                     <p class="subtitle">${course.description}</p>
                     <div class="rating-row">
                         <span class="course-badge best-seller">Người mới bắt đầu</span>
-                        <div class="stars">
-                            <c:forEach var="star" begin="1" end="5">
-                                <i class="fas fa-star"></i>
-                            </c:forEach>
-                        </div>
-                        <span class="d-inline-block average-rating">5</span><span>(1 Xếp hạng)</span>
-                        <span class="comment"><i class="fas fa-comment"></i>VietNamese</span>
                     </div>
                     <div class="created-row">
                             <span class="created-by">
@@ -73,7 +66,6 @@
                                 <a class="text-14px fw-600 text-decoration-none" href="#">FunnyCode</a>
                             </span>
                         <br>
-                        <span class="last-updated-date d-inline-block mt-2">Cập nhật lần cuối: ???</span>
                     </div>
                 </div>
             </div>
@@ -112,7 +104,7 @@
                                             </span>
                                     </div>
                                     <div>
-                                        <button type="button" class="btn btn-primary" onclick="showCreateLessonModal()">
+                                        <button type="button" class="btn btn-primary" style="background-color: #00a7c1; margin-left: 10px " onclick="showCreateLessonModal()">
                                             Create
                                         </button>
                                     </div>
@@ -123,17 +115,6 @@
 
                                             <ul>
                                                 <%--                                                xem truoc --%>
-                                                <li class="lecture has-preview text-14px ">
-                                                    <i class="far fa-clock"></i>
-                                                    <span class="lecture-title text-primary" onclick="go_course_playing_page('35', '309')">Overview Course</span>
-                                                    <div class="lecture-info float-lg-end">
-                                                            <span class="lecture-preview" onclick="lesson_preview('https://4user.net/home/preview_free_lesson/309', 'Bài học: Overview Course')">
-                                                                <i class="fas fa-eye"></i>
-                                                                Xem trước
-                                                            </span>
-                                                        <span class="lecture-time ps-2"> 00:06:23 </span>
-                                                    </div>
-                                                </li>
                                                 <li class="lecture has-preview text-14px ">
                                                     <i class="far fa-file-alt"></i>
                                                     <span class="lecture-title " onclick="go_course_playing_page('35', '361')">Chi Tiết Bài Học</span>
@@ -171,38 +152,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Chỗ tính tiền, thêm giỏ hàng, yêu thích, so sánh -->
-            <div class="col-lg-4 order-first order-lg-last">
-                <div class="course-sidebar box-shadow-5 natural">
-                    <div class="course-sidebar-text-box">
-                        <div class="price text-center">
-                            <span class="current-price"><span class="current-price">${course.price}</span></span>
-                            <%--                            <input type="hidden" id="total_price_of_checking_out" value="500000">--%>
-                        </div>
-
-                        <!-- WISHLIST BUTTON -->
-                        <div class="buy-btns">
-                            <button class="btn btn-add-wishlist " type="button" id="35" onclick="handleAddToWishlist(this)">
-                                Thêm vào danh sách yêu thích                </button>
-                        </div>
-
-                        <div class="buy-btns">
-                            <button class="btn btn-buy-now" type="button" id="35a" onclick="handleCartItems(this)">Thêm vào giỏ hàng</button>
-
-                            <button class="btn btn-buy" type="button" id="course_35" onclick="handleBuyNow(this)">Mua ngay</button>
-                        </div>
-
-
-                        <div class="includes mt-3">
-                            <div class="title"><b>Bao gồm:</b></div>
-                            <ul>
-                                <li><i class="far fa-file-video"></i> ${course.timeCourse} </li>
-                                <li><i class="far fa-file"></i>${course.totalLesson}</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -277,73 +226,18 @@
     </div>
 </section>
 
-<div class="footer_content">
-    <div class="footer-lienket">
-        <div class="footer-lienket-title">
-            <h3>Study and topic, any thing with </h3>
-        </div>
-        <div class="footer-lienket-info">
-            <ul>
-                <li><a href="facebook.com"><img src="../icon/facebook.svg" alt=""></a></li>
-                <li><a href="instagram.com"><img src="../icon/instagram.svg" alt=""></a></li>
-                <li><a href="twitter.com"><img src="../icon/twitter.svg" alt=""></a></li>
-                <li><a href="youtube.com"><img src="../icon/youtube.svg" alt=""></a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-list">
-        <div class="footer-list-title">
-            <h3>Danh mục hàng đầu</h3>
-        </div>
-        <div class="footer-list-info">
-            <ul class="footer-list-info-ul">
-                <li><a href="list.html?id=1">Kì 1</a></li>
-                <li><a href="list.html?id=1">Kì 1</a></li>
-                <li><a href="list.html?id=1">Kì 1</a></li>
-                <li><a href="list.html?id=1">Bài tập</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-favorite">
-        <div class="footer-list-title">
-            <h3>Liên kết hữu ích</h3>
-        </div>
-        <div class="footer-favorite-info">
-            <ul class="footer-list-info-ul">
-                <li><a href="">Blog</a></li>
-                <li><a href="">Login</a></li>
-                <li><a href="">SignUp</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<footer>
-    <div class="footer-logo">
-        <img src="icon/logo.png" alt="">
-    </div>
-    <div class="footer-info">
-        <p>© 2024 Study and topic, any thing with. All Rights Reserved.</p>
-    </div>
-    <div class="language_footer">
-        <select name="" id="">
-            <option value="VIE">Vietnamese</option>
-            <option value="ENG">English</option>
-        </select>
-    </div>
-</footer>
+<jsp:include page="./dist/components/footer.jsp"/>
 
 <%--create--%>
 <div class="modal-overlay" id="createLessonModal">
     <div class="modal-content">
         <span class="close" onclick="hideCreateLessonModal()">&times;</span>
         <h2>Create New Lesson</h2>
-
         <form id="createLessonForm" action="create-lesson" method="post">
-
-            <input type="text" id="courseid" name="courseId" value="${course.id}">
+            <label for="courseid">Course ID:</label><br>
+            <input type="text" id="courseid" name="courseId" value="${course.id}"><br><br>
             <label for="lessonName">Lesson Name:</label><br>
             <input type="text" id="lessonName" name="lessonName" required><br><br>
-
             <label for="content">Content:</label><br>
             <input type="text" id="content" name="content" required><br><br>
 
@@ -377,9 +271,6 @@
         </form>
     </div>
 </div>
-<jsp:include page="../components/footer.jsp"/>
-
-
 
 <script src="../js/hompage.js"></script>
 

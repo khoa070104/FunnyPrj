@@ -25,6 +25,7 @@ body {
     font-size: 24px;
     /* Kích thước của sao */
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .stars i {
