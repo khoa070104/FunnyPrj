@@ -67,7 +67,8 @@ public class HomeController extends HttpServlet {
     private void getLogout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
         if(session != null){
-            session.removeAttribute("user");
+//            session.removeAttribute("user");
+            session.invalidate();
         }
         Cookie[] cookie = request.getCookies();
         for(Cookie c : cookie){

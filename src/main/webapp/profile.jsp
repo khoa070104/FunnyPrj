@@ -22,7 +22,7 @@
 
 
 <body class="white-bg">
-<jsp:include page="./components/header_loged.jsp"/>
+<jsp:include page="./components/header.jsp"/>
 <section class="user-dashboard-area pt-3">
     <div class="container">
         <div class="row">

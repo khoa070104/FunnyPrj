@@ -8,7 +8,7 @@
 }
 .header_info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 40px;
     border-radius: 5px;
     border-bottom: 1px solid #ced4da;
@@ -52,7 +52,7 @@
 }
 .header_bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     border-bottom: 1px solid #ced4da;
     height: 100px;
     align-items: center;

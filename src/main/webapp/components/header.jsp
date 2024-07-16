@@ -150,7 +150,7 @@
                     Danh Mục
                 </i>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
-                    <a href="list" class="dropdown-item">
+                    <a href=list class="dropdown-item">
                         <i class="fas fa-book mr-2"></i> Khóa học
                     </a>
                     <a href="cart" class="dropdown-item">

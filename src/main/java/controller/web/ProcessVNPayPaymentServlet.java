@@ -123,7 +123,6 @@ public class ProcessVNPayPaymentServlet extends HttpServlet {
         String vnp_SecureHash = Config.hmacSHA512(Config.secretKey, hashData.toString());
         queryUrl += "&vnp_SecureHash=" + vnp_SecureHash;
         String paymentUrl = Config.vnp_PayUrl + "?" + queryUrl;
-        System.out.println(paymentUrl);
         resp.sendRedirect(paymentUrl);
     }
 }

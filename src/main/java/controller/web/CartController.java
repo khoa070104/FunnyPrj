@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/cart", "/removecart","/add-to-cart"})
+@WebServlet(urlPatterns = {"/cart", "/removecart","/add-to-cart", "/payment-success"})
 public class CartController extends HttpServlet {
 
     @Override
@@ -65,8 +65,17 @@ public class CartController extends HttpServlet {
         } else {
             cartValue += "_" + user.getUsername() + "_" + courseId;
         }
-        String[] coursesitemlist = cartValue.split("_");
-        int count = coursesitemlist.length / 2;
+        int count = 0;
+
+        if (!cartValue.isEmpty()) {
+            String[] items = cartValue.split("_");
+            for (int i = 0; i < items.length; i++) {
+                if (i % 2 == 0 && user.getUsername().equals(items[i])) {
+                    count++;
+                }
+            }
+        }
+
         cartCookie.setValue(cartValue);
         cartCookie.setMaxAge(60 * 60 * 24 * 30); // Cookie valid for 30 day
         response.addCookie(cartCookie);
@@ -120,13 +129,12 @@ public class CartController extends HttpServlet {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         if (user == null) {
-            response.sendRedirect("login"); // sửa lại url pattern cho đúng theo dự án
+            response.sendRedirect("login.jsp"); // Sửa lại URL pattern cho đúng theo dự án
             return;
         }
 
         // Retrieve cookies
         Cookie[] cookies = request.getCookies();
-
         String cartValue = "";
         if (cookies != null) {
             for (Cookie cookie : cookies) {
@@ -136,22 +144,39 @@ public class CartController extends HttpServlet {
                 }
             }
         }
-        String newcookie="";
+
+        String newCookieValue = "";
         String idToRemove = request.getParameter("id");
         if (!cartValue.isEmpty()) {
             String[] items = cartValue.split("_");
-            for (int i = 0; i < items.length-1; i++) {
-                if (i % 2 == 0 && user.getUsername().equals(items[i])) {
+            for (int i = 0; i < items.length - 1; i += 2) {
+                if (user.getUsername().equals(items[i])) {
                     if (!items[i + 1].equals(idToRemove)) {
-                        newcookie = newcookie + items[i] + "_" + items[i+1] + "_";
+                        newCookieValue += items[i] + "_" + items[i + 1] + "_";
                     }
+                } else {
+                    newCookieValue += items[i] + "_" + items[i + 1] + "_";
                 }
             }
+
+            // Remove trailing underscore if present
+            if (newCookieValue.endsWith("_")) {
+                newCookieValue = newCookieValue.substring(0, newCookieValue.length() - 1);
+            }
         }
-        Cookie cartCookie = new Cookie("cart", "");
-        cartCookie.setValue(newcookie);
-        cartCookie.setMaxAge(60 * 60 * 24 * 30); // Cookie valid for 30 day
+
+        // Update session attribute countcart
+        Integer countCart = (Integer) session.getAttribute("countcart");
+        if (countCart != null && countCart > 0) {
+            session.setAttribute("countcart", countCart - 1);
+        }
+
+        // Update the cart cookie
+        Cookie cartCookie = new Cookie("cart", newCookieValue);
+        cartCookie.setMaxAge(60 * 60 * 24 * 30); // Cookie valid for 30 days
         response.addCookie(cartCookie);
-        response.sendRedirect("cart");
+
+        response.sendRedirect("cart"); // Sửa lại URL pattern cho đúng theo dự án
     }
+
 }
