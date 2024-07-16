@@ -109,7 +109,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header_loged.css">
 </head>
 <body>
-<div class="cover">
+<div class="cover" style="width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;">
     <div class="header_info">
         <div class="phone_header">
             <div class="phone_header-logo">
@@ -134,7 +136,6 @@
             </select>
         </div>
     </div>
-
     <div class="header_bar">
         <div class="header_barlogosearch">
             <a  href="home">
@@ -158,7 +159,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="header_bar-search">
                 <div class="header_bar-search-info">
                     <input type="text" placeholder="Tìm kiếm">
@@ -228,7 +228,7 @@
             %>
             <div class="header_bar-cartsign">
                 <div class="header_bar-cart">
-                    <a href="login">
+                    <a href="cart">
                         <div class="header_bar-cart-icon">
                             <img src="icon/cart.svg" alt="Giỏ hàng">
                         </div>

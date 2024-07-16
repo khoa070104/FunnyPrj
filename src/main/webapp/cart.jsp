@@ -26,7 +26,7 @@
     <div class="image-placeholder-1"></div>
     <div class="container-lg breadcrumb-container row align-items-center">
         <nav class="col-auto" aria-label="breadcrumb">
-            <ol class="breadcrumb">
+            <ol class="breadcrumb" style="background-color: transparent">
                 <li class="breadcrumb-item display-6 fw-bold">
                     <a href="home">
                         Trang chủ

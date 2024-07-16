@@ -1,18 +1,4 @@
 
-.container-lg {
-    width: 100%;
-    padding-right: 20px;
-    padding-left: 20px;
-    margin-right: auto;
-    margin-left: auto;
-}
-.header_info {
-    display: flex;
-    justify-content: space-around;
-    height: 40px;
-    border-radius: 5px;
-    border-bottom: 1px solid #ced4da;
-}
 .phone_header, .mail_header, .language_header  {
     display: flex;
     align-items: center;
@@ -52,7 +38,7 @@
 }
 .header_bar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     border-bottom: 1px solid #ced4da;
     height: 100px;
     align-items: center;
@@ -67,18 +53,7 @@
     height: 150px;
 
 }
-.header_bar-danhMuc {
-    display: flex;
-    background-color: #00a7c13a;
-    padding: 10px !important;
-    font-size: 15px;
-    font-weight: 500 !important;
-    color: #53c7d9;
-    justify-content: center;
-    position: relative;
-    right: 50px;
-    width: 200px;
-}
+
 .header_bar-danhMuc-icon img {
     width: 25px;
     height: 15px;
@@ -114,7 +89,6 @@
     width: 20px;
     position: relative;
     right: 30px;
-    top: 10px;
 }
 .header_bar a {
     text-decoration: none;

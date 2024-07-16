@@ -250,6 +250,7 @@ body {
     padding-left: 8px;
     /* Thêm padding để cân bằng với margin-left */
     box-sizing: border-box;
+
 }
 
 .course-list {
@@ -257,8 +258,8 @@ body {
     overflow: hidden;
     margin: 0;
     padding: 0;
+    min-height: 500px;
 }
-
 .course-box-wrap {
     border-radius: 10px;
     float: left;
@@ -388,7 +389,7 @@ body {
     line-height: 24px;
     margin-top: 3px;
     float: right !important;
-    width: 50%;
+    width: 45%;
 }
 
 .course-details .row {
@@ -418,7 +419,6 @@ body {
 }
 .header_bar-cartsign{
     margin-top: 10px;
-    margin-left: 150px;
 }
 
 .header_bar-sign {
