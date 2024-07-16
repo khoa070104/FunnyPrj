@@ -50,6 +50,7 @@
 </head>
 <body>
 
+
 <jsp:include page="./dist/components/header.jsp"/>
 <section class="category-header-area"
          style="background-image: url('${pageContext.request.contextPath}/admin/dist/icon/course_page_banner.png'); background-size: cover; background-position: right;">
