@@ -41,7 +41,7 @@
     </script>
 </head>
 <body onload="checkCategoryAll()">
-<jsp:include page="./components/header_loged.jsp"/>
+<jsp:include page="./components/header.jsp"/>
 <section class="category-header-area"
          style="background-image: url('${pageContext.request.contextPath}/icon/course_page_banner.png'); background-size: cover; background-position: right;">
     <div class="image-placeholder-3"></div>
@@ -270,5 +270,3 @@
 </body>
 
 </html>
-
-

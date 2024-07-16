@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}css/homepage_after.css">
 </head>
 <body>
-<jsp:include page="components/header.jsp"/>
 <main class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -23,7 +22,6 @@
         </div>
     </div>
 </main>
-<jsp:include page="components/footer.jsp"/>
 <script src="js/hompage.js"></script>
 </body>
 </html>

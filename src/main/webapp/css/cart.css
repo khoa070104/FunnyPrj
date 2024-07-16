@@ -17,6 +17,13 @@ body {
     font-family: var(--bs-font-sans-serif);
 }
 
-.course-detail {
-    display: none;
+/* Layout Containers */
+.cover {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+.course-detail {
+    display: flex;
+}
+

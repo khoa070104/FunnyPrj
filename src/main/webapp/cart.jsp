@@ -14,10 +14,12 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/cart.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}css/homepage_after.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}css/hompage">
 </head>
 
 <body class="white-bg">
-<jsp:include page="./components/header_loged.jsp"/>
+<jsp:include page="./components/header.jsp"/>
 <section class="category-header-area" style="background-image: url('https://4user.net/uploads/system/shopping_cart.png');
     background-size: cover;
     background-repeat: no-repeat;">
