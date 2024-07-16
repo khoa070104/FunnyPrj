@@ -23,9 +23,7 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = request.getRequestURI().toString();
 
-        if(url.contains("create-course")){
-            getCreate(request,response);
-        } else if(url.contains("edit-course")){
+         if(url.contains("edit-course")){
             getEdit(request,response);
         } else if(url.contains("delete-course")){
             getDelete(request,response);
@@ -79,50 +77,7 @@ public class HomeController extends HttpServlet {
         }
         response.sendRedirect("admin/editcourse.jsp");
     }
-    protected void getCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//        List<Category> list = i.getAll();
-//        HttpSession session = request.getSession();
-//        session.setAttribute("categories", list);
-//        List<LessonTime> listLessonTimes = i.getAllLessonTimes();
-//        session.setAttribute("lessonTimes", listLessonTimes);
-//        request.getRequestDispatcher("editcourse.jsp").forward(request, response);
-//        String name = request.getParameter("name");
-//        String priceStr = request.getParameter("price");
-//        String description = request.getParameter("description");
-//        String typeCourseStr = request.getParameter("typeCourse");
-//        String idLessonTime = request.getParameter("idLessonTime"); // Nhận giá trị trực tiếp từ input text
-//        int idCategory = Integer.parseInt(request.getParameter("idCategory"));
-//        System.out.println(priceStr);
-//        System.out.printf(typeCourseStr);
-//        System.out.println("-----");
-//        try {
-//            double price = Double.parseDouble(priceStr);
-//            int typeCourse = Integer.parseInt(typeCourseStr);
-//            Part imgPart = request.getPart("img");
-//
-//            // Đường dẫn thư mục lưu trữ ảnh upload
-//            String uploadPath = request.getServletContext().getRealPath("/upload");
-//            String fileName = Paths.get(imgPart.getSubmittedFileName()).getFileName().toString();
-//
-//            // Tạo thư mục upload nếu chưa tồn tại
-//            if (!Files.exists(Paths.get(uploadPath))) {
-//                Files.createDirectories(Paths.get(uploadPath));
-//            }
-//
-//            // Lưu file ảnh vào thư mục upload
-//            imgPart.write(uploadPath + "/" + fileName);
-//            String imgPath = "upload/" + fileName;
-//            ItemDAOImpl courseDAO = new ItemDAOImpl();
-//            boolean test = courseDAO.createCourse(name, price, description, typeCourse, idLessonTime, idCategory, imgPath);
-//            if (test) {
-//                response.sendRedirect("editcourse.jsp");
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            response.getWriter().println("Error: " + e.getMessage());
-//        }
-    }
+
 
     protected void postCreate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

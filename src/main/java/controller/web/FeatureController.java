@@ -50,10 +50,12 @@ public class FeatureController extends HttpServlet {
     }
 
     protected void getList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        IItemService i = new ItemServiceImpl();
         List<Category> list = itemDAO.getAll();
         HttpSession session = request.getSession();
         session.setAttribute("categories", list);
-        response.sendRedirect("allcourse.jsp");
+        session.setAttribute("courses", i.filterCoursesByCriteria(0));
+        request.getRequestDispatcher("allcourse.jsp").forward(request, response);
     }
 
     protected void postList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
