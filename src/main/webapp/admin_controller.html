@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User and Course Management</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Sidebar -->
+        <nav id="sidebar" class="sidebar">
+            <div class="text-center mb-3">
+                <h4 class="text-white">FunnyCode</h4>
+            </div>
+            <div class="text-center mb-3">
+                <img src="path_to_group_logo.jpg" alt="Group Logo" class="img-fluid rounded-circle" style="width: 100px; height: 100px;">
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" onclick="showAdminProfile()"><i class="fas fa-user"></i> Admin Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showSearchBar()"><i class="fas fa-search"></i> Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showUserManagement()"><i class="fas fa-users"></i> User Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showCourseManagement()"><i class="fas fa-book"></i> Course Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showMessageCenter()"><i class="fas fa-envelope"></i> Messages</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Main Content -->
+        <main class="content">
+            <div class="header">
+                <div class="left">
+                    <button class="btn btn-link" onclick="showList()">
+                        <i class="fas fa-list"></i> List
+                    </button>
+                    <button class="btn btn-link" onclick="showSearchBar()">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                    <button class="btn btn-link" onclick="showMessageCenter()">
+                        <i class="fas fa-envelope"></i> Messages
+                    </button>
+                    <button class="btn btn-link" onclick="showNotification()">
+                        <i class="fas fa-bell"></i> Notifications
+                    </button>
+                </div>
+                <div class="right">
+                    <button class="btn btn-link" onclick="logout()">
+                        Logout <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="adminProfile" class="profile">
+                <img src="path_to_admin_avatar.jpg" alt="Admin Avatar" class="img-fluid rounded-circle">
+                <h2>Admin Name</h2>
+            </div>
+
+            <div id="searchBar" class="search-bar" style="display:none;">
+                <input type="text" placeholder="Enter search keyword..." class="form-control">
+                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div id="userManagement" style="display:none;">
+                <div class="section-title">User Management</div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Full Name</th>
+                            <th>Phone</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Avatar</th>
+                            <th>Code</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>username1</td>
+                            <td>email1@example.com</td>
+                            <td>Full Name 1</td>
+                            <td>123456789</td>
+                            <td>Admin</td>
+                            <td>Active</td>
+                            <td><img src="path_to_avatar1.jpg" alt="Avatar" class="img-fluid rounded-circle" style="width: 50px; height: 50px;"></td>
+                            <td>ABC123</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="courseManagement" style="display:none;">
+                <div class="section-title">Course Management</div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Rate</th>
+                            <th>Price</th>
+                            <th>Time Course</th>
+                            <th>Description</th>
+                            <th>Created Date</th>
+                            <th>Updated Date</th>
+                            <th>Created By</th>
+                            <th>Updated By</th>
+                            <th>ID Category</th>
+                            <th>Type Course</th>
+                            <th>ID Lesson Time</th>
+                            <th>Total Lesson</th>
+                            <th>Image</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Course Name 1</td>
+                            <td>4.5</td>
+                            <td>$100</td>
+                            <td>10 hours</td>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                            <td>2023-01-01</td>
+                            <td>2023-06-01</td>
+                            <td>Admin</td>
+                            <td>Admin</td>
+                            <td>Category 1</td>
+                            <td>Type 1</td>
+                            <td>Lesson Time 1</td>
+                            <td>10</td>
+                            <td><img src="path_to_image1.jpg" alt="Image" class="img-fluid" style="width: 50px; height: 50px;"></td>
+                            <td>
+                                <button class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="messageCenter" style="display:none;">
+                <div class="section-title">Messages</div>
+                <!-- Message center content here -->
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom JS -->
+<script src="js/admin.js"></script>
+</body>
+</html>
