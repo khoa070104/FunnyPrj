@@ -1,0 +1,100 @@
+/* CSS cho footer */
+.footer_content {
+    background-color: #0a1c3a;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #364b6f;
+}
+h3 {
+    color: #ffffff;
+    font-weight: 550 !important;
+}
+
+.footer-lienket {
+    color: #bfc8da;
+    padding: 29px 30px;
+    background: linear-gradient(360deg, rgba(10, 28, 58, 1) 0%, rgba(35, 52, 81, 1) 100%);
+}
+.footer-lienket-info ul{
+    padding-left: 0px;
+    height: 30px;
+    display: flex;
+}
+.footer-lienket-title h3{
+    margin-bottom: 1rem !important;
+    line-height: 32px;
+    font-size: 22px;
+}
+.footer-lienket-info img {
+    width: 30px;
+    height: 30px;
+    margin: 10px 10px 0 0;
+}
+.footer-list-title h3{
+    margin: 0;
+    border-bottom: 2px solid #364b6f;
+    border-radius: 2px;
+    font-size: 16px;
+}
+.footer-lienket-info ul, .footer-list-info ul, .footer-favorite-info ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-list-info a, .footer-favorite-info a {
+    text-decoration: none;
+    color: #1E293B;
+    font-size: 17px;
+    color: #cbd2e0;
+    font-size: 14px;
+}
+.footer-list-info-ul > li{
+    margin: 4px 0 10px 0;
+}
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #0a1c3a;
+}
+.footer-info {
+    color: #cacbcb;
+    padding-left: 1.5rem !important;
+    padding-top: .5rem !important;
+    flex: 1;
+}
+.footer-logo img {
+    position: relative;
+    left: 70%;
+    width: 200px;
+    height: 100px;
+    /* background-image: linear-gradient(0, rgba(255,255,0,0.5), rgba(0,0,255,0.5)); */
+}
+.language_footer {
+    flex:0.25;
+}
+.language_footer select{
+    border: 1px solid #00a7c1;
+    border-radius: 5px;
+    background-color: #00a7c1 !important;
+    color: #bfc8da;
+    font-size: 15px;
+    width: 110px;
+    height: 35px;
+    align-items: center;
+    box-sizing:border-box;
+}
+.language_footer select option {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-info {
+        text-align: center !important;
+    }
+}
+@media (min-width: 768px) {
+    .footer-info  {
+        width: 33.33333333%;
+    }
+}
