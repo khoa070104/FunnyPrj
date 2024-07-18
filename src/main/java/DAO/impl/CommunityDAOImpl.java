@@ -162,6 +162,32 @@ public class CommunityDAOImpl extends DBConnect implements ICommunityDao {
         return posts;
     }
 
+    public List<Post> getPostsByUserId(int userId) {
+        List<Post> posts = new ArrayList<>();
+        String sql = "SELECT * FROM tblPost WHERE id_user = ?";
+        try (
+                PreparedStatement stmt = connection.prepareStatement(sql)
+        ) {
+            stmt.setInt(1, userId);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Post post = new Post(
+                            rs.getInt("id"),
+                            rs.getNString("title"),
+                            rs.getNString("content"),
+                            rs.getInt("status"),
+                            rs.getInt("numberComment"),
+                            rs.getInt("id_user")
+                    );
+                    posts.add(post);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return posts;
+    }
+
 
 
 }

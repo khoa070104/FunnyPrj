@@ -55,4 +55,9 @@ public class ComunityServiceImpl implements ICommunityService {
     public List<Post> getAllPosts() {
         return i.getAllPosts();
     }
+
+    @Override
+    public List<Post> getPostsByUserId(int userId){
+        return i.getPostsByUserId(userId);
+    }
 }

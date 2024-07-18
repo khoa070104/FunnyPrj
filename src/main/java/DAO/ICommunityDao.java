@@ -19,5 +19,5 @@ public interface ICommunityDao {
     public void deletePost(int id);
     public Post getPostById(int id);
     public List<Post> getAllPosts();
-
+    public List<Post> getPostsByUserId(int userId);
 }

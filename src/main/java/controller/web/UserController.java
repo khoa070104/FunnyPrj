@@ -6,20 +6,25 @@ import com.google.gson.JsonObject;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import model.Post;
 import model.User;
 import model.google.Constants;
 import model.google.UserGoogle;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Form;
 import org.apache.http.client.fluent.Request;
+import service.ICommunityService;
 import service.IUserService;
+import service.Impl.ComunityServiceImpl;
 import service.Impl.UserServiceImpl;
 import utils.Email;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(urlPatterns = {"/profile","/update-profile","/LoginGoogle"})
 public class UserController extends HttpServlet {
+    ICommunityService i = new ComunityServiceImpl() ;
     IUserService u = new UserServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,17 +39,24 @@ public class UserController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Your code here
-        String url = request.getRequestURI().toString();
-        if(url.contains("update-profile")){
-            postProfile(request,response);
+        String url = request.getRequestURI();
+        if (url.contains("/update-profile")) {
+            postUpdateProfile(request, response);
         }
     }
 
     protected void getProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("profile.jsp").forward(request,response);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        List<Post> posts = i.getPostsByUserId(u.getId());
+        if(session.getAttribute("posts") != null) {
+            session.removeAttribute("posts");
+        }
+        session.setAttribute("posts", posts);
+        request.getRequestDispatcher("profile.jsp").forward(request, response);
     }
-    protected void postProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    protected void postUpdateProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String fullName = request.getParameter("fullname");
         String phone = request.getParameter("phone");
         String username = request.getParameter("username");

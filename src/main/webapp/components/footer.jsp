@@ -55,12 +55,19 @@
     <div class="footer-info">
         <p>© 2024 FunnyCode, Pass Code To Funny - All Rights Reserved.</p>
     </div>
-    <div class="language_footer">
-        <select name="" id="">
-            <option value="VIE">Vietnamese</option>
-            <option value="ENG">English</option>
-        </select>
-    </div>
+<%--    <div class="language_footer">--%>
+<%--        <div id = "google_translate_element"></div>--%>
+<%--        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">--%>
+<%--        </script>--%>
+<%--        <script>--%>
+<%--            function googleTranslateElementInit(){--%>
+<%--                new google.translate.TranslateElement(--%>
+<%--                    {pageLanguage: 'vi'},--%>
+<%--                    'google_translate_element'--%>
+<%--                );--%>
+<%--            }--%>
+<%--        </script>--%>
+<%--    </div>--%>
 </footer>
 </body>
 </html>
