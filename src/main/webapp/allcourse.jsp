@@ -7,12 +7,6 @@
 <%
     IItemService i = new ItemServiceImpl();
     int totalCount = i.countTotalCourses();
-//    int ki1 = i.countCoursesByCategory(1);
-//    int ki2 = i.countCoursesByCategory(2);
-//    int ki3 = i.countCoursesByCategory(3);
-//    int ki4 = i.countCoursesByCategory(4);
-////    int zoom = i.countTotalTypeCourse(1);
-//    //int record = i.countTotalTypeCourse(0);
 %>
 
 <!DOCTYPE html>
@@ -28,8 +22,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/custom.css">
 
-
-    <!-- Thêm thư viện jQuery và jQuery UI -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -92,7 +84,6 @@
                                         </li>
                                         <%int index = 1;%>
                                         <c:forEach items="${sessionScope.categories}" var="c">
-
                                             <li class="ms-3">
                                                 <div class="d-flex">
                                                     <input type="radio" name="id_category" id="sub_category-${c.id}" class="categories custom-radio" value="${c.id}" ${cid==c.id ? 'checked' : ''} onclick="filter(this)">
@@ -101,12 +92,8 @@
                                                 </div>
                                             </li>
                                         </c:forEach>
-
-                                        <!-- Other categories here -->
                                     </ul>
                                 </div>
-
-
                             </form>
                         </div>
                     </div>
@@ -116,13 +103,12 @@
             <div class="col-lg-9">
                 <div class="row category-filter-box mx-0 box-shadow-4">
                     <div class="col-md-6">
-                        <!--<button class="btn py-1 px-2 mx-2 btn-light" onclick="toggleLayout('grid')"><i class="fas fa-th-large"></i></button>-->
-                        <!--<button class="btn py-1 px-2 mx-2 btn-light" onclick="toggleLayout('list')"><i class="fas fa-list"></i></button>-->
                         <span class="text-12px fw-700 text-muted">Đang hiển thị 6 Of 12 Kết quả</span>
                     </div>
                 </div>
+                <!-- CHANGED: Added id to course list container -->
                 <div class="category-course-list">
-                    <ul style="list-style: none;">
+                    <ul id="course-list" style="list-style: none;">
                         <c:forEach items="${courses}" var="course">
                             <li>
                                 <div class="course-box-2">
@@ -163,15 +149,8 @@
                         </c:forEach>
                     </ul>
                 </div>
-                <nav>
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item active disabled"><span class="page-link">1</span></li>
-                        <li class="page-item"><a href="#"
-                                                 data-ci-pagination-page="2">2</a></li>
-                        <li class="page-item"><a href="#" data-ci-pagination-page="2"
-                                                 rel="next"><i class="fas fa-chevron-right"></i></a></li>
-                    </ul>
-                </nav>
+                <!-- CHANGED: Added pagination container -->
+                <div id="pagination-container" class="text-center mt-4"></div>
             </div>
         </ul>
     </ul>
@@ -181,23 +160,16 @@
 <script src="js/hompage.js"></script>
 
 <script>
-
-
     function filter(radio) {
-        // Trigger form submission on radio button change
         radio.form.submit();
     }
 
     function checkCategoryAll() {
-        //var idCateChecked = document.getElementById('id_cate').checked;
-
         <c:if test="${empty cid}">
         document.getElementById('category_all').checked = true;
-
         </c:if>
     }
 
-    // Call checkCategoryAll() function when the page loads to initialize the state
     window.onload = checkCategoryAll;
 </script>
 <script>
@@ -206,6 +178,61 @@
         document.getElementById('footer-filter-form').submit();
     }
 </script>
+
+<!-- ADDED: New JavaScript for pagination -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const courseList = document.getElementById('course-list');
+        const paginationContainer = document.getElementById('pagination-container');
+        const coursesPerPage = 5;
+        let currentPage = 1;
+
+        // Lấy tất cả các khóa học
+        const courses = Array.from(courseList.getElementsByTagName('li'));
+        const totalCourses = courses.length;
+        const totalPages = Math.ceil(totalCourses / coursesPerPage);
+
+        function showPage(page) {
+            const startIndex = (page - 1) * coursesPerPage;
+            const endIndex = startIndex + coursesPerPage;
+
+            courses.forEach((course, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    course.style.display = '';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        }
+
+        function setupPagination() {
+            paginationContainer.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.innerText = i;
+                button.classList.add('btn', 'btn-outline-primary', 'mx-1');
+                if (i === currentPage) {
+                    button.classList.add('active');
+                }
+                button.addEventListener('click', function() {
+                    currentPage = i;
+                    showPage(currentPage);
+                    const currentButton = paginationContainer.querySelector('.active');
+                    if (currentButton) {
+                        currentButton.classList.remove('active');
+                    }
+                    this.classList.add('active');
+                });
+                paginationContainer.appendChild(button);
+            }
+        }
+
+        // Khởi tạo phân trang
+        showPage(currentPage);
+        setupPagination();
+    });
+</script>
+
 </body>
 
 </html>
