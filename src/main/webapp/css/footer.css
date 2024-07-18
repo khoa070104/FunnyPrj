@@ -1,11 +1,10 @@
 /* CSS cho footer */
 .footer_content {
     background-color: #0a1c3a;
-    padding: 60px 0;
+    padding: 30px 0;
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid #364b6f;
-
 }
 h3 {
     color: #ffffff;
@@ -62,11 +61,17 @@ footer {
     color: #cacbcb;
     padding-left: 1.5rem !important;
     padding-top: .5rem !important;
+    flex: 1;
 }
 .footer-logo img {
-    width: 300px;
-    height: 170px;
+    position: relative;
+    left: 70%;
+    width: 200px;
+    height: 100px;
     /* background-image: linear-gradient(0, rgba(255,255,0,0.5), rgba(0,0,255,0.5)); */
+}
+.language_footer {
+    flex:0.25;
 }
 .language_footer select{
     border: 1px solid #00a7c1;
@@ -90,7 +95,6 @@ footer {
 }
 @media (min-width: 768px) {
     .footer-info  {
-        flex: 0 0 auto;
         width: 33.33333333%;
     }
 }

@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/coursedetail.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-
-
     <style>
         /* Style cho lớp bảng đè */
         .modal-overlay {
@@ -50,7 +48,8 @@
 <body class="white-bg">
 <jsp:include page="./dist/components/header.jsp"/>
 <!-- Banner -->
-<section class="course-header-area" style="background-image: url('https://4user.net/uploads/system/course_page_banner.png'); background-size: cover; background-position: right;">
+<section class="course-header-area"
+         style="background-image: url('https://4user.net/uploads/system/course_page_banner.png'); background-size: cover; background-position: right;height: 250px">
     <div class="container">
         <div class="row align-items-end">
             <div class="col-lg-8">
@@ -75,9 +74,10 @@
 
 <section class="course-content-area">
     <div class="container">
-        <div class="row">
+<%--        <div class="row">--%>
             <!-- Danh mục -->
-            <div class="col-lg-8 order-last order-lg-first radius-10 mt-4 bg-white p-30-40 box-shadow-5">
+            <div class="order-last order-lg-first radius-10 mt-4 bg-white box-shadow-5"
+                style="padding: 30px 40px">
                 <div class="row bg-white d-flex justify-content-center">
                     <ul class="nav nav-tabs sNav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -96,19 +96,18 @@
                         <!-- Chương trình giảng dạy -->
                         <div class="tab-pane fade active show" id="course-curriculum-box" role="tabpanel" aria-labelledby="course-curriculum-box">
                             <div class="course-curriculum-box">
-                                <div class="course-curriculum-title clearfix mb-3">
+                                <div class="course-curriculum-title clearfix">
                                     <div class="title float-start">Chương trình giảng dạy của khóa học này</div>
                                     <div class="float-end mt-2">
                                             <span class="total-lectures course-badge best-seller">
                                                 ${course.totalLesson}
                                             </span>
                                     </div>
-                                    <div>
-                                        <button type="button" class="btn btn-primary" style="background-color: #00a7c1; margin-left: 10px " onclick="showCreateLessonModal()">
-                                            Create
-                                        </button>
-                                    </div>
                                 </div>
+                                <button type="button" class="createbutton" onclick="showCreateLessonModal()">
+                                    <div>Create</div>
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                </button>
                                 <div class="course-curriculum-accordion">
                                     <div class="lecture-group-wrapper">
                                         <div id="collapse${lesson.id}" class="lecture-list collapse show">
@@ -157,7 +156,7 @@
                 </div>
             </div>
         </div>
-    </div>
+<%--    </div>--%>
     <!-- List course gợi ý -->
     <div class="course-carousel-area">
         <div class="container">
@@ -235,14 +234,14 @@
         <h2>Create New Lesson</h2>
         <form id="createLessonForm" action="create-lesson" method="post">
             <label for="courseid">Course ID:</label><br>
-            <input type="text" id="courseid" name="courseId" value="${course.id}"><br><br>
+            <input type="text" id="courseid" name="courseId" value="${course.id}"><br>
             <label for="lessonName">Lesson Name:</label><br>
-            <input type="text" id="lessonName" name="lessonName" required><br><br>
+            <input type="text" id="lessonName" name="lessonName" required><br>
             <label for="content">Content:</label><br>
-            <input type="text" id="content" name="content" required><br><br>
+            <input type="text" id="content" name="content" required><br>
 
             <label for="lessonTime">Lesson Time:</label><br>
-            <input type="text" id="lessonTime" name="lessonTime" required><br><br>
+            <input type="text" id="lessonTime" name="lessonTime" required><br>
 
             <button type="submit">Create Lesson</button>
         </form>
@@ -254,19 +253,14 @@
     <div class="modal-content">
         <span class="close" onclick="hideEditLessonModal()">&times;</span>
         <h2>Edit Lesson</h2>
-
         <form id="editLessonForm" action="edit-lesson" method="get">
-
             <input type="text" id="editlessonId" name="lessonId" value="${lesson.id}" hidden >
-            <label for="lessonName">Lesson Name:</label><br>
-            <input type="text" id="editlessonName" name="lessonName" value="${lesson.nameLesson}" required><br><br>
-
-            <label for="content">Content:</label><br>
-            <input type="text" id="editcontent" name="content" value="${lesson.content}" required><br><br>
-
-            <label for="lessonTime">Lesson Time:</label><br>
-            <input type="text" id="editlessonTime" name="lessonTime" value="${lesson.timeLesson}" required><br><br>
-
+            <label for="lessonName">Lesson Name:</label>
+            <input type="text" id="editlessonName" name="lessonName" value="${lesson.nameLesson}" required>
+            <label for="content">Content:</label>
+            <input type="text" id="editcontent" name="content" value="${lesson.content}" required>
+            <label for="lessonTime">Lesson Time:</label>
+            <input type="text" id="editlessonTime" name="lessonTime" value="${lesson.timeLesson}" required>
             <button type="submit">Update Lesson</button>
         </form>
     </div>

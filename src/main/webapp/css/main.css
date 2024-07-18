@@ -4973,7 +4973,7 @@ border: none;
 }
 
 .p-30-40 {
-    padding: 30px 40px;
+    padding: 30px 40px !important;
 }
 
 .p-6px {
