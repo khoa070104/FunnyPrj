@@ -249,8 +249,10 @@
 
 <body class="white-bg">
 <jsp:include page="./components/header.jsp"/>
+
 <!-- Banner -->
-<section class="course-header-area" style="background-image: url('https://4user.net/uploads/system/course_page_banner.png'); background-size: cover; background-position: right;">
+<section class="course-header-area"
+         style="background-image: url('https://4user.net/uploads/system/course_page_banner.png'); background-size: cover; background-position: right;height: 250px">
     <div class="container">
         <div class="row align-items-end">
             <div class="col-lg-8">
@@ -277,7 +279,8 @@
     <div class="container">
         <div class="row">
             <!-- Danh mục -->
-            <div class="col-lg-8 order-last order-lg-first radius-10 mt-4 bg-white p-30-40 box-shadow-5">
+            <div class="col-lg-8 order-last order-lg-first radius-10 mt-4 bg-white box-shadow-5"
+                style="padding: 30px 40px">
                 <div class="row bg-white d-flex justify-content-center">
                     <ul class="nav nav-tabs sNav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -339,8 +342,39 @@
                 </div>
             </div>
             <!-- Chỗ tính tiền, thêm giỏ hàng, yêu thích, so sánh -->
+            <div class="col-lg-4 order-first order-lg-last">
+                <div class="course-sidebar box-shadow-5 natural" style="top: 30px">
+                    <div class="course-sidebar-text-box">
+                        <div class="price text-center">
+                            <span class="current-price"><span class="current-price">₫500,000</span></span>
+                            <input type="hidden" id="total_price_of_checking_out" value="₫500,000">
+                        </div>
+
+                        <!-- WISHLIST BUTTON -->
+                        <div class="buy-btns">
+                            <button class="btn btn-add-wishlist " type="button" id="35" onclick="handleAddToWishlist(this)">
+                                Thêm vào danh sách yêu thích                </button>
+                        </div>
+
+                        <div class="buy-btns">
+                            <button class="btn btn-buy-now" type="button" id="35" onclick="handleCartItems(this)">Thêm vào giỏ hàng</button>
+                            <button class="btn btn-buy" type="button" id="course_35" onclick="handleBuyNow(this)">Mua ngay</button>
+                        </div>
+
+
+                        <div class="includes mt-3">
+                            <div class="title"><b>Bao gồm:</b></div>
+                            <ul>
+                                <li><i class="far fa-file-video"></i> 39:51:31 Giờ Video theo yêu cầu </li>
+                                <li><i class="far fa-file"></i>107 Bài học</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
     <!-- List course gợi ý -->
     <div class="course-carousel-area">
         <div class="container">

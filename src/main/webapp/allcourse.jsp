@@ -45,9 +45,9 @@
 <section class="category-header-area"
          style="background-image: url('${pageContext.request.contextPath}/icon/course_page_banner.png'); background-size: cover; background-position: right;">
     <div class="image-placeholder-3"></div>
-    <div class="container-lg breadcrumb-container row align-items-center">
+    <div class="container-lg breadcrumb-container row align-items-center banner">
         <nav class="col-auto" aria-label="breadcrumb">
-            <ol class="breadcrumb" style="background-color: #6245E1 ">
+            <ol class="breadcrumb" style="background-color: transparent ">
                 <li class="breadcrumb-item display-6 fw-bold">
                     <a href="allcourse.jsp" style="font-size: 40px; font-weight: 500; color:white">
                         Tất cả các khóa học </a>
@@ -60,7 +60,8 @@
         </nav>
         <div class="col-3 ms-auto d-none d-sm-inline-block">
             <div class="book-img">
-                <img src="${pageContext.request.contextPath}/icon/brd-book.png" style="width: 200px; height: 200px;">
+                <img src="${pageContext.request.contextPath}/icon/brd-book.png"
+                     style="width: 200px; height: 200px; position: relative; left: 70%;">
             </div>
         </div>
     </div>
@@ -103,9 +104,6 @@
 
                                         <!-- Other categories here -->
                                     </ul>
-
-                                    <a href="javascript:;" class="text-13px fw-500" id="city-toggle-btn"
-                                       onclick="showToggle(this, 'hidden-categories')">Cho xem nhiều hơn</a>
                                 </div>
 
 
@@ -121,37 +119,6 @@
                         <!--<button class="btn py-1 px-2 mx-2 btn-light" onclick="toggleLayout('grid')"><i class="fas fa-th-large"></i></button>-->
                         <!--<button class="btn py-1 px-2 mx-2 btn-light" onclick="toggleLayout('list')"><i class="fas fa-list"></i></button>-->
                         <span class="text-12px fw-700 text-muted">Đang hiển thị 6 Of 12 Kết quả</span>
-                    </div>
-                    <div class="col-md-6 text-end filter-sort-by">
-                        <span>Sắp xếp theo : </span>
-                        <div class="dropdown d-inline-block">
-
-                            <!-- hidden field of sorting value -->
-                            <input id="sortByValue" type="hidden" name="sort_by" value="newest">
-
-                            <button class="btn bg-background dropdown-toggle fw-bold text-capitalize" type="button"
-                                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Mới nhất
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1"
-                                style="list-style: none;">
-                                <li><a onclick="courseSorting('newest')"
-                                       class="dropdown-item text-12px fw-600 text-capitalize"
-                                       href="javascript:;">Mới nhất</a></li>
-                                <li><a onclick="courseSorting('highest-rating')"
-                                       class="dropdown-item text-12px fw-600 text-capitalize"
-                                       href="javascript:;">Đánh giá cao nhất</a></li>
-                                <li><a onclick="courseSorting('discounted')"
-                                       class="dropdown-item text-12px fw-600 text-capitalize"
-                                       href="javascript:;">Discounted</a></li>
-                                <li><a onclick="courseSorting('lowest-price')"
-                                       class="dropdown-item text-12px fw-600 text-capitalize"
-                                       href="javascript:;">Giá thấp nhất</a></li>
-                                <li><a onclick="courseSorting('highest-price')"
-                                       class="dropdown-item text-12px fw-600 text-capitalize"
-                                       href="javascript:;">Giá cao nhất</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
                 <div class="category-course-list">
@@ -177,47 +144,19 @@
                                                     <span><i class="fas fa-play-circle"></i> ${course.totalLesson}</span>
                                                     <span><i class="far fa-clock"></i> ${course.timeCourse} Giờ</span>
                                                     <span><i class="fas fa-closed-captioning"></i> Tiếng Anh</span>
-                                                    <hr class="bg-white my-1">
-                                                    <span class="badge badge-primary"><i class="fa fa-level-up"></i> Người mới bắt đầu</span>
-                                                    <button class="btn-compare-sm" onclick="event.stopPropagation(); $(location).attr('href', '#');">
-                                                        <i class="fas fa-retweet"></i> Compare
-                                                    </button>
                                                 </div>
                                             </div>
-
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="floating-user d-inline-block">
-                                                        <img src="https://4user.net/uploads/user_image/optimized/6981af2b9220e61af0f42817a2574122.jpg"
-                                                             width="30px" data-bs-toggle="tooltip"
-                                                             data-bs-placement="top" title=""
-                                                             onclick="event.stopPropagation(); $(location).attr('href', '#');"
-                                                             data-bs-original-title="4 User" aria-label="4 User">
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         </div>
                                     </div>
                                     <div class="course-price-rating">
                                         <div class="course-price">
                                             <span class="current-price">${course.price}</span>
                                         </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <span class="d-inline-block average-rating">5</span>
-                                        </div>
-                                        <div class="rating-number">
-                                            1 Xếp hạng
-                                        </div>
-                                        <span style="cursor: pointer"
-                                              class="badge badge-primary">
+
+                                        <span style="cursor: pointer; padding: 10px"
+                                              class="badge badge-primary gio-hang">
                                           Thêm vào giỏ hàng
-                                    </span>
+                                        </span>
                                     </div>
                                 </div>
                             </li>

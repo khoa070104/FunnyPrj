@@ -152,10 +152,10 @@
                 </i>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
                     <a href=list class="dropdown-item">
-                        <i class="fas fa-book mr-2"></i> Khóa học
+                        <i class="fas fa-book mr-2"></i> Tạo bài viết
                     </a>
                     <a href="cart" class="dropdown-item">
-                        <i class="fas fa-store mr-2"></i> Cửa hàng
+                        <i class="fas fa-store mr-2"></i> Tìm kiếm bạn bè
                     </a>
                 </div>
             </div>
@@ -175,7 +175,7 @@
             %>
             <!-- Giảng viên Link -->
             <a href="lecturer.html" class="header-icon">
-                <div class="header_bar-cart-icon ">
+                <div class="header_bar-cart-icon no-icon">
                     <p class="icon-text">Mentor</p>
                 </div>
             </a>
@@ -229,7 +229,7 @@
             <div class="header_bar-cartsign">
                 <div class="header_bar-cart">
                     <a href="cart">
-                        <div class="header_bar-cart-icon">
+                        <div class="header_bar-cart-ic">
                             <img src="${pageContext.request.contextPath}/admin/dist/icon/cart.svg" alt="Giỏ hàng">
                         </div>
                     </a>

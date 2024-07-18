@@ -135,7 +135,8 @@
                                 <% } else { %>
                                 <form action="add-to-cart" method="post">
                                     <input type="hidden" name="courseId" value="<%= course.getId() %>">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #00a7c1"> Thêm vào giỏ hàng</button>
+                                    <button type="submit" class="btn btn-primary"
+                                            style="background-color: #00a7c1; border-color: transparent"> Thêm vào giỏ hàng</button>
                                 </form>
                                 <% } %>
 
