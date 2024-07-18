@@ -402,22 +402,25 @@ body {
     width: 100%;
     justify-content: center;
     background-color: var(--primary-color);
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     border-radius: 10px;
     border-color: var(--primary-color);
     height: 40px;
 }
 .createbutton i {
     position: relative;
-    top: 7px;
+    top: 8px;
+    right: 10px;
     color: white;
 }
 .createbutton div {
     padding: 0;           /* Bỏ khoảng đệm */
-    margin: 0 5px 0 0;
+    margin: 1.5px 5px;
     color: white;       /* Dùng màu chữ của thẻ cha */
     font-size: 17px;
     font-weight: 700;
+    position: relative;
+    right: 10px;
 }
 #createLessonForm {
     border-radius: 5px;
@@ -448,9 +451,7 @@ body {
     font-weight: 600;
 
 }
-.current-price button {
-    border-color: var(--primary-color) !important;
-    background-color: var(--primary-color) !important;
+.course-price button {
     font-weight: 600 !important;
 }
 .delete {
@@ -463,7 +464,9 @@ body {
     font-size: 1rem;
     line-height: 1.5;
     border-radius: .25rem;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.delete:hover {
+    background-color: #cecece;
 }
 .current-price button:hover {
     background-color: #007e92 ;

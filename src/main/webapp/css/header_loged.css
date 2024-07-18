@@ -65,8 +65,11 @@
     color: #1E293B;
     font-size: 17px;
 }
+.mail_header-info a:hover {
+    color: #1E293B !important;
+}
 
-/* Header Bar */
+    /* Header Bar */
 .header_bar {
     display: flex;
     border-bottom: 1px solid #ced4da;
@@ -87,11 +90,11 @@
 }
 .header_bar-danhMuc {
     display: flex;
-    background-color: #00a7c13a;
+    background-color: var(--primary-color);
     padding: 10px !important;
     font-size: 15px;
     font-weight: 500 !important;
-    color: #74c0fc;
+    color: white;
     justify-content: center;
     position: relative;
     right: 50px;
@@ -125,23 +128,25 @@
     width: 100%;
     box-sizing: border-box;
     text-align: left;
-    color: #212529;
+    color: #212529 !important;
     text-decoration: none;
     padding: 15px !important;
     border-bottom: 1px solid #d8d8d8 !important;
 }
 .dropdown-item:hover {
-    background-color: #edecec;
+    background-color: #e3e3e3;
     border-radius: 15px;
 }
-
-.header_bar-danhMuc-icon img {
-    width: 25px;
+.dropdown-item:active {
+    background-color: #eeeeee !important;
+}
+.header_bar-danhMuc-icon i {
+    width: 20px;
     height: 15px;
-    margin: 0 2px 3px 0;
+    color: white;
 }
 .header_bar-danhMuc:hover {
-    border-bottom: 3px solid #74c0fc;
+    border-bottom: 3px solid white;
 }
 .header_bar-search {
     display: flex;
@@ -187,7 +192,7 @@
 }
 
 .no-icon {
-    width: 130px;
+    width: 300px;
     margin: 0 !important;
 }
 /* Style cho khối chứa biểu tượng và menu dropdown */
@@ -251,7 +256,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 15px;
+    margin: 0 5px 0 15px;
     height: 50px;
     max-width: max-content;
 }
@@ -276,6 +281,8 @@
     /* Căn chỉnh các biểu tượng và văn bản theo chiều dọc */
     padding: 10px 15px;
     /* Khoảng cách trong các mục */
+    color: black !important;
+
 }
 
 /* Khoảng cách giữa biểu tượng và văn bản */
@@ -293,12 +300,16 @@
 
 .header_bar-cart-icon p.icon-text {
     margin: 0;
-    color: #818080;
-    font-size: 14px;
+    color: black;
+    font-size: 17px;
     padding: 10px;
     font-weight: 600;
 }
-
+.have-icon {
+    position: relative;
+    top: 8px;
+    left: 8px;
+}
 .header_bar a {
     text-decoration: none;
     color: #bfb4b4;
@@ -331,4 +342,26 @@
     width: 30px;
     height: 30px;
     margin-right: 15px;
+}
+a:hover{
+    text-decoration: none !important;
+}
+#pagination-container button{
+    border-color: #dddddd !important;
+    color: black !important;
+    width: 45px;
+    height: 40px;
+}
+#pagination-container button:first-child {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+}
+#pagination-container button:not(:first-child):hover{
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: white !important;
+}
+.hover-button:hover {
+    background-color: #007e92 !important;
 }

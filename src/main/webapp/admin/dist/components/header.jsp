@@ -145,7 +145,7 @@
             </a>
             <div class="header_bar-danhMuc" id="danhMuc">
                 <div class="header_bar-danhMuc-icon">
-                    <img src="${pageContext.request.contextPath}/admin/dist/icon/list-solid.svg" alt="">
+                    <i class="fa fa-list-ul" aria-hidden="true"></i>
                 </div>
                 <i class="header_bar-danhMuc-info">
                     Danh Mục
@@ -155,7 +155,7 @@
                         <i class="fas fa-book mr-2"></i> Tạo bài viết
                     </a>
                     <a href="cart" class="dropdown-item">
-                        <i class="fas fa-store mr-2"></i> Tìm kiếm bạn bè
+                        <i class="fa fa-users mr-2" aria-hidden="true"></i> Tìm kiếm bạn bè
                     </a>
                 </div>
             </div>

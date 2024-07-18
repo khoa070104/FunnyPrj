@@ -105,8 +105,9 @@
                                 </div>
                                 <div class="row">
                                     <h2><%= course.getName() %></h2>
-                                    <h6><%= course.getDescription() %></h6>
+                                    <h6 style="min-height: 40px"><%= course.getDescription() %></h6>
                                 </div>
+
                                 <div class="rating">
                                     <div class="stars">
                                         <!-- Adjust rating stars based on course.getRate() -->
@@ -129,13 +130,14 @@
 
                                 <!-- Add to Cart Button -->
                                 <% if (!isLoggedIn) { %>
-                                <button type="button" class="btn btn-warning" style="background-color: #eceb98" onclick="alert('Bạn cần đăng nhập để thêm vào giỏ hàng')">Đăng nhập để thêm vào giỏ hàng</button>
+                                <button type="button" class="btn btn-warning"
+                                        style="background-color: #eceb98; font-weight: 500;" onclick="alert('Bạn cần đăng nhập để thêm vào giỏ hàng')">Đăng nhập để thêm vào giỏ hàng</button>
                                 <% } else if (cartIds.contains(String.valueOf(course.getId()))) { %>
                                 <button type="button" class="btn btn-secondary" disabled>Đã thêm vào giỏ</button>
                                 <% } else { %>
                                 <form action="add-to-cart" method="post">
                                     <input type="hidden" name="courseId" value="<%= course.getId() %>">
-                                    <button type="submit" class="btn btn-primary"
+                                    <button type="submit" class="btn btn-primary hover-button"
                                             style="background-color: #00a7c1; border-color: transparent"> Thêm vào giỏ hàng</button>
                                 </form>
                                 <% } %>
