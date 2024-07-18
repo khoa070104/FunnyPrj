@@ -54,20 +54,19 @@ body {
 
 .body_form-input {
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     width: 50%;
 }
 .body_form-input form {
     width: 100%;
 }
 .body_form-input-username label , .body_form-input-password label {
-    color: #6c757d;
+    color: #444a4f;
     font-weight: 550;
+    margin-left: 3px;
 }
 .body_form-input-username {
-    margin-bottom: 20px; 
+    margin-bottom: 10px;
 }
 .input-form > div:not(.input-group):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
     margin-left: -1px;
@@ -86,6 +85,7 @@ body {
     width: 100%;
     height: 40px;
     border: 1px solid #ccc;
+    border-left: none;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     box-sizing: border-box; 
@@ -132,13 +132,12 @@ body {
     max-width: 100%; /* Đặt kích thước tối đa của hình ảnh trong icon */
     height: auto; /* Đảm bảo tỷ lệ hình ảnh */
 }
-
-
+.body_form-input:hover {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
 
 .body_form-input-forget {
     text-align: right;
-    margin-bottom: 30px; 
-
 }
 .body_form-input-forget a {
     text-decoration: none;
@@ -154,11 +153,9 @@ body {
     color: #fff;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
 }
-
 .body_form-input-submit input:hover {
-    background-color: #0056b3; 
+    background-color: #007e92;
 }
 
 .body_form-input-signin {
@@ -170,4 +167,33 @@ body {
     color: black;
     font-weight: 600;
 }
+.body_form-input-google a {
+    color: var(--primary-color);
+    margin: 5px;
+    font-weight: 700;
+}
+.body_form-input-google {
+    border: 1px solid var(--primary-color);
+    justify-content: center;
+    border-radius: 5px;
+    border-color: var(--primary-color);
+    display: flex;
+}
+.checkbox-label {
+    font-size: 14px;
+    margin-left: 10px;
+    color: #81807f;
+}
 
+.checkbox-input {
+    margin-right: 3px;
+    position: relative;
+    top: 2px;
+}
+
+.checkbox-input:hover{
+    background-color: #d6d5d5;
+}
+.body_form-input-google:hover {
+    background-color: #e6e6e6;
+}

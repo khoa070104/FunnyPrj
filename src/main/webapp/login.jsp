@@ -51,12 +51,14 @@
                             <input type="password" placeholder="Password" id="pa" name="password">
                         </div>
                     </div>
-                    <input type="checkbox" name="remember" value="on"> Remember Password
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox-input" name="remember" value="on"> Remember Password
+                    </label>
                     <div class="body_form-input-forget">
                         <a href="forget.html">Quên mật khẩu?</a>
                     </div>
                     <div class="body_form-input-submit">
-                        <input type="submit" value="Đăng nhập">
+                        <input class="hoverbutton" type="submit" value="Đăng nhập">
                     </div>
                     <div class="body_form-input-signin">
                         <p>Chưa có tài khoản, <a href="register.jsp">Đăng kí.</a></p>

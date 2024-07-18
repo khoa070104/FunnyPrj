@@ -372,10 +372,12 @@ body {
 }
 
 #createLessonModal h2, label{
-    color: black;
+    color: var(--primary-color);
+    text-align: center;
 }
 #createLessonModal h2 {
     align-content: center;
+    font-weight: 700;
 }
 #createLessonModal button{
     background-color: var(--primary-color);
@@ -383,6 +385,86 @@ body {
     border-radius: 5px;
 }
 #createLessonModal span {
+    font-size: 40px;
     position: absolute;
-    left: 95%;
+    left: 92%;
+    top: -1px;
+    color: red;
+}
+.course-curriculum-title {
+    margin-bottom: 5px;
+}
+.createbutton:hover {
+    background-color: #007e92;
+}
+.createbutton {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: var(--primary-color);
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-color: var(--primary-color);
+    height: 40px;
+}
+.createbutton i {
+    position: relative;
+    top: 7px;
+    color: white;
+}
+.createbutton div {
+    padding: 0;           /* Bỏ khoảng đệm */
+    margin: 0 5px 0 0;
+    color: white;       /* Dùng màu chữ của thẻ cha */
+    font-size: 17px;
+    font-weight: 700;
+}
+#createLessonForm {
+    border-radius: 5px;
+    padding: 15px 20px;
+    border: 1px solid #c9c9c9;
+}
+#createLessonForm input {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+
+#createLessonForm label {
+    color: #171616;
+    font-weight: 600;
+    font-size: 17px;
+}
+#createLessonForm button:hover {
+    background-color: #007e92;
+}
+#createLessonForm button {
+    position: relative;
+    top: 12px;
+    left: 78%;
+    height: 35px;
+    color: white;
+    font-weight: 600;
+
+}
+.current-price button {
+    border-color: var(--primary-color) !important;
+    background-color: var(--primary-color) !important;
+    font-weight: 600 !important;
+}
+.delete {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.current-price button:hover {
+    background-color: #007e92 ;
 }
