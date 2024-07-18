@@ -117,11 +117,6 @@ public class HomeController extends HttpServlet {
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
-
-
-
-
-
     protected void postLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");

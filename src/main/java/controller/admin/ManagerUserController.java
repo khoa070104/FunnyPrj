@@ -1,7 +1,5 @@
 package controller.admin;
 
-import DAO.impl.ManagerDaoImp;
-import DAO.impl.UserDaoImpl;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

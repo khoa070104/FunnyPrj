@@ -1,4 +1,5 @@
 <html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <title>Header</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -88,9 +89,9 @@
             </a>
 
             <!-- Khóa học của tôi Link -->
-            <a href="mycourses.html">
+            <a href="listpost">
                 <div class="header_bar-cart-icon no-icon">
-                    <p class="icon-text">Khóa học của tôi</p>
+                    <p class="icon-text">Cộng đồng</p>
                 </div>
             </a>
 

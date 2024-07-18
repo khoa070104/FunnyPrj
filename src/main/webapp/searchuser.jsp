@@ -29,9 +29,6 @@
                 <th>Full Name</th>
                 <th>Avatar</th>
                 <th>Phone</th>
-                <th>Role</th>
-                <th>Status</th>
-                <th>Code</th>
             </tr>
             </thead>
             <tbody>
@@ -62,9 +59,6 @@
                     <td>${user.fullName}</td>
                     <td>${user.avatar}</td>
                     <td>${user.phone}</td>
-                    <td>${user.role}</td>
-                    <td>${user.status}</td>
-                    <td>${user.code}</td>
                 </tr>
             </c:forEach>
             </tbody>

@@ -46,9 +46,11 @@ public class HomeController extends HttpServlet {
     }
     protected void getEditPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        IItemService i = new ItemServiceImpl();
         List<Category> list = i.getAll();
         HttpSession session = request.getSession();
         session.setAttribute("categories", list);
+        session.setAttribute("courses", i.filterCoursesByCriteria(0));
         request.getRequestDispatcher("admin/editcourse.jsp").forward(request, response);
 
     }
@@ -63,7 +65,8 @@ public class HomeController extends HttpServlet {
         }
         List<Course> courses = i.filterCoursesByCriteria(cid);
         request.setAttribute("courses", courses);
-        request.setAttribute("cid", cid);
+        if(cid != 0)
+            request.setAttribute("cid", cid);
         request.getRequestDispatcher("admin/editcourse.jsp").forward(request, response);
     }
     protected void getDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

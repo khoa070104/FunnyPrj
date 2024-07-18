@@ -1,6 +1,7 @@
 package service;
 
 import model.Comment;
+import model.Message;
 import model.Post;
 
 import java.util.List;
@@ -16,4 +17,7 @@ public interface ICommunityService {
     public Post getPostById(int id);
     public List<Post> getAllPosts();
     public List<Post> getPostsByUserId(int userId);
+    public void addMessage(Message message) ;
+    public void deleteMessage(int id) ;
+    public List<Message> getAllMessages() ;
 }

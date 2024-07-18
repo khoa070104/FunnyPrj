@@ -2,6 +2,10 @@ package DAO;
 
 import model.User;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface IUserDao {
@@ -19,4 +23,7 @@ public interface IUserDao {
     boolean checkExistUsername(String username); // hàm này kiểm tra username đã tồn tại chưa
     public void updateAvatar(User user);
     public User checkEmail(String email);
+    //--
+    public List<User> getUserByEmail(String search);
+    public List<User> getAllUsers() ;
 }

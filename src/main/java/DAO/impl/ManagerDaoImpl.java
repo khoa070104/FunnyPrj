@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ManagerDaoImp extends DBConnect implements IManagerDao {
+public class ManagerDaoImpl extends DBConnect implements IManagerDao {
 
     public List<User> getAllUsers() {
         List<User> userList = new ArrayList<>();
@@ -71,7 +71,7 @@ public class ManagerDaoImp extends DBConnect implements IManagerDao {
     }
 
     public boolean createUser(User user) {
-        ManagerDaoImp editUserDAO = new ManagerDaoImp();
+        ManagerDaoImpl editUserDAO = new ManagerDaoImpl();
         if (editUserDAO.checkExistEmail(user.getEmail()))
             return false;
         if (editUserDAO.checkExistUsername(user.getUsername())) {

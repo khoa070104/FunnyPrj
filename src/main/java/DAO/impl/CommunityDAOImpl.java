@@ -3,6 +3,7 @@ package DAO.impl;
 import DAO.DBConnect;
 import DAO.ICommunityDao;
 import model.Comment;
+import model.Message;
 import model.Post;
 
 import java.sql.PreparedStatement;
@@ -187,6 +188,47 @@ public class CommunityDAOImpl extends DBConnect implements ICommunityDao {
         }
         return posts;
     }
+    public void addMessage(Message message) {
+        String sql = "INSERT INTO tblMessage (message, createdDate, id_user) VALUES (?, ?, ?)";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, message.getContent());
+            stmt.setString(2, message.getCreatedDate());
+            stmt.setInt(3, message.getIdUser());
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteMessage(int id) {
+        String sql = "DELETE FROM tblMessage WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<Message> getAllMessages() {
+        List<Message> messages = new ArrayList<>();
+        String sql = "SELECT * FROM tblMessage ORDER BY createdDate ASC"; // Sắp xếp theo thời gian tăng dần (cũ nhất đến mới nhất)
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Message message = new Message();
+                message.setId(rs.getInt("id"));
+                message.setContent(rs.getString("message"));
+                message.setCreatedDate(rs.getString("createdDate"));
+                message.setIdUser(rs.getInt("id_user"));
+                messages.add(message);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return messages;
+    }
+
 
 
 

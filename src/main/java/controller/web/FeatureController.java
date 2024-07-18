@@ -1,6 +1,5 @@
 package controller.web;
 
-import DAO.impl.ItemDAOImpl;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import model.Category;
@@ -21,7 +20,7 @@ import jakarta.servlet.annotation.WebServlet;
 @WebServlet(urlPatterns = {"/list","/search","/update-avatar"})
 public class FeatureController extends HttpServlet {
     //private AvatarDAOImpl avatarDAO = new AvatarDAOImpl();
-    IItemService itemDAO = new ItemServiceImpl();
+    IItemService itemS = new ItemServiceImpl();
     IUserService userService = new UserServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,36 +49,25 @@ public class FeatureController extends HttpServlet {
     }
 
     protected void getList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        IItemService i = new ItemServiceImpl();
-        List<Category> list = itemDAO.getAll();
+        List<Category> list = itemS.getAll();
         HttpSession session = request.getSession();
         session.setAttribute("categories", list);
-        session.setAttribute("courses", i.filterCoursesByCriteria(0));
+        session.setAttribute("courses", itemS.filterCoursesByCriteria(0));
         request.getRequestDispatcher("allcourse.jsp").forward(request, response);
     }
 
     protected void postList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ItemDAOImpl itemDAO = new ItemDAOImpl();
-
-        // Lấy giá trị typeCourse từ request parameter
         String cid_raw = request.getParameter("id_category");
         int cid = 0;
         try {
             cid = (cid_raw == null) ? 0 : Integer.parseInt(cid_raw);
         } catch (NumberFormatException e) {
-            // Xử lý ngoại lệ khi không thể chuyển đổi thành số nguyên
             e.printStackTrace();
         }
-
-        // Lọc các khóa học dựa trên categoryId và typeCourse (nếu có)
-        List<Course> courses = itemDAO.filterCoursesByCriteria(cid);
-
-        // Lưu danh sách khóa học đã lọc vào request attribute để truyền đến JSP
+        List<Course> courses = itemS.filterCoursesByCriteria(cid);
         request.setAttribute("courses", courses);
         if(cid != 0)
             request.setAttribute("cid", cid);
-
-        // Điều hướng đến trang filter.jsp để hiển thị kết quả lọc
         request.getRequestDispatcher("allcourse.jsp").forward(request, response);
     }
 
@@ -101,7 +89,7 @@ public class FeatureController extends HttpServlet {
 
         try {
             // Gọi DAO để tìm kiếm khóa học
-            List<Course> courses = itemDAO.searchCourses(searchQuery);
+            List<Course> courses = itemS.searchCourses(searchQuery);
             HttpSession s = request.getSession();
             if(s.getAttribute("courses") != null)
                 s.removeAttribute("courses");
@@ -126,19 +114,13 @@ public class FeatureController extends HttpServlet {
         try {
             String username = request.getParameter("username");
             Part part = request.getPart("photo");
-
-            // Thư mục lưu trữ ảnh upload trong ứng dụng
             String uploadPath = request.getServletContext().getRealPath("/upload");
             String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 
-            // Tạo thư mục upload nếu chưa tồn tại
             if (!Files.exists(Paths.get(uploadPath))) {
                 Files.createDirectories(Paths.get(uploadPath));
             }
-            // Lưu file ảnh vào thư mục upload
             part.write(uploadPath + "/" + fileName);
-
-            // Cập nhật đường dẫn ảnh mới vào đối tượng User trong session
             HttpSession session = request.getSession();
             User sessionUser = (User) session.getAttribute("user");
             if (sessionUser != null) {

@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Comment;
+import model.Message;
 import model.Post;
 import service.ICommunityService;
 import service.Impl.ComunityServiceImpl;
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/listpost","/updateComment","/EditPost","/deletePost","/deleteComment","/CreatePost","/listcomment"})
+@WebServlet(urlPatterns = {"/listpost","/updateComment","/EditPost","/deletePost","/deleteComment","/CreatePost","/listcomment","/listmessage", "/deleteMessage", "/createMessage"})
 public class CommunityController extends HttpServlet {
     ICommunityService i = new ComunityServiceImpl() ;
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,6 +26,8 @@ public class CommunityController extends HttpServlet {
             getListPost(request, response);
         } else if(url.contains("listcomment")) {
             getCmt(request, response);
+        } else if (url.contains("listmessage")) {
+            getListMessage(request, response);
         }
     }
 
@@ -44,6 +47,10 @@ public class CommunityController extends HttpServlet {
             postCreatePost(request, response);
         } else if(url.contains("listcomment")) {
             postCmt(request, response);
+        } else if  (url.contains("deleteMessage")) {
+            postDeleteMessage(request, response);
+        } else if (url.contains("createMessage")) {
+            postCreateMessage(request, response);
         }
     }
     protected void getListPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -153,5 +160,37 @@ public class CommunityController extends HttpServlet {
         int postId = Integer.parseInt(request.getParameter("idPost"));
         response.sendRedirect(request.getContextPath() + "/listcomment?id=" + postId);
 
+    }
+    protected void getListMessage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Message> messages = i.getAllMessages();
+        HttpSession session = request.getSession();
+        if (session.getAttribute("messages") != null) {
+            session.removeAttribute("messages");
+        }
+        session.setAttribute("messages", messages);
+        request.getRequestDispatcher("/message.jsp").forward(request, response);
+    }
+
+    protected void postDeleteMessage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int messageId = Integer.parseInt(request.getParameter("messageId"));
+        i.deleteMessage(messageId);
+        response.sendRedirect(request.getContextPath() + "/listmessage");
+    }
+
+    protected void postCreateMessage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String content = request.getParameter("content");
+        int idUser = Integer.parseInt(request.getParameter("idUser"));
+
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String formattedDateTime = now.format(formatter);
+
+        Message newMessage = new Message();
+        newMessage.setContent(content);
+        newMessage.setCreatedDate(formattedDateTime);
+        newMessage.setIdUser(idUser);
+
+        i.addMessage(newMessage);
+        response.sendRedirect(request.getContextPath() + "/listmessage");
     }
 }

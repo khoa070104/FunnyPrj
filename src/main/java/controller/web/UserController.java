@@ -1,6 +1,7 @@
 package controller.web;
 
 import DAO.IUserDao;
+import DAO.impl.UserDaoImpl;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import jakarta.servlet.*;
@@ -22,7 +23,7 @@ import utils.Email;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/profile","/update-profile","/LoginGoogle"})
+@WebServlet(urlPatterns = {"/profile","/update-profile","/LoginGoogle","/profileother","/searchUser"})
 public class UserController extends HttpServlet {
     ICommunityService i = new ComunityServiceImpl() ;
     IUserService u = new UserServiceImpl();
@@ -34,6 +35,10 @@ public class UserController extends HttpServlet {
             getProfile(request,response);
         } else if(url.contains("LoginGoogle")){
             getLoginWithGoogle(request,response);
+        } else if(url.contains("profileother")){
+            getProfileOther(request,response);
+        } else if(url.contains("searchUser")){
+            getSearchUser(request,response);
         }
     }
 
@@ -42,6 +47,8 @@ public class UserController extends HttpServlet {
         String url = request.getRequestURI();
         if (url.contains("/update-profile")) {
             postUpdateProfile(request, response);
+        } else if (url.contains("/searchUser")) {
+            postSearchUser(request, response);
         }
     }
 
@@ -123,5 +130,49 @@ public class UserController extends HttpServlet {
         UserGoogle googlePojo = new Gson().fromJson(response, UserGoogle.class);
 
         return googlePojo;
+    }
+    protected void getProfileOther(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String userIdStr = request.getParameter("userid");
+        if (userIdStr == null || userIdStr.isEmpty()) {
+            response.sendRedirect(request.getContextPath() + "/searchuser.jsp");
+            return;
+        }
+
+        try {
+            int userId = Integer.parseInt(userIdStr);
+            User userOther = u.findOne(userId);
+            List<Post> posts = i.getPostsByUserId(userId);
+            HttpSession session = request.getSession();
+            if(session.getAttribute("posts") != null) {
+                session.removeAttribute("posts");
+            }
+            session.setAttribute("posts", posts);
+            if (userOther != null) {
+                request.setAttribute("profileUser", userOther);
+                request.getRequestDispatcher("/profileother.jsp").forward(request, response);
+            } else {
+                request.setAttribute("error", "User not found!");
+                request.getRequestDispatcher("/searchuser.jsp").forward(request, response);
+            }
+        } catch (NumberFormatException e) {
+            response.sendRedirect(request.getContextPath() + "/searchuser.jsp");
+        }
+    }
+    protected void getSearchUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+        List<User> allUsers = u.getAllUsers();
+
+        request.setAttribute("allUsers", allUsers);
+
+        request.getRequestDispatcher("/searchuser.jsp").forward(request, response);
+    }
+
+    protected void postSearchUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Lấy email từ form
+        String email = request.getParameter("email");
+        List<User> allUsers = u.getUserByEmail(email);
+        request.setAttribute("userList", allUsers);
+        request.getRequestDispatcher("/searchuser.jsp").forward(request, response);
     }
 }

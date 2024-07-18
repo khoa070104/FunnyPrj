@@ -1,14 +1,14 @@
 package service.Impl;
 
 import DAO.IManagerDao;
-import DAO.impl.ManagerDaoImp;
+import DAO.impl.ManagerDaoImpl;
 import model.User;
 import service.IManagerService;
 
 import java.util.List;
 
 public class ManagerService implements IManagerService {
-    private IManagerDao iManagerDao = new ManagerDaoImp();
+    private IManagerDao iManagerDao = new ManagerDaoImpl();
 
     @Override
     public List<User> getAllUsers() {

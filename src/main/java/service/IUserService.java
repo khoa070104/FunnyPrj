@@ -20,4 +20,6 @@ public interface IUserService {
     User checkUsername(String username);
     void updateProfile(User user);
     void updateAvatar(User user);
+    public List<User> getUserByEmail(String search);
+    public List<User> getAllUsers() ;
 }

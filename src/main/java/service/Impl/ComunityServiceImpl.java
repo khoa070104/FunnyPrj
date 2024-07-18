@@ -3,6 +3,7 @@ package service.Impl;
 import DAO.ICommunityDao;
 import DAO.impl.CommunityDAOImpl;
 import model.Comment;
+import model.Message;
 import model.Post;
 import service.ICommunityService;
 
@@ -59,5 +60,20 @@ public class ComunityServiceImpl implements ICommunityService {
     @Override
     public List<Post> getPostsByUserId(int userId){
         return i.getPostsByUserId(userId);
+    }
+
+    @Override
+    public void addMessage(Message message) {
+        i.addMessage(message);
+    }
+
+    @Override
+    public void deleteMessage(int id) {
+        i.deleteMessage(id);
+    }
+
+    @Override
+    public List<Message> getAllMessages() {
+        return i.getAllMessages();
     }
 }

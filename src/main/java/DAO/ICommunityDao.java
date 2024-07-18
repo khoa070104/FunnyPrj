@@ -1,6 +1,7 @@
 package DAO;
 
 import model.Comment;
+import model.Message;
 import model.Post;
 
 import java.sql.PreparedStatement;
@@ -20,4 +21,10 @@ public interface ICommunityDao {
     public Post getPostById(int id);
     public List<Post> getAllPosts();
     public List<Post> getPostsByUserId(int userId);
+
+    public void addMessage(Message message) ;
+
+    public void deleteMessage(int id) ;
+
+    public List<Message> getAllMessages() ;
 }
