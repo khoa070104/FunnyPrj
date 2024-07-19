@@ -62,10 +62,10 @@
                         Danh Mục
                     </i>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
-                        <a href=list class="dropdown-item">
+                        <a href="listpost" class="dropdown-item">
                             <i class="fas fa-book mr-2"></i> Tạo bài viết
                         </a>
-                        <a href="cart" class="dropdown-item">
+                        <a href="searchUser" class="dropdown-item">
                             <i class="fa fa-users mr-2" aria-hidden="true"></i> Tìm kiếm bạn bè
                         </a>
                     </div>
@@ -92,9 +92,9 @@
                 </a>
 
                 <!-- Khóa học của tôi Link -->
-                <a href="mycourses.html">
+                <a href="listpost">
                     <div class="header_bar-cart-icon no-icon">
-                        <p class="icon-text">Khóa học của tôi</p>
+                        <p class="icon-text">Community</p>
                     </div>
                 </a>
 

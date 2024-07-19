@@ -28,10 +28,10 @@
         </div>
         <div class="footer-list-info">
             <ul class="footer-list-info-ul">
-                <li ><a href="course-detail?id=1">Kì 1</a></li>
-                <li ><a href="course-detail?id=2">Kì 2</a></li>
-                <li ><a href="course-detail?id=3">Kì 3</a></li>
-                <li ><a href="course-detail?id=4">Kì 4</a></li>
+                <li ><a href="list">Tất cả các khoá học</a></li>
+                <li ><a href="searchUser">Tìm kiêm bạn bè</a></li>
+                <li ><a href="listpost">Tìm sự trợ giúp </a></li>
+                <li ><a href="cart">Giỏ Hàng</a></li>
                 <li ><a href="profile">Profile</a></li>
             </ul>
         </div>
@@ -55,19 +55,6 @@
     <div class="footer-info">
         <p>© 2024 FunnyCode, Pass Code To Funny - All Rights Reserved.</p>
     </div>
-<%--    <div class="language_footer">--%>
-<%--        <div id = "google_translate_element"></div>--%>
-<%--        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">--%>
-<%--        </script>--%>
-<%--        <script>--%>
-<%--            function googleTranslateElementInit(){--%>
-<%--                new google.translate.TranslateElement(--%>
-<%--                    {pageLanguage: 'vi'},--%>
-<%--                    'google_translate_element'--%>
-<%--                );--%>
-<%--            }--%>
-<%--        </script>--%>
-<%--    </div>--%>
 </footer>
 </body>
 </html>
