@@ -151,9 +151,7 @@
     background-color: white;
 
 }
-.dropdown-item i {
-    margin-right: 20px;
-}
+
 .dropdown-item:hover {
     background-color: #007bff;
     color: white;

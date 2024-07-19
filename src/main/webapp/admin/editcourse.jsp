@@ -173,10 +173,10 @@
                                         <div class="course-price">
                                             <span class="current-price">${course.price}</span>
                                             <div>
-                                                <button type="button" class="btn btn-primary" onclick="editCourseModal(${course.id}, '${course.name}', ${course.price}, '${course.description}', ${course.typeCourse}, '${course.idLessonTime}', '${course.idCategory}');">
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="editCourseModal(${course.id}, '${course.name}', ${course.price}, '${course.description}', ${course.typeCourse}, '${course.idLessonTime}', '${course.idCategory}');">
                                                     Edit
                                                 </button>
-                                                <button class="delete" onclick="remove(${course.id});">Delete</button>
+                                                <button class="btn btn-sm btn-outline-danger" onclick="remove(${course.id});">Delete</button>
                                             </div>
                                         </div>
 
