@@ -24,5 +24,5 @@ public interface IItemDao {
         public Course getCourseById(int id);
         public void updateCourse(Course course);
         public void updateCourseWithoutImg(Course course);
-
+        public List<Course> searchCourse(String courseName);
 }

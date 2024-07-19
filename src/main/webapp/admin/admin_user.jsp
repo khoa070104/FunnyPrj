@@ -53,6 +53,13 @@
 
             <div id="userManagement">
                 <div class="section-title">User Management</div>
+                <h2>Search User by Email or Name</h2>
+                <form id="searchForm" action="search-user" method="post">
+                    <div class="form-group">
+                        <input type="text" id="search" name="email" class="form-control" required>
+                    </div>
+                    <input type="submit" value="Search">
+                </form>
                 <div class="table-responsive">
                     <table class="table table-striped table-sm">
                         <thead>
@@ -221,5 +228,12 @@
 </script>
 <!-- Custom JS -->
 <script src="../js/admin.js"></script>
+<script>
+    // Xử lý khi submit form
+    document.getElementById('searchForm').onsubmit = function() {
+        var emailInput = document.getElementById('search');
+        emailInput.value = encodeURIComponent(emailInput.value.trim());
+    };
+</script>
 </body>
 </html>

@@ -16,7 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 @MultipartConfig(maxFileSize = 1024 * 1024 * 10)
-@WebServlet(urlPatterns = {"/admin/create-course","/admin/edit-course","/admin/delete-course","/admin/manage-course"})
+@WebServlet(urlPatterns = {"/admin/create-course","/admin/edit-course","/admin/delete-course","/admin/manage-course","/admin/search-course"})
 public class CourseController extends HttpServlet {
     IItemService i = new ItemServiceImpl();
     @Override
@@ -40,8 +40,8 @@ public class CourseController extends HttpServlet {
             postCreate(request,response);
         } else if(url.contains("edit-course")){
             postEdit(request,response);
-        } else if(url.contains("manage-course")) {
-            postEditPage(request, response);
+        }else if(url.contains("search-course")){
+            postSearch(request,response);
         }
     }
     protected void getEditPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,21 +53,6 @@ public class CourseController extends HttpServlet {
         session.setAttribute("courses", i.filterCoursesByCriteria(0));
         request.getRequestDispatcher("admin_course.jsp").forward(request, response);
 
-    }
-    protected void postEditPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String cid_raw = request.getParameter("id_category");
-        int cid = 0;
-        try {
-            cid = (cid_raw == null) ? 0 : Integer.parseInt(cid_raw);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-        List<Course> courses = i.filterCoursesByCriteria(cid);
-        request.setAttribute("courses", courses);
-        if(cid != 0)
-            request.setAttribute("cid", cid);
-        request.getRequestDispatcher("admin_course.jsp").forward(request, response);
     }
     protected void getDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -188,6 +173,20 @@ public class CourseController extends HttpServlet {
             e.printStackTrace();
             response.getWriter().println("Error: " + e.getMessage());
         }
+    }
+    protected void postSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Lấy từ khóa tìm kiếm từ request
+        String courseName = request.getParameter("courseName");
+
+        // Gọi phương thức tìm kiếm từ dịch vụ
+        List<Course> courses = i.searchCourse(courseName);
+
+        // Lưu danh sách khóa học vào session hoặc request
+        HttpSession session = request.getSession();
+        session.setAttribute("courses", courses);
+
+        // Chuyển hướng đến trang quản lý khóa học
+        request.getRequestDispatcher("admin_course.jsp").forward(request, response);
     }
 
 }

@@ -23,5 +23,6 @@ public interface IItemService {
     public Course getCourseById(int id);
     public void updateCourse(Course course);
     public void updateCourseWithoutImg(Course course);
+    public List<Course> searchCourse(String courseName);
     //List<Course> getAllCourses();
 }

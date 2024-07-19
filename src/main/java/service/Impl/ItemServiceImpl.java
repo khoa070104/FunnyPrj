@@ -80,4 +80,5 @@ public class ItemServiceImpl implements IItemService {
     public void updateCourseWithoutImg(Course course) {
         itemDao.updateCourseWithoutImg(course);
     }
+    public List<Course> searchCourse(String courseName){return  itemDao.searchCourses(courseName);}
 }

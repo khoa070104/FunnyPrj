@@ -15,9 +15,10 @@ import service.Impl.UserServiceImpl;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/admin/list-user","/admin/edit-user","/admin/delete-user","/admin/create-user"})
+@WebServlet(urlPatterns = {"/admin/list-user","/admin/edit-user","/admin/delete-user","/admin/create-user","/admin/search-user"})
 public class UserController extends HttpServlet {
     IManagerService i = new ManagerService();
+    IUserService u = new UserServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = request.getRequestURI().toString();
@@ -37,6 +38,8 @@ public class UserController extends HttpServlet {
             postDeleteUser(request,response);
         } else if(url.contains("create-user")){
             postCreateUser(request,response);
+        } else if (url.contains("search-user")) {
+            postSearchUser(request, response);
         }
     }
     protected void getUser(HttpServletRequest request, HttpServletResponse response)
@@ -143,4 +146,11 @@ public class UserController extends HttpServlet {
 
         response.sendRedirect("list-user"); // Redirect to the user list page
     }
+    protected void postSearchUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String email = request.getParameter("email");
+        List<User> allUsers = u.getUserByEmail(email);
+        request.setAttribute("userList", allUsers);
+        request.getRequestDispatcher("admin_user.jsp").forward(request, response);
+    }
+
 }

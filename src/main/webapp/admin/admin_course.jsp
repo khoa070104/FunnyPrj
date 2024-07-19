@@ -60,57 +60,16 @@
       <section class="category-course-list-area">
         <ul class="container-lg">
           <ul class="row">
-            <div class="col-lg-3 filter-area">
-              <div class="card border-0 radius-10 box-shadow-5">
-                <div id="collapseFilter" class="collapse show" aria-labelledby="headingOne"
-                     data-parent="#accordion">
-                  <div class="card-body p-0">
-                    <c:set var="cid" value="${requestScope.cid}"/>
-                    <form action="manage-course" method="post">
-                      <div class="filter_type px-4 pt-4">
-                        <h5 class="fw-700 mb-4">Danh mục</h5>
-                        <ul class="ul" style="list-style: none;">
-                          <li class="mt-3">
-                            <div class="text-15px fw-700 d-flex">
-                              <input type="radio" id="category_all" name="id_category"
-                                     class="categories custom-radio" value="0" onclick="filter(this)"
-                              >
-                              <label for="category_all">Tất cả danh mục</label>
-                              <div class="ms-auto">(<%= totalCount %>)</div>
-                            </div>
-                          </li>
-                          <%int index = 1;%>
-                          <c:forEach items="${sessionScope.categories}" var="c">
-
-                            <li class="ms-3">
-                              <div class="d-flex">
-                                <input type="radio" id="sub_category-${c.id}" name="id_category" class="categories custom-radio" value="${c.id}" ${cid==c.id ? 'checked' : ''} onclick="filter(this)">
-                                <label for="sub_category-${c.id}">Kì ${c.id}</label>
-                                <div  class="ms-auto">(<%= i.countCoursesByCategory(index++)%>)</div>
-                              </div>
-                            </li>
-                          </c:forEach>
-
-                          <!-- Other categories here -->
-                        </ul>
-
-                      </div>
-
-
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <div class="col-lg-9">
-              <div class="row category-filter-box mx-0 box-shadow-4">
-                <div class="col-md-6">
-                  <!--<button class="btn py-1 px-2 mx-2 btn-light" onclick="toggleLayout('grid')"><i class="fas fa-th-large"></i></button>-->
-                  <!--<button class="btn py-1 px-2 mx-2 btn-light" onclick="toggleLayout('list')"><i class="fas fa-list"></i></button>-->
-                  <span class="text-12px fw-700 text-muted">Đang hiển thị 6 Of 12 Kết quả</span>
+
+              <form id="searchForm" action="search-course" method="post" class="mb-4">
+                <h2>Search Course by Name</h2>
+                <div class="form-group">
+                  <input type="text" id="courseName" name="courseName" class="form-control" required>
                 </div>
-              </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+              </form>
 
 
               <div class="category-course-list">
@@ -399,6 +358,13 @@
       reader.readAsDataURL(file);
     }
   }
+</script>
+<script>
+  // Xử lý khi submit form
+  document.getElementById('searchForm').onsubmit = function() {
+    var emailInput = document.getElementById('courseName');
+    emailInput.value = encodeURIComponent(emailInput.value.trim());
+  };
 </script>
 </body>
 </html>

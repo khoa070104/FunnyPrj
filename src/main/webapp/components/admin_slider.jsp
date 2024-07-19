@@ -13,9 +13,9 @@
                 <a class="nav-link active" href="#"><i class="fas fa-user"></i> Admin
                     Profile</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-search"></i> Search</a>
-            </li>
+<%--            <li class="nav-item">--%>
+<%--                <a class="nav-link" href="#"><i class="fas fa-search"></i> Search</a>--%>
+<%--            </li>--%>
             <li class="nav-item">
                 <a class="nav-link" href="list-user"><i class="fas fa-users"></i> User
                     Management</a>
@@ -25,7 +25,10 @@
                     Course Management</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Messages</a>
+                <a class="nav-link" href="listmessage"><i class="fas fa-envelope"></i> Community</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="listpost"> Post</a>
             </li>
         </ul>
     </nav>
