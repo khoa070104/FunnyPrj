@@ -16,7 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 @MultipartConfig(maxFileSize = 1024 * 1024 * 10)
-@WebServlet(urlPatterns = {"/create-course","/edit-course","/delete-course","/manage-course"})
+@WebServlet(urlPatterns = {"/admin/create-course","/admin/edit-course","/admin/delete-course","/admin/manage-course"})
 public class CourseController extends HttpServlet {
     IItemService i = new ItemServiceImpl();
     @Override
@@ -67,7 +67,7 @@ public class CourseController extends HttpServlet {
         request.setAttribute("courses", courses);
         if(cid != 0)
             request.setAttribute("cid", cid);
-        request.getRequestDispatcher("manage-course").forward(request, response);
+        request.getRequestDispatcher("admin_course.jsp").forward(request, response);
     }
     protected void getDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

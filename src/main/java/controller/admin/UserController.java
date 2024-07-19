@@ -15,7 +15,7 @@ import service.Impl.UserServiceImpl;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = {"/list-user","/edit-user","/delete-user","/create-user"})
+@WebServlet(urlPatterns = {"/admin/list-user","/admin/edit-user","/admin/delete-user","/admin/create-user"})
 public class UserController extends HttpServlet {
     IManagerService i = new ManagerService();
     @Override
@@ -121,7 +121,7 @@ public class UserController extends HttpServlet {
 
         if (deleted) {
             // Nếu xóa thành công, có thể thực hiện các hành động khác (ví dụ: redirect đến trang danh sách người dùng)
-            response.sendRedirect(request.getContextPath() + "/list-user"); // Thay đổi đường dẫn tuỳ theo cấu hình của bạn
+            response.sendRedirect(request.getContextPath() + "/admin/list-user"); // Thay đổi đường dẫn tuỳ theo cấu hình của bạn
         } else {
             // Nếu không thành công, có thể xử lý và hiển thị thông báo lỗi
             response.getWriter().println("Failed to delete user with ID: " + userId);
