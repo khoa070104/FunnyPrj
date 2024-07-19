@@ -51,11 +51,11 @@
 <div class="container-fluid">
   <div class="row">
     <!-- Include the sidebar -->
-    <jsp:include page="../components/admin_slider.jsp"/>
+    <jsp:include page="dist/components/admin_slider.jsp"/>
     <!-- Main Content -->
     <main class="content">
       <!-- Include the header -->
-      <jsp:include page="../components/admin_header.jsp" />
+      <jsp:include page="dist/components/admin_header.jsp" />
 
       <section class="category-course-list-area">
         <ul class="container-lg">
