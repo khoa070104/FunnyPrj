@@ -459,6 +459,43 @@ public class ItemDAOImpl extends DBConnect implements IItemDao {
         }
     }
 
+    public List<Course> searchCourse(String courseName) {
+        List<Course> courses = new ArrayList<>();
+        String sql = "SELECT * FROM tblCourse WHERE name LIKE ?";
+
+        try (
+                PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, "%" + courseName + "%");
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Course course = new Course();
+                    course.setId(resultSet.getInt("id"));
+                    course.setName(resultSet.getString("name"));
+                    course.setRate(resultSet.getInt("rate"));
+                    course.setPrice(resultSet.getDouble("price"));
+                    course.setTimeCourse(resultSet.getString("timeCourse"));
+                    course.setDescription(resultSet.getString("description"));
+                    course.setCreatedDate(resultSet.getString("createdDate"));
+                    course.setUpdatedDate(resultSet.getString("updatedDate"));
+                    course.setCreatedBy(resultSet.getString("createdBy"));
+                    course.setUpdatedBy(resultSet.getString("updatedBy"));
+                    course.setIdCategory(resultSet.getInt("idCategory"));
+                    course.setTypeCourse(resultSet.getBoolean("typeCourse"));
+                    course.setIdLessonTime(resultSet.getString("idLessonTime"));
+                    course.setTotalLesson(resultSet.getInt("totalLesson"));
+                    course.setImg(resultSet.getString("img"));
+
+                    courses.add(course);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle SQLException here or throw it to caller
+        }
+
+        return courses;
+    }
+
     public static void main(String[] args) {
         ItemDAOImpl i = new ItemDAOImpl();
         i.deleteCourse(3);
