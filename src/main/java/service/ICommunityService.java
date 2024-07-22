@@ -20,4 +20,6 @@ public interface ICommunityService {
     public void addMessage(Message message) ;
     public void deleteMessage(int id) ;
     public List<Message> getAllMessages() ;
+    public void deleteCommentsByPostId(int postId);
+
 }

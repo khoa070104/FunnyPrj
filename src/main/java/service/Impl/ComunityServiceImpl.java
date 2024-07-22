@@ -76,4 +76,11 @@ public class ComunityServiceImpl implements ICommunityService {
     public List<Message> getAllMessages() {
         return i.getAllMessages();
     }
+
+
+    @Override
+    public void deleteCommentsByPostId(int postId) {
+        i.deleteCommentsByPostId(postId);
+    }
+
 }

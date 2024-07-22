@@ -107,6 +107,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
+<jsp:include page="./components/header.jsp"/>
 <div class="container mt-5">
     <h2>Comments for Post</h2>
 
@@ -119,9 +120,13 @@
             <p><strong>Content:</strong> ${sessionScope.post.content}</p>
         </div>
     </div>
+    <!-- Nút mở form thêm comment mới -->
+    <button id="showFormBtn" type="button" class="btn btn-primary mb-4">
+        Add New Comment
+    </button>
 
     <!-- Form thêm comment mới -->
-    <div class="card mb-4">
+    <div id="commentForm" class="card mb-4" style="display: none;">
         <div class="card-body">
             <h5 class="card-title">Add New Comment</h5>
             <form action="listcomment" method="post">
@@ -133,9 +138,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Add Comment</button>
             </form>
-
         </div>
     </div>
+
 
     <!-- Hiển thị danh sách comments -->
     <div class="list-group mb-4">
@@ -181,7 +186,7 @@
         </c:forEach>
     </div>
 </div>
-
+<jsp:include page="./components/footer.jsp"/>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

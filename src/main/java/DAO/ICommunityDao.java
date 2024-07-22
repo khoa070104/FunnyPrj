@@ -27,4 +27,6 @@ public interface ICommunityDao {
     public void deleteMessage(int id) ;
 
     public List<Message> getAllMessages() ;
+
+    public void deleteCommentsByPostId(int postId);
 }

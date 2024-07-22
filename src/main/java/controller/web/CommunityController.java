@@ -80,8 +80,7 @@ public class CommunityController extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/listcomment?id=" + postId);
 
     }
-    protected void postEditPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void postEditPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int postId = Integer.parseInt(request.getParameter("id"));
         String title = request.getParameter("title");
         String content = request.getParameter("content");
@@ -94,10 +93,13 @@ public class CommunityController extends HttpServlet {
     }
     protected void postDeletePost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int postId = Integer.parseInt(request.getParameter("id"));
+        // Xóa tất cả các bình luận liên quan đến bài viết này
+        i.deleteCommentsByPostId(postId);
+        // Xóa bài viết
         i.deletePost(postId);
         response.sendRedirect(request.getContextPath() + "/listpost");
-
     }
+
     protected void postDelCmt(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int commentId = Integer.parseInt(request.getParameter("commentId"));
         i.deleteComment(commentId);

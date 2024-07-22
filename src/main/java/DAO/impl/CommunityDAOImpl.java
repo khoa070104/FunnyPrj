@@ -229,6 +229,17 @@ public class CommunityDAOImpl extends DBConnect implements ICommunityDao {
         return messages;
     }
 
+    public void deleteCommentsByPostId(int postId) {
+        String sql = "DELETE FROM tblComment WHERE id_post = ?";
+        try (
+                PreparedStatement stmt = connection.prepareStatement(sql)
+        ) {
+            stmt.setInt(1, postId);
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
