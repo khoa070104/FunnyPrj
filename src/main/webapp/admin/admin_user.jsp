@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/admin-user.css">
 
     <style>
         /* Style cho lớp bảng đè */
@@ -51,20 +52,30 @@
             <!-- Include the header -->
             <jsp:include page="dist/components/admin_header.jsp" />
 
-            <div id="userManagement">
-                <div class="section-title">User Management</div>
-                <h2>Search User by Email or Name</h2>
-                <form id="searchForm" action="search-user" method="post">
-                    <div class="form-group">
-                        <input type="text" id="search" name="email" class="form-control" required>
+            <div id="userManagement" class="card">
+                <div class="section-title card-header">
+                    <h4 class="card-title">User Management</h4>
+                </div>
+                <form id="searchForm" action="search-user" method="post" class="row p-2">
+                    <div class="col-8">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="showCreateUserModal()">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            Create
+                        </button>
+
                     </div>
-                    <input type="submit" value="Search">
+                    <div class="form-group row col-4 input-group-sm"
+                         style="margin: 0">
+                        <input type="text" id="search" name="email"
+                               class="form-control col-9" placeholder="Search User By Email or Name" required>
+                        <input type="submit" value="Search" class="col-3">
+                    </div>
                 </form>
-                <div class="table-responsive">
-                    <table class="table table-striped table-sm">
+                <div class="card-body table-responsive p-0" style="text-align: center; line-height: 1.5rem">
+                    <table class="table table-head-fixed text-wrap table-sm table-striped">
                         <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Id</th>
                             <th>Username</th>
                             <th>Email</th>
                             <th>Full Name</th>
@@ -73,14 +84,10 @@
                             <th>Status</th>
                             <th>Avatar</th>
                             <th>Code</th>
-                            <th>Actions</th>
+                            <th style="width: 95px;">Actions</th>
                         </tr>
                         </thead>
-                        <div>
-                            <button type="button" class="btn btn-primary" onclick="showCreateUserModal()">
-                                Create
-                            </button>
-                        </div>
+
                         <tbody>
                         <c:forEach var="user" items="${userList}">
                             <tr>
@@ -94,7 +101,7 @@
                                 <td>${user.avatar}</td>
                                 <td>${user.code}</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="editUserModal('${user.id}', '${user.username}', '${user.email}', '${user.fullName}', '', '${user.avatar}', '${user.phone}', '${user.role}', '${user.status}', '${user.code}')"><i class="fas fa-edit"></i> Edit</button>
+                                    <button type="button" class="btn btn-info btn-sm" onclick="editUserModal('${user.id}', '${user.username}', '${user.email}', '${user.fullName}', '', '${user.avatar}', '${user.phone}', '${user.role}', '${user.status}', '${user.code}')"><i class="fas fa-edit"></i> Edit</button>
                                     <form action="delete-user" method="post" style="display: inline;">
                                         <input type="hidden" name="id" value="${user.id}">
                                         <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
@@ -112,41 +119,44 @@
 <%--create user--%>
 <div class="modal-overlay" id="createUserModal">
     <div class="modal-content">
-        <span class="close" onclick="hideCreateUserModal()">&times;</span>
-        <h2>Create New User</h2>
-        <form id="createUserForm" action="create-user" method="post">
+        <div class="section-title">
+            <span class="close ml-auto" style="color: white" onclick="hideCreateUserModal()">&times;</span>
+            <h3>Create New User</h3>
+        </div>
+        <form id="createUserForm" action="create-user" method="post" style="padding: 0 1.5rem">
             <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username" required><br><br>
+            <input type="text" id="username" class="form-control" name="username" placeholder="User name" required><br>
 
             <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
+            <input type="email" id="email" class="form-control"  name="email" placeholder="Email" required><br>
 
             <label for="fullName">Full Name:</label><br>
-            <input type="text" id="fullName" name="fullName" required><br><br>
+            <input type="text" id="fullName" class="form-control"  name="fullName" placeholder="Full name" required><br>
 
             <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" required><br><br>
+            <input type="password" id="password" class="form-control"  name="password" placeholder="Password" required><br>
 
             <label for="avatar">Avatar:</label><br>
-            <input type="text" id="avatar" name="avatar"><br><br>
+            <input type="text" id="avatar" class="form-control"  name="avatar" placeholder="Avatar"><br>
 
             <label for="phone">Phone:</label><br>
-            <input type="number" id="phone" name="phone"><br><br>
+            <input type="number" id="phone" class="form-control"  name="phone" placeholder="Phone"><br>
 
             <label for="role">Role:</label><br>
-            <input type="number" id="role" name="role" required><br><br>
+            <input type="number" id="role" class="form-control"  name="role" placeholder="Role" required><br>
 
             <label for="status">Status:</label><br>
             <select id="status" name="status" required>
                 <option value="1">Active</option>
                 <option value="0">Inactive</option>
             </select><br><br>
-
             <label for="code">Code:</label><br>
-            <input type="text" id="code" name="code"><br><br>
-
-            <button type="submit">Create User</button>
+            <input type="text" id="code" class="form-control"  name="code" placeholder="Code"><br>
         </form>
+        <div class="card-footer">
+            <button type="submit" style="position: relative;left: 80%;"
+                    class="btn btn-primary btn-sm">Create User</button>
+        </div>
     </div>
 </div>
 <%--edit user --%>
