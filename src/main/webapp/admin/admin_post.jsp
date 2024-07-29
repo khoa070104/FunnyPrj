@@ -127,7 +127,7 @@
                     </form>
                     <div class="card-footer">
                         <button type="submit" style="position: relative;left: 80%;"
-                                class="btn btn-primary btn-sm">Create User</button>
+                                class="btn btn-primary btn-sm">Create Post</button>
                     </div>
                 </div>
             </div>
