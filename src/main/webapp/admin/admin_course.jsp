@@ -24,12 +24,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!-- Custom CSS -->
 
-  <link rel="stylesheet" href="../css/admin.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/dist/css/main.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/coursedetail.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/dist/css/custom.css">
+  <link rel="stylesheet" href="../css/admin.css">
 
   <!-- Thêm thư viện jQuery và jQuery UI -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -60,9 +60,7 @@
       <section class="category-course-list-area">
         <ul class="container-lg">
           <ul class="row">
-
             <div class="col-lg-9">
-
               <form id="searchForm" action="search-course" method="post" class="mb-4">
                 <h2>Search Course by Name</h2>
                 <div class="form-group">
@@ -77,23 +75,20 @@
                   <div>Create</div>
                   <i class="fa fa-plus-circle" aria-hidden="true"></i>
                 </button>
-                <ul style="list-style: none;">
-
+                <ul id="course-list" style="list-style: none;">
                   <c:forEach items="${courses}" var="course">
                     <li>
                       <div class="course-box-2">
                         <div class="course-image">
                           <a href="edit-detail-course?id=${course.id}">
-                            <img src="${course.img}" alt="" class="img-fluid">
+                            <img src="../${course.img}" alt="" class="img-fluid" style="height: auto" width="200px">
                           </a>
                         </div>
                         <div class="course-details">
                           <a href="#" class="course-title">${course.name}</a>
-
                           <div class="course-subtitle d-none d-md-block">
                             <!-- Course subtitle content -->
                           </div>
-
                           <div class="course-meta">
                             <div class="row">
                               <div class="col-md-12">
@@ -101,40 +96,27 @@
                                 <span><i class="far fa-clock"></i> ${course.timeCourse} Giờ</span>
                                 <span><i class="fas fa-closed-captioning"></i> Tiếng Anh</span>
                                 <hr class="bg-white my-1">
-
                               </div>
                             </div>
-
-
                           </div>
                         </div>
                         <div class="course-price-rating">
                           <div class="course-price">
                             <span class="current-price">${course.price}</span>
                             <div>
-                              <button type="button" class="btn btn-primary" onclick="editCourseModal(${course.id}, '${course.name}', ${course.price}, '${course.description}', ${course.typeCourse}, '${course.idLessonTime}', '${course.idCategory}');">
-                                Edit
-                              </button>
+                              <button type="button" class="btn btn-primary" onclick="editCourseModal(${course.id}, '${course.name}', ${course.price}, '${course.description}', ${course.typeCourse}, '${course.idLessonTime}', '${course.idCategory}');">Edit</button>
                               <button class="delete" onclick="remove(${course.id});">Delete</button>
                             </div>
                           </div>
-
                         </div>
                       </div>
-
                     </li>
-
                   </c:forEach>
                 </ul>
-
               </div>
               <nav>
-                <ul class="pagination justify-content-center">
-                  <li class="page-item active disabled"><span class="page-link">1</span></li>
-                  <li class="page-item"><a href="#"
-                                           data-ci-pagination-page="2">2</a></li>
-                  <li class="page-item"><a href="#" data-ci-pagination-page="2"
-                                           rel="next"><i class="fas fa-chevron-right"></i></a></li>
+                <ul id="pagination-container" class="pagination justify-content-center">
+                  <!-- Pagination buttons will be generated here -->
                 </ul>
               </nav>
             </div>
@@ -365,6 +347,60 @@
     var emailInput = document.getElementById('courseName');
     emailInput.value = encodeURIComponent(emailInput.value.trim());
   };
+</script>
+
+//Phan Trang
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const courseList = document.getElementById('course-list');
+    const paginationContainer = document.getElementById('pagination-container');
+    const coursesPerPage = 5;
+    let currentPage = 1;
+
+    // Lấy tất cả các khóa học
+    const courses = Array.from(courseList.getElementsByTagName('li'));
+    const totalCourses = courses.length;
+    const totalPages = Math.ceil(totalCourses / coursesPerPage);
+
+    function showPage(page) {
+      const startIndex = (page - 1) * coursesPerPage;
+      const endIndex = startIndex + coursesPerPage;
+
+      courses.forEach((course, index) => {
+        if (index >= startIndex && index < endIndex) {
+          course.style.display = '';
+        } else {
+          course.style.display = 'none';
+        }
+      });
+    }
+
+    function setupPagination() {
+      paginationContainer.innerHTML = '';
+      for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.innerText = i;
+        button.classList.add('btn', 'btn-outline-primary', 'mx-1');
+        if (i === currentPage) {
+          button.classList.add('active');
+        }
+        button.addEventListener('click', function() {
+          currentPage = i;
+          showPage(currentPage);
+          const currentButton = paginationContainer.querySelector('.active');
+          if (currentButton) {
+            currentButton.classList.remove('active');
+          }
+          this.classList.add('active');
+        });
+        paginationContainer.appendChild(button);
+      }
+    }
+
+    // Khởi tạo phân trang
+    showPage(currentPage);
+    setupPagination();
+  });
 </script>
 </body>
 </html>

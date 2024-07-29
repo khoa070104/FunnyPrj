@@ -14,6 +14,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/admin.css">
 
+
+
     <style>
         /* Style cho lớp bảng đè */
         .modal-overlay {
@@ -54,11 +56,11 @@
             <div id="userManagement">
                 <div class="section-title">User Management</div>
                 <h2>Search User by Email or Name</h2>
-                <form id="searchForm" action="search-user" method="post">
+                <form id="searchForm" action="search-user" method="post" class="mb-4">
                     <div class="form-group">
                         <input type="text" id="search" name="email" class="form-control" required>
                     </div>
-                    <input type="submit" value="Search">
+                    <input type="submit" value="Search" class="btn btn-primary">
                 </form>
                 <div class="table-responsive">
                     <table class="table table-striped table-sm">

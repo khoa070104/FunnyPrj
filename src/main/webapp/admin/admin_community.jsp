@@ -12,6 +12,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/admin.css">
+    <style>
+        .content {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+        .container {
+            width: 50%; /* Chiếm 50% chiều rộng của màn hình */
+        }
+        #chatMessagesWrapper {
+            max-height: 500px; /* Tăng chiều cao khung chat */
+            overflow-y: auto;
+            position: relative;
+        }
+        .list-group-item{
+            font-size: 0.6rem; /* Giảm kích thước font của tin nhắn */
+            padding: 0px; /* Giảm padding của tin nhắn */
+            cursor: pointer; /* Thêm con trỏ để cho biết có thể nhấp vào */
+        }
+        .d-inline{
+            font-size: 0.6rem; /* Giảm kích thước font của tin nhắn */
+            padding: 0px; /* Giảm padding của tin nhắn */
+            cursor: pointer;
+        }
+        .card {
+            width: 100%; /* Chiếm toàn bộ chiều rộng khung chat */
+        }
+        .modal-body textarea {
+            font-size: 0.6rem; /* Giảm kích thước font trong modal chỉnh sửa tin nhắn */
+        }
+    </style>
 </head>
 <body>
 <div class="container-fluid">
@@ -26,18 +58,17 @@
                 <h2>Chat Room</h2>
 
                 <!-- Hiển thị tin nhắn -->
-                <div class="list-group mb-4" id="chatMessagesWrapper"
-                     style="max-height: 300px; overflow-y: auto; position: relative;">
+                <div class="list-group mb-4" id="chatMessagesWrapper">
                     <div id="chatMessages" data-autoscroll="1">
                         <c:forEach var="message" items="${messages}">
                             <div class="list-group-item">
                                 <p><strong>User ID:</strong> ${message.idUser}</p>
                                 <p><strong>Message:</strong> ${message.content}</p>
                                 <p><strong>Created Date:</strong> ${message.createdDate}</p>
-                                    <form action="deleteMessage" method="post" class="d-inline">
-                                        <input type="hidden" name="messageId" value="${message.id}">
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                    </form>
+                                <form action="deleteMessage" method="post" class="d-inline">
+                                    <input type="hidden" name="messageId" value="${message.id}">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
                             </div>
                         </c:forEach>
                     </div>

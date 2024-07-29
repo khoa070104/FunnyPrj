@@ -89,7 +89,7 @@ public class HomeController extends HttpServlet {
             User u = (User) session.getAttribute("user");
             request.setAttribute("username", u.getUsername());
             if (u.getRole() == 1) {
-                response. sendRedirect(request.getContextPath() + "/admin/home");
+                response. sendRedirect(request.getContextPath() + "/admin/admin_controller.jsp");
             }  else {
                 response.sendRedirect(request.getContextPath() + "/home");
             }

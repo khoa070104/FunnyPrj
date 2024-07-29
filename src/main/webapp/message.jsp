@@ -14,18 +14,58 @@
             padding-top: 10px; /* Để tránh bị che phủ bởi thanh cuộn */
         }
     </style>
+    <style>
+        /* Style for centering and styling the chat room container */
+        .chat-container {
+            max-width: 40%; /* Container now takes up 40% of the screen width */
+            margin: 0 auto; /* Center horizontally */
+            padding: 15px; /* Reduced padding around the container */
+            background-color: #f8f9fa; /* Light background color */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        /* Style for list group items */
+        .list-group-item {
+            background-color: #fff; /* White background for messages */
+            color: #333; /* Dark text color */
+            border: 1px solid #dee2e6; /* Border color */
+            border-radius: 5px; /* Rounded corners for messages */
+        }
+
+        /* Style for card */
+        .card {
+            border: 1px solid #dee2e6; /* Border color */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        /* Adjust button size */
+        .send {
+            font-size: 0.875rem; /* Smaller font size for buttons */
+        }
+        .send {
+            background-color: var(--primary-color); /* Set background color */
+            border-color: var(--primary-color); /* Set border color to match background */
+            color: #fff; /* Set text color to white */
+            font-weight: bold;
+        }
+
+        .send:hover {
+            background-color: #3a8ba8; /* Darker shade for hover effect */
+            border-color: #3a8ba8; /* Match border color with hover background */
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="./components/header.jsp"/>
-<div class="container mt-5">
-    <h2>Chat Room</h2>
+<div class="container chat-container mt-5">
+    <h2 class="text-center mb-4">Chat Room</h2>
 
     <!-- Hiển thị tin nhắn -->
     <div class="list-group mb-4" id="chatMessagesWrapper"
-         style="max-height: 300px; overflow-y: auto; position: relative;">
+         style="max-height: 200px; overflow-y: auto; position: relative;">
         <div id="chatMessages" data-autoscroll="1">
             <c:forEach var="message" items="${messages}">
-                <div class="list-group-item">
+                <div class="list-group-item mb-3 p-3 rounded shadow-sm">
                     <p><strong>User ID:</strong> ${message.idUser}</p>
                     <p><strong>Message:</strong> ${message.content}</p>
                     <p><strong>Created Date:</strong> ${message.createdDate}</p>
@@ -41,20 +81,21 @@
     </div>
 
     <!-- Form gửi tin nhắn mới -->
-    <div class="card mb-4">
+    <div class="card mb-4 shadow-sm">
         <div class="card-body">
             <form action="createMessage" method="post">
-                <input type="text" name="idUser" value="${sessionScope.user.id}">
+                <input type="hidden" name="idUser" value="${sessionScope.user.id}">
                 <div class="form-group">
                     <label for="content">Message</label>
                     <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
                 </div>
-                <%--            <button type="submit" class="btn btn-primary">Send Message</button>--%>
-                <input type="submit" value="SEND">
+                <button type="submit" class="send">Send</button>
             </form>
         </div>
     </div>
 </div>
+</div>
+
 <jsp:include page="./components/footer.jsp"/>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
