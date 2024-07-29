@@ -98,7 +98,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!-- Custom JS -->
-<script src="../js/admin.js"></script>
+<script src="dist/js/admin.js"></script>
 <script>
     // Sử dụng AJAX để gửi và nhận tin nhắn mà không làm tải lại trang
     $(document).ready(function () {

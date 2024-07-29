@@ -14,7 +14,7 @@
     </welcome-file-list>
     <filter>
         <filter-name>AdminFilter</filter-name>
-        <filter-class>controller.admin.AdminFilter</filter-class>
+        <filter-class>filter.AdminFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>

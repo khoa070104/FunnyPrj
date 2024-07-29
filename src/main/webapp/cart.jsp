@@ -134,6 +134,6 @@
         // Logic to handle checkout process
     }
 </script>
-<script src="js/hompage.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

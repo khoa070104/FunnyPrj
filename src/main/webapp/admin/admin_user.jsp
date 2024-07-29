@@ -229,7 +229,7 @@
     }
 </script>
 <!-- Custom JS -->
-<script src="../js/admin.js"></script>
+<script src="dist/js/admin.js"></script>
 <script>
     // Xử lý khi submit form
     document.getElementById('searchForm').onsubmit = function() {
