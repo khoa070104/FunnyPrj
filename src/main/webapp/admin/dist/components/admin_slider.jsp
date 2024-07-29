@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="col-2">
-    <nav id="sidebar" class="sidebar">
+    <nav id="sidebar" class="sidebar" style="background-color: #ed711cde">
         <div class="text-center mb-3">
             <h4 class="text-white">FunnyCode</h4>
         </div>
