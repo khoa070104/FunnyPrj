@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/adminuser.css">
 
+
+
     <style>
         /* Style cho lớp bảng đè */
         .modal-overlay {
@@ -52,24 +54,16 @@
             <!-- Include the header -->
             <jsp:include page="dist/components/admin_header.jsp" />
 
-            <div id="userManagement" class="card">
-                <div class="section-title card-header">
-                    <h4 class="card-title">User Management</h4>
-                </div>
-                <form id="searchForm" action="search-user" method="post" class="row p-2">
-                    <div class="col-8">
-                        <button type="button" class="btn btn-primary btn-sm" onclick="showCreateUserModal()">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                            Create
-                        </button>
 
+            <div id="userManagement">
+                <div class="section-title">User Management</div>
+                <h2>Search User by Email or Name</h2>
+                <form id="searchForm" action="search-user" method="post" class="mb-4">
+                    <div class="form-group">
+                        <input type="text" id="search" name="email" class="form-control" required>
                     </div>
-                    <div class="form-group row col-4 input-group-sm"
-                         style="margin: 0">
-                        <input type="text" id="search" name="email"
-                               class="form-control col-9" placeholder="Search User By Email or Name" required>
-                        <input type="submit" value="Search" class="col-3">
-                    </div>
+                    <input type="submit" value="Search" class="btn btn-primary">
+
                 </form>
                 <div class="card-body table-responsive p-0" style="text-align: center; line-height: 1.5rem">
                     <table class="table table-head-fixed text-wrap table-sm table-striped">

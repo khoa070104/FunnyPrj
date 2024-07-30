@@ -43,9 +43,7 @@
         .modal-body textarea {
             font-size: 0.6rem; /* Giảm kích thước font trong modal chỉnh sửa tin nhắn */
         }
-        label {
-            font-weight: 700;
-        }
+
     </style>
 </head>
 <body>
@@ -61,18 +59,21 @@
 
                 <!-- Hiển thị tin nhắn -->
                 <div class="list-group mb-4" id="chatMessagesWrapper">
-                <div id="chatMessages" class="card" data-autoscroll="1">
-                    <c:forEach var="message" items="${messages}">
-                        <div class="card-body" style="border-bottom: solid 1px #a6a6a6">
-                            <p><strong>User ID:</strong> ${message.idUser}</p>
-                            <p><strong>Message:</strong> ${message.content}</p>
-                            <p><strong>Created Date:</strong> ${message.createdDate}</p>
-                            <form action="deleteMessage" method="post" class="d-inline">
-                                <input type="hidden" name="messageId" value="${message.id}">
-                                <button type="submit" class="float-right btn btn-danger btn-sm">Delete</button>
-                            </form>
-                        </div>
-                    </c:forEach>
+
+                    <div id="chatMessages" data-autoscroll="1">
+                        <c:forEach var="message" items="${messages}">
+                            <div class="list-group-item">
+                                <p><strong>User ID:</strong> ${message.idUser}</p>
+                                <p><strong>Message:</strong> ${message.content}</p>
+                                <p><strong>Created Date:</strong> ${message.createdDate}</p>
+                                <form action="deleteMessage" method="post" class="d-inline">
+                                    <input type="hidden" name="messageId" value="${message.id}">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </div>
+                        </c:forEach>
+                    </div>
+
                 </div>
             </div>
 

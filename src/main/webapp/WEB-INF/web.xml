@@ -14,7 +14,9 @@
     </welcome-file-list>
     <filter>
         <filter-name>AdminFilter</filter-name>
+
         <filter-class>filter.AdminFilter</filter-class>
+
     </filter>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>

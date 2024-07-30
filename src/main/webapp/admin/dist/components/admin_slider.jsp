@@ -7,7 +7,9 @@
         <div class="text-center mb-3">
             <img src="../icon/Logo.png" alt="Group Logo" class="img-fluid rounded-circle"
                  style="width: 200px; height: auto;">
+
             <a href="/admin/list-user"></a>
+
         </div>
         <ul class="nav flex-column">
 <%--            <li class="nav-item">--%>
