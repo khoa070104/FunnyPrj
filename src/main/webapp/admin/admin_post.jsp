@@ -178,9 +178,7 @@
         document.getElementById('editPostModal').style.display = 'none';
     }
 </script>
-</main>
-</div>
-</div>
+
 
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

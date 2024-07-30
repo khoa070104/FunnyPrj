@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
       dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
     });
 
-    // Close the dropdown if the user clicks outside of it
     window.addEventListener('click', function (e) {
       if (!danhMuc.contains(e.target)) {
         dropdownMenu.style.display = 'none';
@@ -209,4 +208,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.carousel-button-right-3').addEventListener('click', scrollRight3);
 });
 //--
+
 
