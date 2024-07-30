@@ -157,7 +157,7 @@
 </section>
 
 <jsp:include page="./components/footer.jsp"/>
-<script src="js/hompage.js"></script>
+<script src="js/script.js"></script>
 
 <script>
     function filter(radio) {
@@ -179,7 +179,6 @@
     }
 </script>
 
-<!-- ADDED: New JavaScript for pagination -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const courseList = document.getElementById('course-list');
@@ -227,7 +226,6 @@
             }
         }
 
-        // Khởi tạo phân trang
         showPage(currentPage);
         setupPagination();
     });

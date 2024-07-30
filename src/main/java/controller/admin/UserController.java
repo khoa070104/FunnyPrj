@@ -57,7 +57,6 @@ public class UserController extends HttpServlet {
         // Lấy ID của người dùng cần chỉnh sửa từ request parameter
         String idStr = request.getParameter("id");
         if (idStr == null || idStr.isEmpty()) {
-            // Xử lý nếu không có ID
             response.sendRedirect("error.jsp");
             return;
         }
@@ -110,13 +109,10 @@ public class UserController extends HttpServlet {
             // Chuyển hướng đến trang danh sách người dùng
             response.sendRedirect("list-user");
         } else {
-            // Xử lý lỗi (có thể chuyển hướng đến trang lỗi hoặc thông báo lỗi)
             response.sendRedirect("error.jsp");
         }
     }
     protected void postDeleteUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        // Lấy userId từ request
         int userId = Integer.parseInt(request.getParameter("id"));
 
         // Gọi phương thức xóa người dùng từ DAO
@@ -126,7 +122,6 @@ public class UserController extends HttpServlet {
             // Nếu xóa thành công, có thể thực hiện các hành động khác (ví dụ: redirect đến trang danh sách người dùng)
             response.sendRedirect(request.getContextPath() + "/admin/list-user"); // Thay đổi đường dẫn tuỳ theo cấu hình của bạn
         } else {
-            // Nếu không thành công, có thể xử lý và hiển thị thông báo lỗi
             response.getWriter().println("Failed to delete user with ID: " + userId);
         }
     }

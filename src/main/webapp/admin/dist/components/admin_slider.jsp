@@ -1,13 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="col-2">
-    <nav id="sidebar" class="sidebar">
+    <nav id="sidebar" class="sidebar" style="background-color: #ed711cde">
         <div class="text-center mb-3">
             <h4 class="text-white">FunnyCode</h4>
         </div>
         <div class="text-center mb-3">
             <img src="../icon/Logo.png" alt="Group Logo" class="img-fluid rounded-circle"
                  style="width: 200px; height: auto;">
-            <a href="/admin/admin_controller.jsp"></a>
+
+            <a href="/admin/list-user"></a>
+
         </div>
         <ul class="nav flex-column">
 <%--            <li class="nav-item">--%>
