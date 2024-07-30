@@ -31,7 +31,7 @@
                     <img src="${sessionScope.user.avatar}" alt="Ảnh đại diện" id="profile-img" style="width: 200px; height: 200px;">
                     <input type="file" id="photo-input" class="hidden" name="photo" onchange="previewPhoto()">
                     <button type="button" id="edit-photo-btn" class="btn btn-secondary" onclick="enablePhotoInput()">Edit</button>
-                    <button type="submit" id="save-photo-btn" class="btn btn-primary hidden" >Save</button>
+                    <button type="submit" id="save-photo-btn" class="btn btn-primary" style="display: none;">Save</button>
                 </form>
             </div>
             <div class="col-md-7 profile-info">
@@ -130,9 +130,10 @@
 
         photoInput.disabled = false;
         photoInput.click();
-        savePhotoBtn.classList.remove('hidden');
-        editPhotoBtn.classList.add('hidden');
+        savePhotoBtn.style.display = 'inline'; // Hiển thị nút Save
+        editPhotoBtn.style.display = 'none'; // Ẩn nút Edit
     }
+
 
     function changePhoto() {
         const photoInput = document.getElementById('photo-input');
