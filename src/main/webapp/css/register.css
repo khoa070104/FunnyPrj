@@ -103,7 +103,6 @@ body {
     border-bottom-right-radius: 10px;
     box-sizing: border-box; 
     background-color: light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
-    color: white;
 }
 
 
