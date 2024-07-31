@@ -39,5 +39,5 @@ function showMessageCenter() {
 }
 
 function logout() {
-    // Logout logic here
+    window.location.href = '/FunnyCodeWeb/logout';
 }

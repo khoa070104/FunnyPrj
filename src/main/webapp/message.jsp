@@ -95,7 +95,7 @@
     </div>
 </div>
 </div>
-<script src="js/hompage.js"></script>
+<script src="js/script.js"></script>
 <jsp:include page="./components/footer.jsp"/>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>

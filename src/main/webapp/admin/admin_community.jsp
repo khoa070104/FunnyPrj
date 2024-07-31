@@ -43,11 +43,11 @@
         .modal-body textarea {
             font-size: 0.6rem; /* Giảm kích thước font trong modal chỉnh sửa tin nhắn */
         }
+
     </style>
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row">
         <!-- Include the sidebar -->
         <jsp:include page="dist/components/admin_slider.jsp"/>
         <!-- Main Content -->
@@ -55,10 +55,11 @@
             <!-- Include the header -->
             <jsp:include page="dist/components/admin_header.jsp" />
             <div class="container mt-5">
-                <h2>Chat Room</h2>
+                <h2 style="text-align: center">Chat Room</h2>
 
                 <!-- Hiển thị tin nhắn -->
                 <div class="list-group mb-4" id="chatMessagesWrapper">
+
                     <div id="chatMessages" data-autoscroll="1">
                         <c:forEach var="message" items="${messages}">
                             <div class="list-group-item">
@@ -72,33 +73,35 @@
                             </div>
                         </c:forEach>
                     </div>
+
                 </div>
+            </div>
 
                 <!-- Form gửi tin nhắn mới -->
                 <div class="card mb-4">
                     <div class="card-body">
                         <form action="createMessage" method="post">
-                            <input type="text" name="idUser" value="${sessionScope.user.id}">
+                            <input type="text" class="form-control" name="idUser" placeholder="UseID" value="${sessionScope.user.id}">
                             <div class="form-group">
                                 <label for="content">Message</label>
-                                <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
+                                <textarea class="form-control" id="content" name="content" placeholder="Message..." rows="3" required></textarea>
                             </div>
                             <%--            <button type="submit" class="btn btn-primary">Send Message</button>--%>
-                            <input type="submit" value="SEND">
+                            <input type="submit" class="float-right btn btn-info btn-sm" value="SEND">
                         </form>
                     </div>
                 </div>
             </div>
+
         </main>
     </div>
-</div>
 
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!-- Custom JS -->
-<script src="../js/admin.js"></script>
+<script src="dist/js/admin.js"></script>
 <script>
     // Sử dụng AJAX để gửi và nhận tin nhắn mà không làm tải lại trang
     $(document).ready(function () {

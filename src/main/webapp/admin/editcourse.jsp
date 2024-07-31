@@ -338,7 +338,7 @@
 </div>
 
 
-<script src="../js/hompage.js"></script>
+<script src="../js/script.js"></script>
 
 <script>
     function filter(radio) {

@@ -4,8 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <jsp:include page="./components/header.jsp"/>
     <title>Community</title>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         /* General page styling */
@@ -58,12 +60,15 @@
         .modal-content {
             background-color: #fff;
             padding: 20px;
+
             border-radius: 10px;
             width: 90%;
             max-width: 800px;
+
             max-height: 80%;
             overflow: auto;
         }
+
 
         /* Comment styling */
         .comment-section {
@@ -101,11 +106,13 @@
         /* Hide default browser outline on focus for buttons and inputs */
         button:focus, input:focus {
             outline: none;
+
         }
     </style>
 </head>
 <body>
 <div class="container">
+
     <h2 class="my-4">Community</h2>
 
     <!-- Button to show create post modal -->
@@ -117,6 +124,7 @@
     <div class="table-container">
         <table class="table table-bordered table-hover">
             <thead>
+
             <tr>
                 <th>ID</th>
                 <th>Title</th>
@@ -126,7 +134,9 @@
             </thead>
             <tbody>
             <c:forEach var="post" items="${posts}">
+
                 <tr>
+
                     <td>${post.id}</td>
                     <td>
                         <form action="listcomment" method="get" style="margin: 0;">
@@ -137,12 +147,16 @@
                     <td>
                         <c:if test="${sessionScope.user.id == post.idUser}">
                             <!-- Button to trigger edit modal -->
+
                             <button type="button" class="btn btn-sm btn-outline-primary btn-custom" onclick="showEditPostModal('${post.id}', '${post.title}', '${post.content}')">Edit</button>
+
 
                             <!-- Form for deleting post -->
                             <form action="deletePost" method="post" style="display: inline;">
                                 <input type="hidden" name="id" value="${post.id}">
+
                                 <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this post and all related comments?')">Delete</button>
+
                             </form>
                         </c:if>
                     </td>
@@ -158,7 +172,10 @@
             <span class="close" onclick="hideCreatePostModal()" style="cursor: pointer; float: right;">&times;</span>
             <h2>Create New Post</h2>
             <form id="createPostForm" action="CreatePost" method="post">
+
                 <input type="hidden" id="idUser" name="idUser" value="${sessionScope.user.id}">
+
+
                 <div class="form-group">
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title" class="form-control" required>
@@ -167,6 +184,7 @@
                     <label for="content">Content:</label>
                     <textarea id="content" name="content" class="form-control" rows="4" required></textarea>
                 </div>
+
                 <button type="submit" class="btn btn-primary">Create Post</button>
             </form>
         </div>
@@ -177,6 +195,7 @@
         <div class="modal-content">
             <span class="close" onclick="hideEditPostModal()" style="cursor: pointer; float: right;">&times;</span>
             <h2>Edit Post</h2>
+
             <form action="EditPost" method="post">
                 <input type="hidden" name="idUser" value="${sessionScope.user.id}">
                 <input type="hidden" id="editPostId" name="id" >
@@ -189,31 +208,13 @@
                     <textarea id="editContent" name="content" class="form-control" rows="4" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Save Changes</button>
+
             </form>
         </div>
     </div>
 
-    <!-- Comment section -->
-<%--    <div class="comment-section">--%>
-<%--        <h3>Comments</h3>--%>
-<%--        <c:forEach var="comment" items="${comments}">--%>
-<%--            <div class="comment">--%>
-<%--                <span class="comment-content">${comment.message}</span>--%>
-<%--                <div class="comment-actions">--%>
-<%--                    <c:if test="${sessionScope.user.id == comment.idUser}">--%>
-<%--                        <button type="button" class="btn btn-sm btn-outline-primary btn-custom" onclick="showEditCommentModal('${comment.id}', '${comment.message}')">Edit</button>--%>
-<%--                        <form action="deleteComment" method="post" style="display: inline;">--%>
-<%--                            <input type="hidden" name="commentId" value="${comment.id}">--%>
-<%--                            <input type="hidden" name="postId" value="${comment.idPost}">--%>
-<%--                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this comment?')">Delete</button>--%>
-<%--                        </form>--%>
-<%--                    </c:if>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </c:forEach>--%>
-<%--    </div>--%>
 </div>
-<script src="js/hompage.js"></script>
+<script src="js/script.js"></script>
 <script>
     function showCreatePostModal() {
         document.getElementById('createPostModal').style.display = 'flex';
@@ -234,6 +235,7 @@
         document.getElementById('editPostModal').style.display = 'none';
     }
 
+
     function showEditCommentModal(commentId, commentMessage) {
         // Implement this function if you have an edit comment modal
     }
@@ -243,5 +245,6 @@
     }
 </script>
 <jsp:include page="./components/footer.jsp"/>
+
 </body>
 </html>

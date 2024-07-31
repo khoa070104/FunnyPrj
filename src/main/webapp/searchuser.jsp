@@ -110,7 +110,7 @@
     </c:if>
 </div>
 <jsp:include page="./components/footer.jsp"/>
-<script src="js/hompage.js"></script>
+<script src="js/script.js"></script>
 <script>
     // Xử lý khi submit form
     document.getElementById('searchForm').onsubmit = function() {
