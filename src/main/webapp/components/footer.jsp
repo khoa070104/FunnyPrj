@@ -50,7 +50,7 @@
 </div>
 <footer>
     <div href="home" class="footer-logo">
-        <img src="icon/Logo.png" alt="">
+        <img src="${pageContext.request.contextPath}/icon/Logo.png" alt="">
     </div>
     <div class="footer-info">
         <p>© 2024 FunnyCode, Pass Code To Funny - All Rights Reserved.</p>

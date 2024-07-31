@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -16,6 +15,9 @@
     <style>
         .default_input {
             background-color: white !important;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -106,23 +108,11 @@
 </section>
 </c:if>
 
+
+</body>
 <jsp:include page="./components/footer.jsp"/>
-<script src="js/hompage.js"></script>
-
+<script src="./js/script.js"></script>
 <script>
-    function previewPhoto() {
-        const fileInput = document.getElementById('photo-input');
-        const file = fileInput.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const profileImg = document.getElementById('profile-img');
-                profileImg.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    }
-
     function enablePhotoInput() {
         const photoInput = document.getElementById('photo-input');
         const savePhotoBtn = document.getElementById('save-photo-btn');
@@ -135,6 +125,7 @@
     }
 
 
+
     function changePhoto() {
         const photoInput = document.getElementById('photo-input');
         const savePhotoBtn = document.getElementById('save-photo-btn');
@@ -143,6 +134,7 @@
         photoInput.disabled = true;
         savePhotoBtn.classList.add('hidden');
         editPhotoBtn.classList.remove('hidden');
+
     }
 
     function enableEdit(button) {
@@ -172,7 +164,11 @@
             cancelButton.hidden = true;
         }
     }
-</script>
-</body>
 
+    document.addEventListener("DOMContentLoaded", function() {
+        const savePhotoBtn = document.getElementById('save-photo-btn');
+        savePhotoBtn.classList.add('hidden');
+    });
+
+</script>
 </html>

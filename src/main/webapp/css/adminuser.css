@@ -1,0 +1,25 @@
+#userManagement {
+    margin-top: 10px;
+}
+.card-header {
+    height: 2.9rem;
+    margin: 0;
+}
+.card-title {
+    float: left;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
+}
+#searchForm {
+    height: 3rem;
+}
+.card-body.p-0 .table tbody>tr>td:first-of-type, .card-body.p-0 .table tbody>tr>th:first-of-type, .card-body.p-0 .table tfoot>tr>td:first-of-type, .card-body.p-0 .table tfoot>tr>th:first-of-type, .card-body.p-0 .table thead>tr>td:first-of-type, .card-body.p-0 .table thead>tr>th:first-of-type {
+    padding-left: 1.5rem;
+}
+#createUserForm label, #createPostForm label{
+    font-weight: 700;
+}
+.section-title {
+    margin-top: 0;
+}
