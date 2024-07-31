@@ -33,7 +33,7 @@
                     <img src="${sessionScope.user.avatar}" alt="Ảnh đại diện" id="profile-img" style="width: 200px; height: 200px;">
                     <input type="file" id="photo-input" class="hidden" name="photo" onchange="previewPhoto()">
                     <button type="button" id="edit-photo-btn" class="btn btn-secondary" onclick="enablePhotoInput()">Edit</button>
-                    <button type="submit" id="save-photo-btn" class="btn btn-primary hidden" >Save</button>
+                    <button type="submit" id="save-photo-btn" class="btn btn-primary" style="display: none;">Save</button>
                 </form>
             </div>
             <div class="col-md-7 profile-info">
@@ -120,21 +120,21 @@
 
         photoInput.disabled = false;
         photoInput.click();
-        savePhotoBtn.classList.remove('hidden');
-        editPhotoBtn.classList.add('hidden');
+        savePhotoBtn.style.display = 'inline'; // Hiển thị nút Save
+        editPhotoBtn.style.display = 'none'; // Ẩn nút Edit
     }
 
-    function previewPhoto() {
-        const fileInput = document.getElementById('photo-input');
-        const file = fileInput.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const profileImg = document.getElementById('profile-img');
-                profileImg.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
+
+
+    function changePhoto() {
+        const photoInput = document.getElementById('photo-input');
+        const savePhotoBtn = document.getElementById('save-photo-btn');
+        const editPhotoBtn = document.getElementById('edit-photo-btn');
+
+        photoInput.disabled = true;
+        savePhotoBtn.classList.add('hidden');
+        editPhotoBtn.classList.remove('hidden');
+
     }
 
     function enableEdit(button) {
