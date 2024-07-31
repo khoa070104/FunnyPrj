@@ -213,7 +213,7 @@
 <%--        </c:forEach>--%>
 <%--    </div>--%>
 </div>
-
+<script src="js/hompage.js"></script>
 <script>
     function showCreatePostModal() {
         document.getElementById('createPostModal').style.display = 'flex';

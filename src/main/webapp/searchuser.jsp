@@ -12,7 +12,8 @@
             background-color: #f8f9fa;
         }
         .container {
-            margin-top: 30px;
+            margin-top: 50px;
+            margin-bottom: 50px;
         }
         .form-group label {
             font-weight: bold;
@@ -109,6 +110,7 @@
     </c:if>
 </div>
 <jsp:include page="./components/footer.jsp"/>
+<script src="js/hompage.js"></script>
 <script>
     // Xử lý khi submit form
     document.getElementById('searchForm').onsubmit = function() {
